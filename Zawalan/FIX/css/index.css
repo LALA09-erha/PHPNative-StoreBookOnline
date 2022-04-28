@@ -1,0 +1,8 @@
+.konten h1 {
+	color: white;
+	text-align: center;
+}
+
+li:hover {
+	background-color: #BE5C5C;
+}
