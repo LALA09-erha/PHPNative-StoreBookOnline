@@ -1,28 +1,3 @@
-<?php 
-	session_start();
-	$koneksi = new mysqli("localhost","root","","tokobuku");
-	if (isset($_POST["login"])) {
-		//$gmail = $_POST["gmail"];
-		//$password = $_POST["password"];
-		//check account pada db
-		$ambil = $koneksi->query("SELECT * FROM pelanggan WHERE gmail_pelanggan='$_POST[gmail]' AND password_pelanggan='$_POST[password]'");
-		//menghitung account yang cocok pada db
-		$akunyangcocok = $ambil->num_rows;
-		if ($akunyangcocok==1) {
-			$_SESSION['pelanggan'] = $ambil->fetch_assoc();
-			//$akun = $ambil->fetch_assoc();
-			//$_SESSION["pelanggan"] = $akun;
-			echo "<script> alert('Login Berhasil'); </script>";
-			echo "<script> location='index.php'; </script>";
-			
-		}
-		else {
-			echo "<script> alert('Login Gagal, Tekan Ok Untuk Coba Lagi'); </script>";
-			echo "<script> location='login.php'; </script>";
-		}
-	}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,15 +15,15 @@
 			<div class="row justify-content-md-center h-100">
 				<div class="card-wrapper">
 					<div class="brand">
-						<img src="css/images/boslogo.jpg" alt="logo">
+						<img src="img/logo.jpg" alt="logo">
 					</div>
 					<div class="card fat">
 						<div class="card-body">
-							<h4 class="card-title text-center">Login</h4>
+							<h4 class="card-title">Login</h4>
 							<form method="POST" class="my-login-validation" novalidate="">
 								<div class="form-group">
 									<label for="email">E-Mail Address</label>
-									<input id="email" type="email" class="form-control" name="gmail"  required autofocus>
+									<input id="email" type="email" class="form-control" name="email" value="" required autofocus>
 									<div class="invalid-feedback">
 										Email is invalid
 									</div>
@@ -56,7 +31,9 @@
 
 								<div class="form-group">
 									<label for="password">Password
-										
+										<a href="forgot.html" class="float-right">
+											Forgot Password?
+										</a>
 									</label>
 									<input id="password" type="password" class="form-control" name="password" required data-eye>
 								    <div class="invalid-feedback">
@@ -64,20 +41,26 @@
 							    	</div>
 								</div>
 
+								<div class="form-group">
+									<div class="custom-checkbox custom-control">
+										<input type="checkbox" name="remember" id="remember" class="custom-control-input">
+										<label for="remember" class="custom-control-label">Remember Me</label>
+									</div>
+								</div>
 
 								<div class="form-group m-0">
-									<button type="submit" name="login" class="btn btn-warning btn-block">
+									<button type="submit" class="btn btn-primary btn-block">
 										Login
 									</button>
 								</div>
 								<div class="mt-4 text-center">
-									Don't have an account? <a href="daftar.php">Create One</a>
+									Don't have an account? <a href="register.html">Create One</a>
 								</div>
 							</form>
 						</div>
 					</div>
 					<div class="footer">
-						Copyright &copy; 2022 &mdash; BOS
+						Copyright &copy; 2017 &mdash; Your Company 
 					</div>
 				</div>
 			</div>

@@ -1,33 +1,3 @@
-<?php 
-session_start();
- 	$koneksi = new mysqli("localhost","root","","tokobuku");
-	 if (isset($_POST['daftar'])) {
-		
-		//mengambil input 
-		$nama = $_POST['nama'];
-		$password = $_POST['password'];
-		$email = $_POST['gmail'];
-		$telepon = $_POST['telepon'];
-
-		//check apakah gmail sudah dipakai apa belum
-		$ambil = $koneksi->query("SELECT * FROM pelanggan WHERE gmail_pelanggan='$email'");
-		$yangcocok = $ambil->num_rows;
-		if ($yangcocok==1) {
-			echo "<script> alert('Pendaftaran Gagal Karena Gmail Sudah Digunakan');</script>";
-			echo "<script> location='daftar.php' </script>";
-		}
-		else {
-			$koneksi->query("INSERT INTO pelanggan (gmail_pelanggan, password_pelanggan,nama_pelanggan,telepon_pelanggan) VALUES ('$email','$password','$nama','$telepon')");
-			echo "<script> alert('Pendaftaran Sukses, Silahkan Login');</script>";
-			echo "<script> location='login.php' </script>";
-		}
-
-		echo "<script> alert('Data Tersimpan, Silakan Login') </script>";
-		echo "<meta http-equiv='refresh' content='1;url=login.php?hal=produk'>";
-	}
-
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,15 +14,15 @@ session_start();
 			<div class="row justify-content-md-center h-100">
 				<div class="card-wrapper">
 					<div class="brand">
-						<img src="css/images/boslogo.jpg" alt="bootstrap 4 login page">
+						<img src="img/logo.jpg" alt="bootstrap 4 login page">
 					</div>
 					<div class="card fat">
 						<div class="card-body">
-							<h4 class="card-title text-center">Register</h4>
+							<h4 class="card-title">Register</h4>
 							<form method="POST" class="my-login-validation" novalidate="">
 								<div class="form-group">
-									<label for="name">Complate Name</label>
-									<input id="name" type="text" class="form-control" name="nama" required autofocus>
+									<label for="name">Name</label>
+									<input id="name" type="text" class="form-control" name="name" required autofocus>
 									<div class="invalid-feedback">
 										What's your name?
 									</div>
@@ -60,14 +30,7 @@ session_start();
 
 								<div class="form-group">
 									<label for="email">E-Mail Address</label>
-									<input id="email" type="email" class="form-control" name="gmail" required>
-									<div class="invalid-feedback">
-										Your email is invalid
-									</div>
-								</div>
-								<div class="form-group">
-									<label for="phone">No Phone</label>
-									<input id="phone" type="text" class="form-control" name="telepon" required >
+									<input id="email" type="email" class="form-control" name="email" required>
 									<div class="invalid-feedback">
 										Your email is invalid
 									</div>
@@ -83,8 +46,8 @@ session_start();
 
 								<div class="form-group">
 									<div class="custom-checkbox custom-control">
-										<input type="checkbox" name="agree" id="agree" class="custom-control-input" required>
-										<label for="agree" class="custom-control-label">I agree to the Rules</label>
+										<input type="checkbox" name="agree" id="agree" class="custom-control-input" required="">
+										<label for="agree" class="custom-control-label">I agree to the <a href="#">Terms and Conditions</a></label>
 										<div class="invalid-feedback">
 											You must agree with our Terms and Conditions
 										</div>
@@ -92,18 +55,18 @@ session_start();
 								</div>
 
 								<div class="form-group m-0">
-									<button type="submit" name="daftar" class="btn btn-warning btn-block">
+									<button type="submit" class="btn btn-primary btn-block">
 										Register
 									</button>
 								</div>
 								<div class="mt-4 text-center">
-									Already have an account? <a href="login.php">Login</a>
+									Already have an account? <a href="index.html">Login</a>
 								</div>
 							</form>
 						</div>
 					</div>
 					<div class="footer">
-						Copyright &copy; 2022 &mdash; BOS
+						Copyright &copy; 2017 &mdash; Your Company 
 					</div>
 				</div>
 			</div>
