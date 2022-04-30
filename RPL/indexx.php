@@ -8,8 +8,7 @@
 <!doctype html>
 <html class="no-js" lang="zxx">
     
-<!-- shop-4-column31:48-->
-
+<!-- index28:48-->
 <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -150,8 +149,8 @@
                             <!-- Begin Header Logo Area -->
                             <div class="col-lg-3">
                                 <div class="logo pb-sm-30 pb-xs-30">
-                                    <a href="index.php">
-                                        <img src="css/images/boslogo2.png" width="30%"   alt="">
+                                    <a href="index.html">
+                                        <img src="img/menu/logo/1.jpg" alt="">
                                     </a>
                                 </div>
                             </div>
@@ -160,8 +159,10 @@
                             <div class="col-lg-9 pl-0 ml-sm-15 ml-xs-15">
                                 <!-- Begin Header Middle Searchbox Area -->
                                 <form action="pencarian.php" method="get" class="hm-searchbox">
-                                <input type="text" name="keyword" class="form-control" placeholder="Pencarian">
+                                    <input type="text" name="keyword" class="form-control" placeholder="Pencarian">
                                     <button class="btn btn-primary"><i class="fa fa-search"></i></button>
+                                    <!-- <input type="text" placeholder="Enter your search key ...">
+                                    <button class="li-btn" type="submit"><i class="fa fa-search"></i></button> -->
                                 </form>
                                 <!-- Header Middle Searchbox Area End Here -->
                                 <!-- Begin Header Middle Right Area -->
@@ -233,7 +234,7 @@
                 </div>
                 <!-- Header Middle Area End Here -->
                 <!-- Begin Header Bottom Area -->
-                <div class="header-bottom mb-0 header-sticky stick d-none d-lg-block d-xl-block">
+                <div class="header-bottom header-sticky d-none d-lg-block d-xl-block">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-12">
@@ -243,18 +244,18 @@
                                         <ul>
                                             <li class="dropdown-holder"><a href="index.html">Home</a>
                                                 <ul class="hb-dropdown">
-                                                    <li><a href="index.html">Home One</a></li>
+                                                    <li class="active"><a href="index.html">Home One</a></li>
                                                     <li><a href="index-2.html">Home Two</a></li>
                                                     <li><a href="index-3.html">Home Three</a></li>
                                                     <li><a href="index-4.html">Home Four</a></li>
                                                 </ul>
                                             </li>
-                                            <li class="catmenu-dropdown megamenu-holder"><a href="shop-left-sidebar.html">Shop</a>
+                                            <li class="megamenu-holder"><a href="shop-left-sidebar.html">Shop</a>
                                                 <ul class="megamenu hb-megamenu">
                                                     <li><a href="shop-left-sidebar.html">Shop Page Layout</a>
                                                         <ul>
                                                             <li><a href="shop-3-column.html">Shop 3 Column</a></li>
-                                                            <li class="active"><a href="shop-4-column.html">Shop 4 Column</a></li>
+                                                            <li><a href="shop-4-column.html">Shop 4 Column</a></li>
                                                             <li><a href="shop-left-sidebar.html">Shop Left Sidebar</a></li>
                                                             <li><a href="shop-right-sidebar.html">Shop Right Sidebar</a></li>
                                                             <li><a href="shop-list.html">Shop List</a></li>
@@ -315,7 +316,7 @@
                                                     </li>
                                                 </ul>
                                             </li>
-                                            <li class="catmenu-dropdown megamenu-static-holder"><a href="index.html">Pages</a>
+                                            <li class="megamenu-static-holder"><a href="index.html">Pages</a>
                                                 <ul class="megamenu hb-megamenu">
                                                     <li><a href="blog-left-sidebar.html">Blog Layouts</a>
                                                         <ul>
@@ -381,232 +382,297 @@
                 <!-- Mobile Menu Area End Here -->
             </header>
             <!-- Header Area End Here -->
-            <!-- Begin Li's Breadcrumb Area -->
-            <div class="breadcrumb-area">
+            
+            
+            <!-- Begin Li's Static Banner Area -->
+            <div class="li-static-banner">
                 <div class="container">
-                    <div class="breadcrumb-content">
-                        <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li class="active">Shop 4 Column</li>
-                        </ul>
+                    <div class="row">
+                        <!-- Begin Single Banner Area -->
+                        <div class="col-lg-4 col-md-4 text-center">
+                            <div class="single-banner">
+                                <a href="#">
+                                    <img src="img/banner/1_3.jpg" alt="Li's Static Banner">
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Single Banner Area End Here -->
+                        <!-- Begin Single Banner Area -->
+                        <div class="col-lg-4 col-md-4 text-center pt-xs-30">
+                            <div class="single-banner">
+                                <a href="#">
+                                    <img src="img/banner/1_4.jpg" alt="Li's Static Banner">
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Single Banner Area End Here -->
+                        <!-- Begin Single Banner Area -->
+                        <div class="col-lg-4 col-md-4 text-center pt-xs-30">
+                            <div class="single-banner">
+                                <a href="#">
+                                    <img src="img/banner/1_5.jpg" alt="Li's Static Banner">
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Single Banner Area End Here -->
                     </div>
                 </div>
             </div>
-            <!-- Li's Breadcrumb Area End Here -->
-            <!-- Begin Li's Content Wraper Area -->
-            <div class="content-wraper pt-60 pb-60">
+            <!-- Li's Static Banner Area End Here -->
+            <!-- Begin Li's Laptop Product Area -->
+            <section class="product-area li-laptop-product pt-60 pb-45">
                 <div class="container">
                     <div class="row">
+                        <!-- Begin Li's Section Area -->
                         <div class="col-lg-12">
-                            <!-- Begin Li's Banner Area -->
-                            <div class="single-banner shop-page-banner">
-                                <a href="#">
-                                    <img src="img/bg-banner/2.jpg" alt="Li's Static Banner">
-                                </a>
+                            <div class="li-section-title">
+                                <h2>
+                                    <span>BUKU TERBARU</span>
+                                </h2>
+                              
                             </div>
-                            <!-- Li's Banner Area End Here -->
-                            <!-- shop-top-bar start -->
-                            <div class="shop-top-bar mt-30">
-                                <div class="shop-bar-inner">
-                                    <div class="product-view-mode">
-                                        <!-- shop-item-filter-list start -->
-                                        <ul class="nav shop-item-filter-list" role="tablist">
-                                            <li class="active" role="presentation"><a aria-selected="true" class="active show" data-toggle="tab" role="tab" aria-controls="grid-view" href="#grid-view"><i class="fa fa-th"></i></a></li>
-                                            <li role="presentation"><a data-toggle="tab" role="tab" aria-controls="list-view" href="#list-view"><i class="fa fa-th-list"></i></a></li>
-                                        </ul>
-                                        <!-- shop-item-filter-list end -->
-                                    </div>
-                                    <div class="toolbar-amount">
-                                        <span>Showing 1 to 9 of 15</span>
-                                    </div>
-                                </div>
-                                <!-- product-select-box start -->
-                                <div class="product-select-box">
-                                    <div class="product-short">
-                                        <p>Sort By:</p>
-                                        <select class="nice-select">
-                                            <option value="trending">Relevance</option>
-                                            <option value="sales">Name (A - Z)</option>
-                                            <option value="sales">Name (Z - A)</option>
-                                            <option value="rating">Price (Low &gt; High)</option>
-                                            <option value="date">Rating (Lowest)</option>
-                                            <option value="price-asc">Model (A - Z)</option>
-                                            <option value="price-asc">Model (Z - A)</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <!-- product-select-box end -->
-                            </div>
-                            <!-- shop-top-bar end -->
-                            <!-- shop-products-wrapper start -->
-                            <div class="shop-products-wrapper">
-                                <div class="tab-content">
-                                    <div id="grid-view" class="tab-pane fade active show" role="tabpanel">
-                                        <div class="product-area shop-product-area">
-                                            <div class="row">
-                                                <!-- single-product-wrap start -->
-                                                <?php $ambil = $koneksi->query("SELECT * FROM produk");?>
-				                                <?php while($perproduk = $ambil->fetch_assoc()) { ?>
-                                                <div class="col-lg-3 col-md-4 col-sm-6 mt-40">
-                                                    <div class="single-product-wrap">
-                                                        <div class="product-image">
-                                                            <a href="single-product.html">
-                                                                <img src="foto_produk/<?php echo $perproduk['foto_produk']; ?>" alt="Li's Product Image">
-                                                            </a>
-                                                            <span class="sticker">New</span>
-                                                        </div>
-                                                        <div class="product_desc">
-                                                            <div class="product_desc_info">
-                                                                <div class="product-review">
-                                                                    <h5 class="manufacturer">
-                                                                        <a href="product-details.html"><?php echo $perproduk['kategori']; ?></a>
-                                                                    </h5>
-                                                                    <div class="rating-box">
-                                                                        <ul class="rating">
-                                                                            <li><i class="fa fa-star-o"></i></li>
-                                                                            <li><i class="fa fa-star-o"></i></li>
-                                                                            <li><i class="fa fa-star-o"></i></li>
-                                                                            <li class="no-star"><i class="fa fa-star-o"></i></li>
-                                                                            <li class="no-star"><i class="fa fa-star-o"></i></li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </div>
-                                                                <h4><a class="product_name" href="single-product.html"><?php echo $perproduk['nama_produk']; ?></a></h4>
-                                                                <div class="price-box">
-                                                                    <span class="new-price">Rp. <?php echo number_format($perproduk['harga_produk']); ?></span>
-                                                                    <span class="new-price">Stok 
-                                                                    <?php if($perproduk['stok_produk']>=1){
-                                                                            echo $perproduk['stok_produk'];
-                                                                        }
-                                                                        else
-                                                                        echo "<strong style='color:red'>Habis</strong>";
-
-                                                                        ?>
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="add-actions">
-                                                                <ul class="add-actions-link">
-                                                                    <?php if($perproduk['stok_produk']>=1) : { ?>
-                                                                    <li class="add-cart active"><a href="beli.php?id=<?php echo $perproduk['id_produk']; ?>">Add to cart</a></li>
-                                                                    <?php  } ?>
-                                                                    <?php else  :{ ?>
-                                                                        <li class="add-cart active"><a>Habis</a></li>
-                                                                    <?php } ?>
-                                                                    <?php endif ?>
-                                                                    <li><a class="links-details" href="wishlist.html"><i class="fa fa-heart-o"></i></a></li>
-                                                                    <li><a href="#" title="quick view" class="quick-view-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-eye"></i></a></li>
-                                                                </ul>
-                                                            </div>
+                            <div class="row">
+                                <div class="product-active owl-carousel">
+                                <?php $ambil = $koneksi->query("SELECT * FROM produk");?>
+				                <?php while($perproduk = $ambil->fetch_assoc()) { ?>
+                                    <div class="col-lg-12">
+                                        <!-- single-product-wrap start -->
+                                        <div class="single-product-wrap">
+                                            <div class="product-image">
+                                                <a href="single-product.html">
+                                                    <img src="foto_produk/<?php echo $perproduk['foto_produk']; ?>" alt="Li's Product Image">
+                                                </a>
+                                                <span class="sticker">New</span>
+                                            </div>
+                                            <div class="product_desc">
+                                                <div class="product_desc_info">
+                                                    <div class="product-review">
+                                                        <h5 class="manufacturer">
+                                                            <a href="shop-left-sidebar.html"><?php echo $perproduk['kategori']; ?></a>
+                                                        </h5>
+                                                        <div class="rating-box">
+                                                            <ul class="rating">
+                                                                <li><i class="fa fa-star-o"></i></li>
+                                                                <li><i class="fa fa-star-o"></i></li>
+                                                                <li><i class="fa fa-star-o"></i></li>
+                                                                <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                                <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                            </ul>
                                                         </div>
                                                     </div>
+                                                    <h4><a class="product_name" href="single-product.html"><?php echo $perproduk['nama_produk']; ?></a></h4>
+                                                    <div class="price-box">
+                                                        <span class="new-price">Rp. <?php echo number_format($perproduk['harga_produk']); ?></span>
+                                                        <span class="new-price">Stok 
+                                                        <?php if($perproduk['stok_produk']>=1){
+                                                                echo $perproduk['stok_produk'];
+                                                            }
+                                                            else
+                                                                echo "<strong>Habis</strong>";
+
+                                                            ?>
+                                                        </span>
+                                                    </div>
                                                 </div>
-                                                <?php } ?>
-                                                <!-- single-product-wrap end -->
-                                                
+                                                <div class="add-actions">
+                                                    <ul class="add-actions-link">
+                                                        <?php if($perproduk['stok_produk']>=1) : { ?>
+                                                        <li class="add-cart active"><a href="beli.php?id=<?php echo $perproduk['id_produk']; ?>">Add to cart</a></li>
+                                                        <?php  } ?>
+                                                        <?php else  :{ ?>
+                                                            <li class="add-cart active"><a>Habis</a></li>
+                                                        <?php } ?>
+                                                        <?php endif ?>
+                                                        <li><a class="links-details" href="wishlist.html"><i class="fa fa-heart-o"></i></a></li>
+                                                        <li><a href="#" title="quick view" class="quick-view-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-eye"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- single-product-wrap end -->
+                                    </div>
+                                    <?php } ?>
+                                    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Li's Section Area End Here -->
+                    </div>
+                </div>
+            </section>
+            <!-- Li's Laptop Product Area End Here -->
+            <!-- Begin Li's TV & Audio Product Area -->
+            <section class="product-area li-laptop-product li-tv-audio-product pb-45">
+                <div class="container">
+                    <div class="row">
+                        <!-- Begin Li's Section Area -->
+                        <div class="col-lg-12">
+                            <div class="li-section-title">
+                                <h2>
+                                    <span>BUKU TERLARIS</span>
+                                </h2>
+                                
+                            </div>
+                            <div class="row">
+                                <div class="product-active owl-carousel">
+                                    <?php $ambil = $koneksi->query("SELECT * FROM produk");?>
+                                    <?php while($perproduk = $ambil->fetch_assoc()) { ?>
+                                    <div class="col-lg-12">
+                                        <!-- single-product-wrap start -->
+                                        <div class="single-product-wrap">
+                                            <div class="product-image">
+                                                <a href="single-product.html">
+                                                    <img src="foto_produk/<?php echo $perproduk['foto_produk']; ?>" alt="Li's Product Image">
+                                                </a>
+                                                <span class="sticker">New</span>
+                                            </div>
+                                            <div class="product_desc">
+                                                <div class="product_desc_info">
+                                                    <div class="product-review">
+                                                        <h5 class="manufacturer">
+                                                            <a href="shop-left-sidebar.html"><?php echo $perproduk['kategori']; ?></a>
+                                                        </h5>
+                                                        <div class="rating-box">
+                                                            <ul class="rating">
+                                                                <li><i class="fa fa-star-o"></i></li>
+                                                                <li><i class="fa fa-star-o"></i></li>
+                                                                <li><i class="fa fa-star-o"></i></li>
+                                                                <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                                <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <h4><a class="product_name" href="single-product.html"> <?php echo $perproduk['nama_produk']; ?></a></h4>
+                                                    <div class="price-box">
+                                                        <span class="new-price">Rp. <?php echo number_format($perproduk['harga_produk']); ?></span>
+                                                        <span class="new-price">Stok 
+                                                        <?php if($perproduk['stok_produk']>=1){
+                                                                echo $perproduk['stok_produk'];
+                                                            }
+                                                            else
+                                                                echo "<strong>Habis</strong>";
+
+                                                            ?>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="add-actions">
+                                                    <ul class="add-actions-link">
+                                                        <?php if($perproduk['stok_produk']>=1) : { ?>
+                                                        <li class="add-cart active"><a href="beli.php?id=<?php echo $perproduk['id_produk']; ?>">Add to cart</a></li>
+                                                        <?php  } ?>
+                                                        <?php else  :{ ?>
+                                                            <li class="add-cart active"><a>Habis</a></li>
+                                                        <?php } ?>
+                                                        <?php endif ?>
+                                                        <li><a class="links-details" href="wishlist.html"><i class="fa fa-heart-o"></i></a></li>
+                                                        <li><a href="#" title="quick view" class="quick-view-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-eye"></i></a></li>
+                                                    </ul>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div id="list-view" class="tab-pane product-list-view fade" role="tabpanel">
-                                        <div class="row">
-                                            <div class="col">
-                                                <!-- START LIST ITEM -->
-                                                <?php $ambil = $koneksi->query("SELECT * FROM produk");?>
-                                                <?php while($perproduk = $ambil->fetch_assoc()) { ?>
-                                                <div class="row product-layout-list">
-                                                    <div class="col-lg-3 col-md-5 ">
-                                                        <div class="product-image">
-                                                            <a href="single-product.html">
-                                                                <img src="foto_produk/<?php echo $perproduk['foto_produk']; ?>"  alt="Li's Product Image">
-                                                            </a>
-                                                            <span class="sticker">New</span>
-                                                        </div>
+                                    <?php } ?>
+                                    <!-- single-product-wrap end -->
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Li's Section Area End Here -->
+                    </div>
+                </div>
+            </section>
+            <!-- Li's TV & Audio Product Area End Here -->
+        
+            <!-- Begin Li's Trending Product Area -->
+            <section class="product-area li-trending-product pt-60 pb-45">
+                <div class="container">
+                    <div class="row">
+                        <!-- Begin Li's Tab Menu Area -->
+                        <div class="col-lg-12">
+                            <div class="li-product-tab li-trending-product-tab">
+                                <h2>
+                                    <span>BUKU ANYAR</span>
+                                </h2>        
+                            </div>
+                            <!-- Begin Li's Tab Menu Content Area -->
+                            <div class="tab-content li-tab-content li-trending-product-content">
+                                <div id="home1" class="tab-pane show fade in active">
+                                    <div class="row">
+                                        <div class="product-active owl-carousel">
+                                        <?php $ambil = $koneksi->query("SELECT * FROM produk");?>
+				                        <?php while($perproduk = $ambil->fetch_assoc()) { ?>
+                                            <div class="col-lg-12">
+                                                <!-- single-product-wrap start -->
+                                                <div class="single-product-wrap">
+                                                    <div class="product-image">
+                                                        <a href="single-product.html">
+                                                            <img src="foto_produk/<?php echo $perproduk['foto_produk']; ?>" alt="Li's Product Image">
+                                                        </a>
+                                                        <span class="sticker">New</span>
                                                     </div>
-                                                    <div class="col-lg-5 col-md-7">
-                                                        <div class="product_desc">
-                                                            <div class="product_desc_info">
-                                                                <div class="product-review">
-                                                                    <h5 class="manufacturer">
-                                                                        <a href="product-details.html"><?php echo $perproduk['kategori']; ?></a>
-                                                                    </h5>
-                                                                    <div class="rating-box">
-                                                                        <ul class="rating">
-                                                                            <li><i class="fa fa-star-o"></i></li>
-                                                                            <li><i class="fa fa-star-o"></i></li>
-                                                                            <li><i class="fa fa-star-o"></i></li>
-                                                                            <li class="no-star"><i class="fa fa-star-o"></i></li>
-                                                                            <li class="no-star"><i class="fa fa-star-o"></i></li>
-                                                                        </ul>
-                                                                    </div>
+                                                    <div class="product_desc">
+                                                        <div class="product_desc_info">
+                                                            <div class="product-review">
+                                                                <h5 class="manufacturer">
+                                                                    <a href="shop-left-sidebar.html"><?php echo $perproduk['kategori']; ?></a>
+                                                                </h5>
+                                                                <div class="rating-box">
+                                                                    <ul class="rating">
+                                                                        <li><i class="fa fa-star-o"></i></li>
+                                                                        <li><i class="fa fa-star-o"></i></li>
+                                                                        <li><i class="fa fa-star-o"></i></li>
+                                                                        <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                                        <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                                    </ul>
                                                                 </div>
-                                                                <h4><a class="product_name" href="single-product.html"><?php echo $perproduk['nama_produk']; ?></a></h4>
-                                                                <div class="price-box">
-                                                                    <span class="new-price">Rp. <?php echo number_format($perproduk['harga_produk']); ?></span>
-                                                                    <span class="new-price">Stok 
-                                                                    <?php if($perproduk['stok_produk']>=1){
-                                                                            echo $perproduk['stok_produk'];
-                                                                        }
-                                                                        else
-                                                                            echo "<strong style='color:red'>Habis</strong>";
+                                                            </div>
+                                                            <h4><a class="product_name" href="single-product.html"><?php echo $perproduk['nama_produk']; ?></a></h4>
+                                                            <div class="price-box">
+                                                                <span class="new-price">Rp. <?php echo number_format($perproduk['harga_produk']); ?></span>
+                                                                <span class="new-price">Stok 
+                                                                <?php if($perproduk['stok_produk']>=1){
+                                                                        echo $perproduk['stok_produk'];
+                                                                    }
+                                                                    else
+                                                                        echo "<strong>Habis</strong>";
 
-                                                                        ?>
-                                                                    </span>
-                                                                </div>
-                                                                <p><?php echo $perproduk['deskripsi_produk']; ?></p>
+                                                                    ?>
+                                                                </span>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-lg-4">
-                                                        <div class="shop-add-action mb-xs-30">
+                                                        <div class="add-actions">
                                                             <ul class="add-actions-link">
                                                                 <?php if($perproduk['stok_produk']>=1) : { ?>
-                                                                <li class="add-cart"><a href="beli.php?id=<?php echo $perproduk['id_produk']; ?>">Add to cart</a></li>
+                                                                <li class="add-cart active"><a href="beli.php?id=<?php echo $perproduk['id_produk']; ?>">Add to cart</a></li>
                                                                 <?php  } ?>
                                                                 <?php else  :{ ?>
-                                                                    <li class="add-cart"><a>Habis</a></li>
+                                                                    <li class="add-cart active"><a>Habis</a></li>
                                                                 <?php } ?>
                                                                 <?php endif ?>
-                                                                <li class="wishlist"><a href="wishlist.html"><i class="fa fa-heart-o"></i>Add to wishlist</a></li>
-                                                                <li><a class="quick-view" data-toggle="modal" data-target="#exampleModalCenter" href="#"><i class="fa fa-eye"></i>Quick view</a></li> 
-
-                                                                <!-- <li class="add-cart"><a href="#">Add to cart</a></li>
-                                                                <li class="wishlist"><a href="wishlist.html"><i class="fa fa-heart-o"></i>Add to wishlist</a></li>
-                                                                <li><a class="quick-view" data-toggle="modal" data-target="#exampleModalCenter" href="#"><i class="fa fa-eye"></i>Quick view</a></li> -->
+                                                                <li><a class="links-details" href="wishlist.html"><i class="fa fa-heart-o"></i></a></li>
+                                                                <li><a href="#" title="quick view" class="quick-view-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-eye"></i></a></li>
                                                             </ul>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <?php } ?>
+                                                <!-- single-product-wrap end -->
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="paginatoin-area">
-                                        <div class="row">
-                                            <div class="col-lg-6 col-md-6">
-                                                <p>Showing 1-12 of 13 item(s)</p>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <ul class="pagination-box">
-                                                    <li><a href="#" class="Previous"><i class="fa fa-chevron-left"></i> Previous</a>
-                                                    </li>
-                                                    <li class="active"><a href="#">1</a></li>
-                                                    <li><a href="#">2</a></li>
-                                                    <li><a href="#">3</a></li>
-                                                    <li>
-                                                      <a href="#" class="Next"> Next <i class="fa fa-chevron-right"></i></a>
-                                                    </li>
-                                                </ul>
-                                            </div>
+                                            <?php } ?>
+                                            
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- shop-products-wrapper end -->
+                            <!-- Tab Menu Content Area End Here -->
                         </div>
+                        <!-- Tab Menu Area End Here -->
                     </div>
                 </div>
-            </div>
-            <!-- Content Wraper Area End Here -->
+            </section>
+            <!-- Li's Trending Product Area End Here -->
+            
             <!-- Begin Footer Area -->
             <div class="footer">
                 <!-- Begin Footer Static Top Area -->
@@ -744,7 +810,7 @@
                                                 </a>
                                             </li>
                                             <li class="google-plus">
-                                                <a href="https://www.plus.google.com/discover" data-toggle="tooltip" target="_blank" title="Google +">
+                                                <a href="https://www.plus.google.com/discover" data-toggle="tooltip" target="_blank" title="Google Plus">
                                                     <i class="fa fa-google-plus"></i>
                                                 </a>
                                             </li>
@@ -846,7 +912,7 @@
                                 <div class="col-lg-5 col-md-6 col-sm-6">
                                    <!-- Product Details Left -->
                                     <div class="product-details-left">
-                                        <div class="product-details-images slider-navigation-1">
+                                        <div class="product-details-img slider-navigation-1">
                                             <div class="lg-image">
                                                 <img src="img/product/large-size/1.jpg" alt="product image">
                                             </div>
@@ -992,5 +1058,5 @@
         <script src="js/main.js"></script>
     </body>
 
-<!-- shop-4-column31:48-->
+<!-- index30:23-->
 </html>
