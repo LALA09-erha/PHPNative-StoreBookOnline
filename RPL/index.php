@@ -187,11 +187,11 @@
                                             <div class="minicart">
                                                 <ul class="minicart-product-list">
                                                     <li>
-                                                        <a href="single-product.html" class="minicart-product-image">
+                                                        <a href="detail.php?id=<?php echo $perproduk['id_produk']; ?>" class="minicart-product-image">
                                                             <img src="img/product/small-size/5.jpg" alt="cart products">
                                                         </a>
                                                         <div class="minicart-product-details">
-                                                            <h6><a href="single-product.html">Aenean eu tristique</a></h6>
+                                                            <h6><a href="detail.php?id=<?php echo $perproduk['id_produk']; ?>">Aenean eu tristique</a></h6>
                                                             <span>£40 x 1</span>
                                                         </div>
                                                         <button class="close" title="Remove">
@@ -199,11 +199,11 @@
                                                         </button>
                                                     </li>
                                                     <li>
-                                                        <a href="single-product.html" class="minicart-product-image">
+                                                        <a href="detail.php?id=<?php echo $perproduk['id_produk']; ?>" class="minicart-product-image">
                                                             <img src="img/product/small-size/6.jpg" alt="cart products">
                                                         </a>
                                                         <div class="minicart-product-details">
-                                                            <h6><a href="single-product.html">Aenean eu tristique</a></h6>
+                                                            <h6><a href="detail.php?id=<?php echo $perproduk['id_produk']; ?>">Aenean eu tristique</a></h6>
                                                             <span>£40 x 1</span>
                                                         </div>
                                                         <button class="close" title="Remove">
@@ -272,9 +272,9 @@
                                                             <li><a href="single-product-tab-style-right.html">Single Product Tab Style Right</a></li>
                                                         </ul>
                                                     </li>
-                                                    <li><a href="single-product.html">Single Products</a>
+                                                    <li><a href="detail.php?id=<?php echo $perproduk['id_produk']; ?>">Single Products</a>
                                                         <ul>
-                                                            <li><a href="single-product.html">Single Product</a></li>
+                                                            <li><a href="detail.php?id=<?php echo $perproduk['id_produk']; ?>">Single Product</a></li>
                                                             <li><a href="single-product-sale.html">Single Product Sale</a></li>
                                                             <li><a href="single-product-group.html">Single Product Group</a></li>
                                                             <li><a href="single-product-normal.html">Single Product Normal</a></li>
@@ -450,7 +450,7 @@
                                                 <div class="col-lg-3 col-md-4 col-sm-6 mt-40">
                                                     <div class="single-product-wrap">
                                                         <div class="product-image">
-                                                            <a href="single-product.html">
+                                                            <a href="detail.php?id=<?php echo $perproduk['id_produk']; ?>">
                                                                 <img src="foto_produk/<?php echo $perproduk['foto_produk']; ?>" alt="Li's Product Image">
                                                             </a>
                                                             <span class="sticker">New</span>
@@ -471,7 +471,7 @@
                                                                         </ul>
                                                                     </div>
                                                                 </div>
-                                                                <h4><a class="product_name" href="single-product.html"><?php echo $perproduk['nama_produk']; ?></a></h4>
+                                                                <h4><a class="product_name" href="detail.php?id=<?php echo $perproduk['id_produk']; ?>"><?php echo $perproduk['nama_produk']; ?></a></h4>
                                                                 <div class="price-box">
                                                                     <span class="new-price">Rp. <?php echo number_format($perproduk['harga_produk']); ?></span>
                                                                     <span class="new-price">Stok 
@@ -516,7 +516,7 @@
                                                 <div class="row product-layout-list">
                                                     <div class="col-lg-3 col-md-5 ">
                                                         <div class="product-image">
-                                                            <a href="single-product.html">
+                                                            <a href="detail.php?id=<?php echo $perproduk['id_produk']; ?>">
                                                                 <img src="foto_produk/<?php echo $perproduk['foto_produk']; ?>"  alt="Li's Product Image">
                                                             </a>
                                                             <span class="sticker">New</span>
@@ -539,7 +539,7 @@
                                                                         </ul>
                                                                     </div>
                                                                 </div>
-                                                                <h4><a class="product_name" href="single-product.html"><?php echo $perproduk['nama_produk']; ?></a></h4>
+                                                                <h4><a class="product_name" href="detail.php?id=<?php echo $perproduk['id_produk']; ?>"><?php echo $perproduk['nama_produk']; ?></a></h4>
                                                                 <div class="price-box">
                                                                     <span class="new-price">Rp. <?php echo number_format($perproduk['harga_produk']); ?></span>
                                                                     <span class="new-price">Stok 
