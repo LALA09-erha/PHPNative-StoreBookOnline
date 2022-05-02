@@ -1,12 +1,13 @@
-selesai belum test migrasi tamplate:
+selesai belum finishing migrasi tamplate:
 1. index
 2. detail product
 3. add to cart
 4. login
 5. regist
 6. logout
+7. keranjang
 next : 
-1. keranjang
+1. keranjang | done
 2. pembayaran
 3. pencarian
 4. rekomendasi?

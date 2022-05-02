@@ -213,7 +213,7 @@
                                                 </ul>
                                                 <p class="minicart-total">SUBTOTAL: <span>£80.00</span></p>
                                                 <div class="minicart-button">
-                                                    <a href="shopping-cart.html" class="li-button li-button-fullwidth li-button-dark">
+                                                    <a href="keranjang.php" class="li-button li-button-fullwidth li-button-dark">
                                                         <span>View Full Cart</span>
                                                     </a>
                                                     <a href="checkout.html" class="li-button li-button-fullwidth">
@@ -369,6 +369,7 @@
                     </div>
                 </div>
                 <!-- Header Bottom Area End Here -->
+                <!-- copy disini -->
                 <!-- Begin Mobile Menu Area -->
                 <div class="mobile-menu-area d-lg-none d-xl-none col-12">
                     <div class="container"> 
