@@ -7,7 +7,7 @@ selesai belum finishing migrasi tamplate:
 6. logout
 7. keranjang
 next : 
-1. keranjang | done
+1. keranjang | done -> keranjang harus masuk ke database agar kalau logout tidak hilang
 2. pembayaran
 3. pencarian
 4. rekomendasi?
