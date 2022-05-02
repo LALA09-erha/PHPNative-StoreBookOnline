@@ -1,0 +1,17 @@
+selesai belum test migrasi tamplate:
+1. index
+2. detail product
+3. add to cart
+4. login
+5. regist
+6. logout
+next : 
+1. keranjang
+2. pembayaran
+3. pencarian
+4. rekomendasi?
+6. riwayat
+7. hapus keranjang
+8. nota
+9. rapikan file ke folder
+10. admin
