@@ -8,11 +8,11 @@ selesai belum finishing migrasi tamplate:
 7. keranjang
 next : 
 1. keranjang | done -> keranjang harus masuk ke database agar kalau logout tidak hilang
-2. pembayaran
-3. pencarian
-4. rekomendasi?
-6. riwayat
+2. pembayaran -> compare.html
+3. nota -> compare.html
+4. riwayat -> tamplate cart
+6. rekomendasi? 
 7. hapus keranjang
-8. nota
+8. pencarian
 9. rapikan file ke folder
 10. admin
