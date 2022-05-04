@@ -10,9 +10,12 @@ next :
 1. keranjang | done -> keranjang harus masuk ke database agar kalau logout tidak hilang
 2. pembayaran -> compare.html
 3. nota -> compare.html
-4. riwayat -> tamplate cart
-6. rekomendasi? 
-7. hapus keranjang
-8. pencarian
-9. rapikan file ke folder
-10. admin
+4. riwayat | done
+5. rekomendasi? 
+6. hapus keranjang ?
+7. pencarian
+8. rapikan file ke folder
+9. admin
+10. wishlist
+11. feedback
+12. rating
