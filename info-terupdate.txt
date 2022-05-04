@@ -1,4 +1,4 @@
-selesai belum finishing migrasi tamplate:
+selesai migrasi tamplate tapi belum finishing :
 1. index
 2. detail product
 3. add to cart
