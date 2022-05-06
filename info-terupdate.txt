@@ -11,8 +11,8 @@ next :
 2. pembayaran -> done
 3. nota -> done
 4. riwayat | done
-5. bayar
-6. hapus keranjang ?
+5. bayar |done
+6. hapus keranjang ? atau batal pemesanan?
 7. pencarian
 8. rapikan file ke folder
 9. admin

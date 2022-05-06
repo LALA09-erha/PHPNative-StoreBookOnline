@@ -20,6 +20,27 @@
 		exit();
 
 	}
+    if (isset($_POST['kirim'])) {
+			
+        //upload foto bukti
+        $namabukti = $_FILES['bukti']['name'];
+        $lokasibukti = $_FILES['bukti']['tmp_name'];
+        //agar tidak sama fotonya
+        $namafiks = date('YmdHis').$namabukti;
+        //lokasi foto
+        move_uploaded_file($lokasibukti, "bukti_pembayaran/".$namafiks);
+
+        $tanggal = date('Y-m-d');
+
+        $koneksi->query("INSERT INTO pembayaran(id_pembelian,nama,bank,jumlah,tanggal,bukti)
+            VALUES ('$id_pem','$_POST[nama]','$_POST[bank]','$_POST[jumlah]','$tanggal','$namafiks') ");
+
+        //update data pembelian dari pending menjadi sudah kirim pembayaran
+        $koneksi->query("UPDATE pembelian SET status_pembelian = 'Proses' WHERE id_pembelian='$id_pem'");
+        echo "<script> alert('Terima Kasih Sudah Memberikan Bukti Pembayaran'); </script>";
+        echo "<script> location='riwayat.php' </script>";
+        exit();
+    }
 ?>
 <!doctype html>
 <html class="no-js" lang="zxx">
@@ -167,7 +188,7 @@
                             <div class="col-lg-3">
                                 <div class="logo pb-sm-30 pb-xs-30">
                                     <a href="index.php">
-                                        <img src="css/img/boslogo2.png" width="30%"   alt="">
+                                        <img src="css/images/boslogo2.png" width="30%"   alt="">
                                     </a>
                                 </div>
                             </div>
@@ -433,7 +454,7 @@
                             <div class="contact-form-content pt-sm-55 pt-xs-55">
                                 <h3 class="contact-page-title">Konfirmasi Pembayaran</h3>
                                 <div class="contact-form">
-                                    <form  id="contact-form" method="post" enctype="multipart/form-data">
+                                    <form   method="post" enctype="multipart/form-data">
                                         <div class="form-group">
                                             <label>Nama Penyetor <span class="required">*</span></label>
                                             <input type="text" name="nama" id="customername" required placeholder="<?php echo $_SESSION['pelanggan']['nama_pelanggan']; ?>">
@@ -443,16 +464,16 @@
                                             <input type="text" name="bank" id="customerEmail" required>
                                         </div>
                                         <div class="form-group">
-                                            <label>Jumlah</label>
+                                            <label>Jumlah <span class="required">*</span></label>
                                             <input type="number" name="jumlah" id="contactSubject" min="1" required placeholder="<?php echo $detpem['total_pembelian']; ?>">
                                         </div>
                                         <div class="form-group mb-30">
-                                                <label>Foto Bukti</label>
+                                                <label>Foto Bukti <span class="required">*</span></label>
                                                 <input type="file" name="bukti" class="form-control" required="">
                                                 <p class="text-danger">Format Foto Bukti JPG Maksimal 2MB</p>
                                         </div>
                                         <div class="form-group">
-                                            <button type="submit" name="kirim" class="li-btn-3" name="submit">Kirim</button>
+                                            <button  name="kirim" class="li-btn-3">Kirim</button>
                                         </div>
                                     </form>
                                 </div>

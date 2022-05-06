@@ -452,9 +452,7 @@
                                     <div class="col-12">
                                         <div class="coupon-all">
                                             <div class="cart-page-total">
-                                                <a href="index.php">Lanjut Belanja</a>
-                                                <a href="hapuskeranjang.php?id=<?php echo $id_produk ?>" style="background-color: red;" onclick="return confirm('Apakah Anda Yakin ?');">Hapus Semua</a>
-                                                
+                                                <a href="index.php">Lanjut Belanja</a>                                                
                                             </div>
                                         </div>
                                     </div>
