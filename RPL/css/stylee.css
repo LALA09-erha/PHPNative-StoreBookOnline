@@ -1769,7 +1769,6 @@ textarea:focus {
 		color: #ffffff;
 }
 .hb-menu nav > ul > li > a::after {
-	content: "\f107";
 	position: absolute;
 	top: 8px;
 	right: 15px;
@@ -1787,7 +1786,6 @@ textarea:focus {
 .ht-menu > li .ht-currency-trigger span::after,
 .ht-menu > li .ht-language-trigger span::after,
 .hm-minicart-trigger .item-text::after {
-	content: "\f106";
 	float: right;
 	font-weight: 400;
 	font-size: 18px;
@@ -1805,7 +1803,6 @@ textarea:focus {
 .ht-menu > li .ht-currency-trigger span::after, 
 .ht-menu > li .ht-language-trigger span::after, 
 .hm-minicart-trigger .item-text::after {
-	content: "\f107";
 	font-size: 14px;
 	color: #a4a4a4;
 	margin-left: 5px;
@@ -2000,7 +1997,6 @@ textarea:focus {
 	top: 0;
 }
 .hb-menu nav ul > li > ul.hb-dropdown > li.sub-dropdown-holder::after {
-	content: "\f107";
 	font-family: fontawesome;
 	position: absolute;
 	right: 25px;
@@ -3050,7 +3046,6 @@ text-align: center;
 	padding-left: 30px;
 }
 .category-heading > h2::after {
-	content: "\f107";
 	height: 10px;
 	position: absolute;
 	top: 0;
@@ -3111,7 +3106,6 @@ text-align: center;
     display: none;
 }
 .category-menu-list > ul > li.right-menu > a::after {
-	content: "\f107";
 	font-family: FontAwesome;
 	float: right;
 	vertical-align: top;

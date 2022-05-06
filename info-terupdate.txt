@@ -13,9 +13,10 @@ next :
 4. riwayat | done
 5. bayar |done
 6. hapus keranjang ? atau batal pemesanan?
-7. pencarian
-8. rapikan file ke folder
+7. pencarian | done
+8. rapikan file ke folder?
 9. admin
 10. wishlist
 11. feedback
 12. rating
+13. index dan pencarian -> pagination dan sort by
