@@ -317,7 +317,10 @@
                                                     <?php echo $pecah['jumlah_pembelian']; ?>
                                                 </td>
                                                 <td class="product-subtotal"><span class="amount">Rp. <?php echo number_format($pecah['total_pembelian']);  ?></span></td>
-												<td class="li-product-number"><span><?php echo  $pecah['status_pembelian']; ?></span></td>
+												<td class="li-product-number"><span><?php echo  $pecah['status_pembelian']; ?><br>
+                                                    <?php if(!empty($pecah['resi_pengiriman'])): ?>
+                                                    No.Resi <?php echo $pecah['resi_pengiriman']; ?>
+                                                    <?php endif  ?></span></td>
                                                 <td class="li-product-add-cart">
 													<a href="nota.php?id=<?php echo $pecah['id_pembelian']?>" class="bg-info p-1">Nota</a>
 													<?php if($pecah['status_pembelian']=='Tertunda'): ?>

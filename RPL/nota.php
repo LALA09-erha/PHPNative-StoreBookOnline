@@ -353,6 +353,10 @@
 									<div class="p-2 flex-fill bd-highlight">: <?php echo $detail['gmail_pelanggan']; ?></div>								
 								</div>
 								<div class="w-50 d-flex bd-highlight">
+                                    <?php if(isset($detail['resi_pengiriman'])): ?>
+                                        <div class="w-25 p-2 flex-fill bd-highlight">No Resi</div>
+                                        <div class="p-2 flex-fill bd-highlight">: <?php echo $detail['resi_pengiriman']; ?></div>								
+                                    <?php endif; ?>
 								</div>
 								<div class="w-50 d-flex bd-highlight">
 								</div>
