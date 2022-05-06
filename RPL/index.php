@@ -243,7 +243,7 @@
                                         <ul>
                                             <li class="active"><a href="index.php">Home</a></li>                                            
                                             <li><a href="riwayat.php">Riwayat</a></li>
-                                            <li><a href="about.php">About Us</a></li>
+                                            <li><a href="pages/about.php">About Us</a></li>
                                             <li><a href="contact.php"> Contact</a></li>
                                         </ul>
                                     </nav>

@@ -6,6 +6,8 @@ selesai migrasi tamplate tapi belum finishing :
 5. regist
 6. logout
 7. keranjang
+8. about
+9, contact
 next : 
 1. keranjang | done -> keranjang harus masuk ke database agar kalau logout tidak hilang
 2. pembayaran -> done
