@@ -1534,7 +1534,7 @@ textarea:focus {
 		padding: 0 15px 0 55px;
 }
 .item-iconn::before {
-		content: "&#xe008;";
+		content: "\f30e";
 		position: absolute;
 		font-family: fontawesome;
 		left: 10px;

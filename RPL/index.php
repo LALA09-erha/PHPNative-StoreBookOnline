@@ -178,7 +178,7 @@
                                         <!-- Begin Header Mini Cart Area -->
                                         <li class="hm-minicart justify-content-center align-items-center">
                                             <div class="hm-minicart-trigger" style="padding-right: 0;padding-left: 45px;">
-                                                <div class="item-icon  "></div>
+                                                <span class="item-icon "></span>
                                             </div>
                                             
                                             <div class="minicart">
@@ -220,10 +220,9 @@
                                             </div>
                                         </li>
                                         <li class="hm-minicart justify-content-center align-items-center">
-                                            <div class="hm-minicart-trigger" style="padding-right: 0;padding-left: 45px; background-color:blue;">
-                                                    <div class="item-iconn"></div>
+                                            <div class="hm-minicart-trigger" style="padding-right: 0;padding-left: 45px; background-color:#0363cd;">
+                                                    <span class="item-iconn"></span>
                                             </div>
-                                            
                                             <div class="minicart">
                                                 <ul class="minicart-product-list">
                                                     <li>
