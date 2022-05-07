@@ -11,6 +11,7 @@
 <!-- shop-4-column31:48-->
 
 <head>
+
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title>BOS | Home</title>
