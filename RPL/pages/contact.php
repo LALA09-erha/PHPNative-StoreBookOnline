@@ -11,45 +11,46 @@
 <!-- shop-4-column31:48-->
 
 <head>
+
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>BOS | Kontak Kami</title>
+        <title>BOS | Home</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Favicon -->
-        <link rel="shortcut icon" type="image/x-icon" href="../css/images/favicon.png">
+        <link rel="shortcut icon" type="image/x-icon" href="css/images/favicon.png">
         <!-- Material Design Iconic Font-V2.2.0 -->
-        <link rel="stylesheet" href="../css/material-design-iconic-font.min.css">
+        <link rel="stylesheet" href="css/material-design-iconic-font.min.css">
         <!-- Font Awesome -->
-        <link rel="stylesheet" href="../css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
         <!-- Font Awesome Stars-->
-        <link rel="stylesheet" href="../css/fontawesome-stars.css">
+        <link rel="stylesheet" href="css/fontawesome-stars.css">
         <!-- Meanmenu CSS -->
-        <link rel="stylesheet" href="../css/meanmenu.css">
+        <link rel="stylesheet" href="css/meanmenu.css">
         <!-- owl carousel CSS -->
-        <link rel="stylesheet" href="../css/owl.carousel.min.css">
+        <link rel="stylesheet" href="css/owl.carousel.min.css">
         <!-- Slick Carousel CSS -->
-        <link rel="stylesheet" href="../css/slick.css">
+        <link rel="stylesheet" href="css/slick.css">
         <!-- Animate CSS -->
-        <link rel="stylesheet" href="../css/animate.css">
+        <link rel="stylesheet" href="css/animate.css">
         <!-- Jquery-ui CSS -->
-        <link rel="stylesheet" href="../css/jquery-ui.min.css">
+        <link rel="stylesheet" href="css/jquery-ui.min.css">
         <!-- Venobox CSS -->
-        <link rel="stylesheet" href="../css/venobox.css">
+        <link rel="stylesheet" href="css/venobox.css">
         <!-- Nice Select CSS -->
-        <link rel="stylesheet" href="../css/nice-select.css">
+        <link rel="stylesheet" href="css/nice-select.css">
         <!-- Magnific Popup CSS -->
-        <link rel="stylesheet" href="../css/magnific-popup.css">
+        <link rel="stylesheet" href="css/magnific-popup.css">
         <!-- Bootstrap V4.1.3 Fremwork CSS -->
-        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
         <!-- Helper CSS -->
-        <link rel="stylesheet" href="../css/helper.css">
+        <link rel="stylesheet" href="css/helper.css">
         <!-- Main Style CSS -->
-        <link rel="stylesheet" href="../css/stylee.css">
+        <link rel="stylesheet" href="css/stylee.css">
         <!-- Responsive CSS -->
-        <link rel="stylesheet" href="../css/responsive.css">
+        <link rel="stylesheet" href="css/responsive.css">
         <!-- Modernizr js -->
-        <script src="../js/vendor/modernizr-2.8.3.min.js"></script>
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
     <!--[if lt IE 8]>
@@ -60,88 +61,6 @@
             <!-- Begin Header Area -->
             <header>
                 <!-- Begin Header Top Area -->
-                <div class="header-top">
-                    <div class="container">
-                        <div class="row">
-                            <!-- Begin Header Top Left Area -->
-                            <div class="col-lg-3 col-md-4">
-                                <div class="header-top-left">
-                                    <ul class="phone-wrap">
-                                        <li><span>Telephone Enquiry:</span><a href="#">(+123) 123 321 345</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- Header Top Left Area End Here -->
-                            <!-- Begin Header Top Right Area -->
-                            <div class="col-lg-9 col-md-8">
-                                <div class="header-top-right">
-                                    <ul class="ht-menu">
-                                        <!-- Begin Setting Area -->
-                                        <li>
-                                            <div class="ht-setting-trigger"><span>Setting</span></div>
-                                            <div class="setting ht-setting">
-                                                <ul class="ht-setting-list">
-                                                    	<!-- Jika Sudah Login-->
-                                                        <?php if (isset($_SESSION['pelanggan'])): ?>
-                                                        <li><a href="../logout.php" onclick="return confirm('Apakah Anda Yakin ?')">Logout</a></li>
-                                                        <li><a href="../riwayat.php">Riwayat</a></li>
-                                                        <!-- Jika Sudah Belum Login-->
-                                                        <?php endif ?>				
-                                                        <li><a href="../index.php">Belanja</a></li>
-                                                        <?php if(!isset($_SESSION["keranjang"])) : ?>
-                                                            <li><a href="../keranjang.php">Keranjang<strong>(0)</strong></a></li>
-                                                        <?php else : ?>
-                                                        <hide>
-                                                                <?php $jml=0; ?>
-                                                                <?php foreach ($_SESSION["keranjang"] as $id_produk => $jumlah): ?>
-                                                                <!-- Menampilkan Produk Perulangan Berdasarkan id_produk-->
-                                                                <?php $ambildata = $koneksi->query("SELECT * FROM produk WHERE id_produk='$id_produk'"); ?>
-                                                                <?php $pecah = $ambildata->fetch_assoc(); ?>
-                                                                <tr>
-                                                                    <td><?php $jumlah ?></td>
-                                                                </tr>
-                                                                <?php $jml += $jumlah; ?>
-                                                                <?php endforeach ?>
-                                                        </hide>
-                                                        <li><a href="../rekomendasi.php">Rekomendasi</a></li>
-                                                        <li><a href="../keranjang.php">Keranjang<strong>(<?php echo $jml ?>)</strong></a></li>
-                                                    <?php endif ?>
-                                                        <li><a href="../bayar.php">Pembayaran</a></li>
-                                                </ul>
-                                            </div>
-                                        </li>
-                                        <!-- Setting Area End Here -->
-                                        <!-- Begin Currency Area -->
-                                        <li>
-                                            <span class="currency-selector-wrapper">Currency :</span>
-                                            <div class="ht-currency-trigger"><span>USD $</span></div>
-                                            <div class="currency ht-currency">
-                                                <ul class="ht-setting-list">
-                                                    <li><a href="#">EUR €</a></li>
-                                                    <li class="active"><a href="#">USD $</a></li>
-                                                </ul>
-                                            </div>
-                                        </li>
-                                        <!-- Currency Area End Here -->
-                                        <!-- Begin Language Area -->
-                                        <li>
-                                            <span class="language-selector-wrapper">Language :</span>
-                                            <div class="ht-language-trigger"><span>English</span></div>
-                                            <div class="language ht-language">
-                                                <ul class="ht-setting-list">
-                                                    <li class="active"><a href="#"><img src="img/menu/flag-icon/1.jpg" alt="">English</a></li>
-                                                    <li><a href="#"><img src="img/menu/flag-icon/2.jpg" alt="">Français</a></li>
-                                                </ul>
-                                            </div>
-                                        </li>
-                                        <!-- Language Area End Here -->
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- Header Top Right Area End Here -->
-                        </div>
-                    </div>
-                </div>
                 <!-- Header Top Area End Here -->
                 <!-- Begin Header Middle Area -->
                 <div class="header-middle pl-sm-0 pr-sm-0 pl-xs-0 pr-xs-0">
@@ -150,8 +69,8 @@
                             <!-- Begin Header Logo Area -->
                             <div class="col-lg-3">
                                 <div class="logo pb-sm-30 pb-xs-30">
-                                    <a href="../index.php">
-                                    <img src="../css/images/logo.png"   alt="">
+                                    <a href="index.php">
+                                        <img src="css/images/logo.png"   alt="">
                                     </a>
                                 </div>
                             </div>
@@ -159,14 +78,14 @@
                             <!-- Begin Header Middle Right Area -->
                             <div class="col-lg-9 pl-0 ml-sm-15 ml-xs-15">
                                 <!-- Begin Header Middle Searchbox Area -->
-                                <form action="../pencarian.php" method="get" class="hm-searchbox">
+                                <form action="pencarian.php" method="get" class="hm-searchbox">
                                 <input type="text" name="keyword" class="form-control" placeholder="Pencarian">
                                     <button class="btn btn-primary"><i class="fa fa-search"></i></button>
                                 </form>
                                 <!-- Header Middle Searchbox Area End Here -->
                                 <!-- Begin Header Middle Right Area -->
                                 <div class="header-middle-right">
-                                <ul class="hm-menu">
+                                    <ul class="hm-menu">
                                         <!-- Begin Header Middle Wishlist Area -->
                                         <li class="hm-wishlist" style="margin-right: 5px;">
                                             <a href="wishlist.html">
@@ -224,39 +143,13 @@
                                                     <span class="item-iconn"></span>
                                             </div>
                                             <div class="minicart">
-                                                <ul class="minicart-product-list">
-                                                    <li>
-                                                        <a href="detail.php?id=<?php echo $perproduk['id_produk']; ?>" class="minicart-product-image">
-                                                            <img src="img/product/small-size/5.jpg" alt="cart products">
-                                                        </a>
-                                                        <div class="minicart-product-details">
-                                                            <h6><a href="detail.php?id=<?php echo $perproduk['id_produk']; ?>">Aenean eu tristique</a></h6>
-                                                            <span>£40 x 1</span>
-                                                        </div>
-                                                        <button class="close" title="Remove">
-                                                            <i class="fa fa-close"></i>
-                                                        </button>
-                                                    </li>
-                                                    <li>
-                                                        <a href="detail.php?id=<?php echo $perproduk['id_produk']; ?>" class="minicart-product-image">
-                                                            <img src="img/product/small-size/6.jpg" alt="cart products">
-                                                        </a>
-                                                        <div class="minicart-product-details">
-                                                            <h6><a href="detail.php?id=<?php echo $perproduk['id_produk']; ?>">Aenean eu tristique</a></h6>
-                                                            <span>£40 x 1</span>
-                                                        </div>
-                                                        <button class="close" title="Remove">
-                                                            <i class="fa fa-close"></i>
-                                                        </button>
-                                                    </li>
-                                                </ul>
-                                                <p class="minicart-total">SUBTOTAL: <span>£80.00</span></p>
+                                                <p class="minicart-total text-center">OPTIONS</p>
                                                 <div class="minicart-button">
                                                     <a href="keranjang.php" class="li-button li-button-fullwidth li-button-dark">
-                                                        <span>View Full Cart</span>
+                                                        <span>Profile</span>
                                                     </a>
-                                                    <a href="bayar.php" class="li-button li-button-fullwidth">
-                                                        <span>Checkout</span>
+                                                    <a a href="logout.php" onclick="return confirm('Apakah Anda Yakin ?')" class="li-button li-button-fullwidth">
+                                                        <span>Logout</span>
                                                     </a>
                                                 </div>
                                             </div>
