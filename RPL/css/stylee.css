@@ -1504,7 +1504,7 @@ textarea:focus {
 	position: relative;
 }
 .hm-wishlist > a {
-	border: 1px solid #e1e1e1;
+	border: 3px solid #242424;
 	font-size: 20px;
 	color: #242424;
 	width: 45px;
@@ -1532,6 +1532,15 @@ textarea:focus {
 		display: block;
 		position: relative;
 		padding: 0 15px 0 55px;
+}
+.item-iconn::before {
+		content: "&#xe008;";
+		position: absolute;
+		font-family: fontawesome;
+		left: 10px;
+		top: 6px;
+		display: block;
+		font-size: 20px;
 }
 .item-icon::before {
 		content: "\f291";

@@ -151,7 +151,7 @@
                             <div class="col-lg-3">
                                 <div class="logo pb-sm-30 pb-xs-30">
                                     <a href="index.php">
-                                        <img src="css/images/boslogo2.png" width="30%"   alt="">
+                                        <img src="css/images/logo.png"   alt="">
                                     </a>
                                 </div>
                             </div>
@@ -168,7 +168,7 @@
                                 <div class="header-middle-right">
                                     <ul class="hm-menu">
                                         <!-- Begin Header Middle Wishlist Area -->
-                                        <li class="hm-wishlist">
+                                        <li class="hm-wishlist" style="margin-right: 5px;">
                                             <a href="wishlist.html">
                                                 <span class="cart-item-count wishlist-item-count">0</span>
                                                 <i class="fa fa-heart-o"></i>
@@ -176,14 +176,54 @@
                                         </li>
                                         <!-- Header Middle Wishlist Area End Here -->
                                         <!-- Begin Header Mini Cart Area -->
-                                        <li class="hm-minicart">
-                                            <div class="hm-minicart-trigger">
-                                                <span class="item-icon"></span>
-                                                <span class="item-text">£80.00
-                                                    <span class="cart-item-count">2</span>
-                                                </span>
+                                        <li class="hm-minicart justify-content-center align-items-center">
+                                            <div class="hm-minicart-trigger" style="padding-right: 0;padding-left: 45px;">
+                                                <div class="item-icon  "></div>
                                             </div>
-                                            <span></span>
+                                            
+                                            <div class="minicart">
+                                                <ul class="minicart-product-list">
+                                                    <li>
+                                                        <a href="detail.php?id=<?php echo $perproduk['id_produk']; ?>" class="minicart-product-image">
+                                                            <img src="img/product/small-size/5.jpg" alt="cart products">
+                                                        </a>
+                                                        <div class="minicart-product-details">
+                                                            <h6><a href="detail.php?id=<?php echo $perproduk['id_produk']; ?>">Aenean eu tristique</a></h6>
+                                                            <span>£40 x 1</span>
+                                                        </div>
+                                                        <button class="close" title="Remove">
+                                                            <i class="fa fa-close"></i>
+                                                        </button>
+                                                    </li>
+                                                    <li>
+                                                        <a href="detail.php?id=<?php echo $perproduk['id_produk']; ?>" class="minicart-product-image">
+                                                            <img src="img/product/small-size/6.jpg" alt="cart products">
+                                                        </a>
+                                                        <div class="minicart-product-details">
+                                                            <h6><a href="detail.php?id=<?php echo $perproduk['id_produk']; ?>">Aenean eu tristique</a></h6>
+                                                            <span>£40 x 1</span>
+                                                        </div>
+                                                        <button class="close" title="Remove">
+                                                            <i class="fa fa-close"></i>
+                                                        </button>
+                                                    </li>
+                                                </ul>
+                                                <p class="minicart-total">SUBTOTAL: <span>£80.00</span></p>
+                                                <div class="minicart-button">
+                                                    <a href="keranjang.php" class="li-button li-button-fullwidth li-button-dark">
+                                                        <span>View Full Cart</span>
+                                                    </a>
+                                                    <a href="bayar.php" class="li-button li-button-fullwidth">
+                                                        <span>Checkout</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="hm-minicart justify-content-center align-items-center">
+                                            <div class="hm-minicart-trigger" style="padding-right: 0;padding-left: 45px; background-color:blue;">
+                                                    <div class="item-iconn"></div>
+                                            </div>
+                                            
                                             <div class="minicart">
                                                 <ul class="minicart-product-list">
                                                     <li>
@@ -569,7 +609,7 @@
                                 <!-- Begin Footer Logo Area -->
                                 <div class="col-lg-4 col-md-6">
                                     <div class="footer-logo">
-                                        <img src="img/menu/logo/1.jpg" alt="Footer Logo">
+                                    <img src="css/images/logo.png"   alt="">
                                         <p class="info">
                                             We are a team of designers and developers that create high quality HTML Template & Woocommerce, Shopify Theme.
                                         </p>

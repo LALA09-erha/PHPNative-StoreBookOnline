@@ -172,7 +172,7 @@
                             <div class="col-lg-3">
                                 <div class="logo pb-sm-30 pb-xs-30">
                                     <a href="index.php">
-                                        <img src="css/images/boslogo2.png" width="30%"   alt="">
+                                    <img src="css/images/logo.png"   alt="">
                                     </a>
                                 </div>
                             </div>
@@ -616,7 +616,7 @@
                                 <!-- Begin Footer Logo Area -->
                                 <div class="col-lg-4 col-md-6">
                                     <div class="footer-logo">
-                                        <img src="img/menu/logo/1.jpg" alt="Footer Logo">
+                                    <img src="css/images/logo.png"   alt="">
                                         <p class="info">
                                             We are a team of designers and developers that create high quality HTML Template & Woocommerce, Shopify Theme.
                                         </p>
