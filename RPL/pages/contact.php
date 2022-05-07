@@ -13,11 +13,11 @@
 <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Home</title>
+        <title>BOS | Kontak Kami</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Favicon -->
-        <link rel="shortcut icon" type="image/x-icon" href="../img/favicon.png">
+        <link rel="shortcut icon" type="image/x-icon" href="../css/images/favicon.png">
         <!-- Material Design Iconic Font-V2.2.0 -->
         <link rel="stylesheet" href="../css/material-design-iconic-font.min.css">
         <!-- Font Awesome -->
@@ -89,7 +89,7 @@
                                                         <?php endif ?>				
                                                         <li><a href="../index.php">Belanja</a></li>
                                                         <?php if(!isset($_SESSION["keranjang"])) : ?>
-                                                            <li><a href="keranjang.php">Keranjang<strong>(0)</strong></a></li>
+                                                            <li><a href="../keranjang.php">Keranjang<strong>(0)</strong></a></li>
                                                         <?php else : ?>
                                                         <hide>
                                                                 <?php $jml=0; ?>
@@ -150,7 +150,7 @@
                             <!-- Begin Header Logo Area -->
                             <div class="col-lg-3">
                                 <div class="logo pb-sm-30 pb-xs-30">
-                                    <a href="index.php">
+                                    <a href="../index.php">
                                         <img src="../css/images/boslogo2.png" width="30%"   alt="">
                                     </a>
                                 </div>

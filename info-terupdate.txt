@@ -1,3 +1,12 @@
+tamplate yang harus di rubah nav dan footer:
+1. index
+2. bayar
+3. detail
+4. keranjang
+5. nota
+6. pembayaran
+7. pencarian
+8. riwayat
 selesai migrasi tamplate tapi belum finishing :
 1. index
 2. detail product
@@ -21,4 +30,6 @@ next :
 10. wishlist
 11. feedback
 12. rating
-13. index dan pencarian -> pagination dan sort by
+13. index dan pencarian -> pagination dan sort by dan modal produk detail
+Finishing :
+1. api 

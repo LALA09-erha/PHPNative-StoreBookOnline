@@ -50,11 +50,11 @@
 <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Konfirmasi Pembayaran</title>
+        <title>BOS | Konfirmasi Pembayaran</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Favicon -->
-        <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+        <link rel="shortcut icon" type="image/x-icon" href="css/images/favicon.png">
         <!-- Material Design Iconic Font-V2.2.0 -->
         <link rel="stylesheet" href="css/material-design-iconic-font.min.css">
         <!-- Font Awesome -->
@@ -278,10 +278,10 @@
                                 <div class="hb-menu">
                                     <nav>
                                         <ul>
-                                            <li class="active"><a href="index.php">Home</a></li>                                            
+                                        <li class="active"><a href="index.php">Home</a></li>                                            
                                             <li><a href="riwayat.php">Riwayat</a></li>
-                                            <li><a href="about.php">About Us</a></li>
-                                            <li><a href="contact.php"> Contact</a></li>
+                                            <li><a href="pages/about.php">About Us</a></li>
+                                            <li><a href="pages/contact.php"> Contact</a></li>
                                         </ul>
                                     </nav>
                                 </div>

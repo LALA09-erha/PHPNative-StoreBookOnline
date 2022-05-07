@@ -13,11 +13,11 @@
 <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Home</title>
+        <title>BOS | Home</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Favicon -->
-        <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+        <link rel="shortcut icon" type="image/x-icon" href="css/images/favicon.png">
         <!-- Material Design Iconic Font-V2.2.0 -->
         <link rel="stylesheet" href="css/material-design-iconic-font.min.css">
         <!-- Font Awesome -->
@@ -244,7 +244,7 @@
                                             <li class="active"><a href="index.php">Home</a></li>                                            
                                             <li><a href="riwayat.php">Riwayat</a></li>
                                             <li><a href="pages/about.php">About Us</a></li>
-                                            <li><a href="contact.php"> Contact</a></li>
+                                            <li><a href="pages/contact.php"> Contact</a></li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -286,7 +286,7 @@
                             <!-- Begin Li's Banner Area -->
                             <div class="single-banner shop-page-banner">
                                 <a href="#">
-                                    <img src="img/bg-banner/2.jpg" alt="Li's Static Banner">
+                                    <img src="img/bg-banner/banner.jpg" alt="Li's Static Banner">
                                 </a>
                             </div>
                             <!-- Li's Banner Area End Here -->
