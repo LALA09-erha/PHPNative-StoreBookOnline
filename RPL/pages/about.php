@@ -70,7 +70,7 @@
                             <div class="col-lg-3">
                                 <div class="logo pb-sm-30 pb-xs-30">
                                     <a href="index.php">
-                                        <img src="css/images/logo.png"   alt="">
+                                        <img src="../css/images/logo.png"   alt="">
                                     </a>
                                 </div>
                             </div>
