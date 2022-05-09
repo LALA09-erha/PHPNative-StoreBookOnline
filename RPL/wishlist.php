@@ -4,28 +4,17 @@
     if(!isset($_SESSION['pelanggan'])){
         header("location:login.php");
     }
-	$ambil=$koneksi->query("SELECT * FROM pembelian JOIN pelanggan ON pembelian.id_pelanggan=pelanggan.id_pelanggan WHERE pembelian.id_pembelian='$_GET[id]'");
-	$detail=$ambil->fetch_assoc();
-	//mendapatkan id yang beli
-	$idpelangganyangbeli = $detail['id_pelanggan'];
-
-	//mendapatkan id pelanggan yang login
-	$idpelangganyanglogin = $_SESSION['pelanggan']['id_pelanggan'];
-
-	if ($idpelangganyangbeli!==$idpelangganyanglogin) {
-		echo "<script> alert('Gagal');</script>";
-		echo "<script> location='riwayat .php'; </script>";
-	}
 ?>
 <!doctype html>
 <html class="no-js" lang="zxx">
     
 <!-- shop-4-column31:48-->
+
 <head>
 
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>BOS | Nota</title>
+        <title>BOS | Keranjang</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Favicon -->
@@ -215,180 +204,72 @@
                 <div class="container">
                     <div class="breadcrumb-content">
                         <ul>
-                            <li><a href="index.php">Home</a></li>
-                            <li><a href="riwayat.php">Riwayat</a></li>
-                            <li class="active">Nota</li>
+                            <li><a href="index.html">Home</a></li>
+                            <li class="active">Wishlist</li>
                         </ul>
                     </div>
                 </div>
             </div>
             <!-- Li's Breadcrumb Area End Here -->
-            <!--Checkout Area Strat-->
-            <div class="checkout-area pt-60 pb-30">
+            <!--Wishlist Area Strat-->
+            <div class="wishlist-area pt-60 pb-60">
                 <div class="container">
                     <div class="row">
-                        <div class="col-6">
-                            <h3>Details</h3>
-							<div class="d-flex bd-highlight">
-								<div class="w-25 p-2 flex-fill bd-highlight">Kode Pembelian</div>
-								<div class="p-2 flex-fill bd-highlight">: <strong>H-<?php echo $detail['id_pembelian']; ?>-S</strong></div>
-							</div>
-							<div class="d-flex bd-highlight">
-								<div class="w-25 p-2 flex-fill bd-highlight">Tanggal Pembelian</div>
-								<div class="p-2 flex-fill bd-highlight">: <?php echo $detail['tanggal_pembelian']; ?></div>
-							</div>
-							<div class="d-flex bd-highlight">
-								<div class="w-25 p-2 flex-fill bd-highlight">Harga Pembelian</div>
-								<div class="p-2 flex-fill bd-highlight">: Rp. <?php echo number_format($detail['total_pembelian'])?></div>
-							</div>
-                        </div>
-						<div class="col-12">
-							<div class="d-flex bd-highlight mb-3" >
-								<div class="w-50 d-flex bd-highlight">
-									<h3>Pelanggan</h3>									
-								</div>
-								<div class="w-50 d-flex bd-highlight">
-									<h3>Pengirim</h3>									
-								</div>
-								<div class="w-50 d-flex bd-highlight">
-									<h3>Alamat Pelanggan</h3>									
-								</div>
-							</div>
-							<div class="d-flex bd-highlight" >
-								<div class="w-50 d-flex bd-highlight">
-									<div class="w-25 p-2 flex-fill bd-highlight">Nama</div>
-									<div class="p-2 flex-fill bd-highlight">: <strong><?php echo $detail['nama_pelanggan']?></strong></div>								
-								</div>
-								<div class="w-50 d-flex bd-highlight">
-									<div class="w-100 p-2 flex-fill bd-highlight"><strong><?php echo $detail['nama_kurir']; ?></strong></div>
-								</div>
-								<div class="w-50 d-flex bd-highlight">
-									<div class="w-100 p-2 flex-fill bd-highlight"><strong><?php echo $detail['alamat_pengiriman']; ?></strong></div>					
-								</div>
-							</div>
-							<div class="d-flex bd-highlight" >
-								<div class="w-50 d-flex bd-highlight">
-									<div class="w-25 p-2 flex-fill bd-highlight">No Telepon</div>
-									<div class="p-2 flex-fill bd-highlight">: <?php echo $detail['telepon_pelanggan']?></div>								
-								</div>
-								<div class="w-50 d-flex bd-highlight">
-									<div class="w-25 p-2 flex-fill bd-highlight">Tarif</div>
-									<div class="w-100 p-2 flex-fill bd-highlight">: Rp. <?php echo number_format($detail['tarif']); ?></div>
-								</div>
-								<div class="w-50 d-flex bd-highlight">
-								</div>
-							</div>
-							<div class="d-flex bd-highlight" >
-								<div class="w-50 d-flex bd-highlight">
-									<div class="w-25 p-2 flex-fill bd-highlight">Email</div>
-									<div class="p-2 flex-fill bd-highlight">: <?php echo $detail['gmail_pelanggan']; ?></div>								
-								</div>
-								<div class="w-50 d-flex bd-highlight">
-                                    <?php if(isset($detail['resi_pengiriman'])): ?>
-                                        <div class="w-25 p-2 flex-fill bd-highlight">No Resi</div>
-                                        <div class="p-2 flex-fill bd-highlight">: <?php echo $detail['resi_pengiriman']; ?></div>								
-                                    <?php endif; ?>
-								</div>
-								<div class="w-50 d-flex bd-highlight">
-								</div>
-							</div>
-						</div>
-                    </div>
-                    <div class="row">
                         <div class="col-12">
-                            <div class="your-order">
-                                <h3 class="text-center">Your order</h3>
-                                <div class="your-order-table table-responsive">
+                            <form action="#">
+                                <div class="table-content table-responsive">
                                     <table class="table">
                                         <thead>
                                             <tr>
+                                                <th class="li-product-remove">remove</th>
+                                                <th class="li-product-thumbnail">images</th>
                                                 <th class="cart-product-name">Product</th>
-                                                <th class="cart-product-total">Price</th>
-                                                <th class="cart-product-total">Total</th>
+                                                <th class="li-product-price">Unit Price</th>
+                                                <th class="li-product-stock-status">Stock Status</th>
+                                                <th class="li-product-add-cart">add to cart</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-										<?php $nomor=1; ?>
-										<?php $totalbelanja=0;?>
-										<?php $ambil=$koneksi->query("SELECT * FROM pembelian_produk JOIN produk ON pembelian_produk.id_produk=produk.id_produk WHERE pembelian_produk.id_pembelian='$_GET[id]'");?>
-										<?php while($pecah=$ambil->fetch_assoc()) { ?>
-										<?php $subharga =  $pecah['harga_produk']*$pecah['jumlah_pembelian']; ?>
-                                            <tr class="cart_item">
-                                              <td class="cart-product-name"> <?php echo $pecah['nama_produk']; ?><strong class="product-quantity"> × <?php echo $pecah['jumlah_pembelian']; ?></strong></td>
-                                              <td class="cart-product-total"><span class="amount">Rp. <?php echo number_format($pecah['harga_produk']); ?></span></td>  
-                                              <td class="cart-product-total"><span class="amount">Rp. <?php echo number_format($subharga); ?></span></td>  
-                                            </tr>                
+                                            <tr>
+                                                <td class="li-product-remove"><a href="#"><i class="fa fa-times"></i></a></td>
+                                                <td class="li-product-thumbnail"><a href="#"><img src="img/wishlist-thumb/1.jpg" alt=""></a></td>
+                                                <td class="li-product-name"><a href="#">Giro Civilia</a></td>
+                                                <td class="li-product-price"><span class="amount">$23.39</span></td>
+                                                <td class="li-product-stock-status"><span class="in-stock">in stock</span></td>
+                                                <td class="li-product-add-cart"><a href="#">add to cart</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="li-product-remove"><a href="#"><i class="fa fa-times"></i></a></td>
+                                                <td class="li-product-thumbnail"><a href="#"><img src="img/wishlist-thumb/2.jpg" alt=""></a></td>
+                                                <td class="li-product-name"><a href="#">Pro Bike Shoes</a></td>
+                                                <td class="li-product-price"><span class="amount">$30.50</span></td>
+                                                <td class="li-product-stock-status"><span class="in-stock">in stock</span></td>
+                                                <td class="li-product-add-cart"><a href="#">add to cart</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="li-product-remove"><a href="#"><i class="fa fa-times"></i></a></td>
+                                                <td class="li-product-thumbnail"><a href="#"><img src="img/wishlist-thumb/3.jpg" alt=""></a></td>
+                                                <td class="li-product-name"><a href="#">Nero Urban Shoes</a></td>
+                                                <td class="li-product-price"><span class="amount">$40.19</span></td>
+                                                <td class="li-product-stock-status"><span class="out-stock">out stock</span></td>
+                                                <td class="li-product-add-cart"><a href="#">add to cart</a></td>
+                                            </tr>
                                         </tbody>
-										<?php $nomor++ ?>
-										<?php $totalbelanja+=$subharga; ?>
-										<?php } ?>
-                                        <tfoot>
-                                            <tr class="sub-total">
-                                                <th>Tarif</th>
-                                                <td></td>
-                                                <td><strong><span class="amount">Rp. <?php echo number_format($detail['tarif']); ?></span></strong></td>
-                                            </tr>
-                                            <tr class="order-total">
-                                                <th>Order Total</th>
-                                                <td></td>
-                                                <td><strong><span class="amount">Rp. <?php echo number_format($totalbelanja+$detail['tarif']); ?></span></strong></td>
-                                            </tr>
-                                        </tfoot>
                                     </table>
                                 </div>
-                                <div class="payment-method">
-                                    <div class="payment-accordion">
-                                        <div id="accordion">
-                                          <div class="card">
-                                            <div class="card-header" id="#payment-1">
-                                              <h5 class="panel-title">
-                                                <a class="" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                  Direct Bank Transfer
-                                                </a>
-                                              </h5>
-                                            </div>
-                                            <div id="collapseOne" class="collapse show" data-parent="#accordion">
-                                              <div class="card-body">
-                                                <p>Silahkan melakukan Pembayaran <strong>Rp. <?php echo number_format($detail['total_pembelian'])?></strong></p>
-                                              </div>
-                                            </div>
-                                          </div>
-                                          <div class="card">
-                                            <div class="card-header" id="#payment-2">
-                                              <h5 class="panel-title">                                                
-                                                  Ke
-                                              </h5>
-                                            </div>
-                                            <div id="collapseTwo" class="collapse" data-parent="#accordion">
-                                              <div class="card-body">
-                                                <p>Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</p>
-                                              </div>
-                                            </div>
-                                          </div>
-                                          <div class="card">
-                                            <div class="card-header" id="#payment-3">
-                                              <strong class="panel-title">                                                
-												BANK KITA : 137-99123-42222-3242 <br>
-												AN. Irham Nurrahman                                         
-                                              </strong>
-                                            </div>                                            
-                                          </div>
-                                        </div>                    
-                                    </div>
-                                </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
-            <!--Checkout Area End-->
+            <!--Wishlist Area End-->
             <!-- Begin Footer Area -->
             <div class="footer">
                 <!-- Begin Footer Static Top Area -->
                 <div class="footer-static-top">
                     <div class="container">
                         <!-- Begin Footer Shipping Area -->
-                        <div class="footer-shipping pt-60 pb-55 pb-xs-25">
+                        <div class="footer-shipping pt-60 pb-25">
                             <div class="row">
                                 <!-- Begin Li's Shipping Inner Box Area -->
                                 <div class="col-lg-3 col-md-6 col-sm-6 pb-sm-55 pb-xs-55">
@@ -456,7 +337,7 @@
                                 <!-- Begin Footer Logo Area -->
                                 <div class="col-lg-4 col-md-6">
                                     <div class="footer-logo">
-                                    <img src="css/images/logo.png"   alt="">
+                                        <img src="css/images/logo.png" alt="Footer Logo">
                                         <p class="info">
                                             We are a team of designers and developers that create high quality HTML Template & Woocommerce, Shopify Theme.
                                         </p>
@@ -609,6 +490,111 @@
                 <!-- Footer Static Bottom Area End Here -->
             </div>
             <!-- Footer Area End Here -->
+            <!-- Begin Modal Area -->
+            <div class="modal fade open-modal" tabindex="-1" role="dialog" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fa fa-close"></i></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="row">
+                        <!-- Begin Modal Image Area -->
+                        <div class="col-md-5">
+                            <!-- Begin Modal Tab Content Area -->
+                            <div class="tab-content product-details-large myTabContent">
+                              <div class="tab-pane fade show active" id="single-slide1" role="tabpanel" aria-labelledby="single-slide-tab-1">
+                                  <!--Single Product Image Start-->
+                                  <div class="single-product-img img-full">
+                                    <img src="img/product/large-size/1.jpg" alt="">
+                                  </div>
+                                  <!--Single Product Image End-->
+                              </div>
+                              <div class="tab-pane fade" id="single-slide2" role="tabpanel" aria-labelledby="single-slide-tab-2">
+                                  <!--Single Product Image Start-->
+                                  <div class="single-product-img img-full">
+                                    <img src="img/product/large-size/2.jpg" alt="">
+                                  </div>
+                                  <!--Single Product Image End-->
+                              </div>
+                              <div class="tab-pane fade" id="single-slide3" role="tabpanel" aria-labelledby="single-slide-tab-3">
+                                  <!--Single Product Image Start-->
+                                  <div class="single-product-img img-full">
+                                    <img src="img/product/large-size/3.jpg" alt="">
+                                  </div>
+                                  <!--Single Product Image End-->
+                              </div>
+                              <div class="tab-pane fade" id="single-slide4" role="tabpanel" aria-labelledby="single-slide-tab-4">
+                                  <!--Single Product Image Start-->
+                                  <div class="single-product-img img-full">
+                                    <img src="img/product/large-size/4.jpg" alt="">
+                                  </div>
+                                  <!--Single Product Image End-->
+                              </div>
+                              <div class="tab-pane fade" id="single-slide5" role="tabpanel" aria-labelledby="single-slide-tab-4">
+                                  <!--Single Product Image Start-->
+                                  <div class="single-product-img img-full">
+                                    <img src="img/product/large-size/5.jpg" alt="">
+                                  </div>
+                                  <!--Single Product Image End-->
+                              </div>
+                              <div class="tab-pane fade" id="single-slide6" role="tabpanel" aria-labelledby="single-slide-tab-4">
+                                  <!--Single Product Image Start-->
+                                  <div class="single-product-img img-full">
+                                    <img src="img/product/large-size/6.jpg" alt="">
+                                  </div>
+                                  <!--Single Product Image End-->
+                              </div>
+                            </div>
+                            <!-- Modal Tab Content Area End Here -->
+                            <!-- Begin Modal Tab Menu Area -->
+                            <div class="single-product-menu">
+                                <div class="nav single-slide-menu owl-carousel" role="tablist">
+                                    <div class="single-tab-menu img-full">
+                                        <a class="active" data-toggle="tab" id="single-slide-tab-1" href="#single-slide1"><img src="img/product/small-size/1.jpg" alt=""></a>
+                                    </div>
+                                    <div class="single-tab-menu img-full">
+                                        <a data-toggle="tab" id="single-slide-tab-2" href="#single-slide2"><img src="img/product/small-size/2.jpg" alt=""></a>
+                                    </div>
+                                    <div class="single-tab-menu img-full">
+                                        <a data-toggle="tab" id="single-slide-tab-3" href="#single-slide3"><img src="img/product/small-size/3.jpg" alt=""></a>
+                                    </div>
+                                    <div class="single-tab-menu img-full">
+                                        <a data-toggle="tab" id="single-slide-tab-4" href="#single-slide4"><img src="img/product/small-size/4.jpg" alt=""></a>
+                                    </div>
+                                    <div class="single-tab-menu img-full">
+                                        <a data-toggle="tab" id="single-slide-tab-5" href="#single-slide5"><img src="img/product/small-size/5.jpg" alt=""></a>
+                                    </div>
+                                    <div class="single-tab-menu img-full">
+                                        <a data-toggle="tab" id="single-slide-tab-6" href="#single-slide6"><img src="img/product/small-size/6.jpg" alt=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Modal Tab Menu End Here -->
+                        </div>
+                        <!-- Modal Image Area End Here -->
+                        <!-- Begin Modal Content Area -->
+                        <div class="col-md-7">
+                            <div class="modal-product-info">
+                                <h2>Accusantium dolorem1</h2>
+                                <div class="modal-product-price">
+                                   <span class="new-price">$46.80</span>
+                               </div>
+                               <div class="cart-description">
+                                   <p>Vector graphic, format: svg. Download for personal, private and non-commercial use.</p>
+                               </div>
+                               <div class="quantity">
+                                   <input class="input-text qty text" step="1" min="1" max="200" name="quantity" value="1" title="Qty" size="4" type="number">
+                               </div>
+                            </div>
+                        </div>
+                        <!-- Modal Content Area End Here -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Modal Area End Here -->
         </div>
         <!-- Body Wrapper End Here -->
         <!-- jQuery-V1.12.4 -->
@@ -631,7 +617,7 @@
         <script src="js/jquery.magnific-popup.min.js"></script>
         <!-- Isotope js -->
         <script src="js/isotope.pkgd.min.js"></script>
-        <!-- imgloaded js -->
+        <!-- Imagesloaded js -->
         <script src="js/imagesloaded.pkgd.min.js"></script>
         <!-- Mixitup js -->
         <script src="js/jquery.mixitup.min.js"></script>
@@ -655,5 +641,5 @@
         <script src="js/main.js"></script>
     </body>
 
-<!-- checkout31:27-->
+<!-- shopping-cart31:32-->
 </html>

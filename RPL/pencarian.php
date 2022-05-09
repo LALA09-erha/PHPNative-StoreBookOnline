@@ -8,9 +8,7 @@
 
 	$semuadata = array();
 	$ambildata = $koneksi-> query("SELECT * FROM produk WHERE nama_produk LIKE '%$keyword%' OR deskripsi_produk LIKE '%$keyword%'");
-	while($pecah = $ambildata->fetch_assoc()) {
-		$semuadata[]=$pecah;	
-	}
+	
 
 ?>
 <!doctype html>
@@ -183,8 +181,8 @@
                                         <ul>
                                         <li class="active"><a href="index.php">Home</a></li>                                            
                                             <li><a href="riwayat.php">Riwayat</a></li>
-                                            <li><a href="pages/about.php">About Us</a></li>
-                                            <li><a href="pages/contact.php"> Contact</a></li>
+                                            <li><a href="wishlist.php">Wishlist</a></li>
+                                            <li><a href="keranjang.php"> keranjang</a></li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -270,12 +268,28 @@
                                 <div class="tab-content">
                                     <div id="grid-view" class="tab-pane fade active show" role="tabpanel">
                                         <div class="product-area shop-product-area">
-                                            <div class="row">
+                                            <div class="row ">
                                                 <!-- single-product-wrap start -->
-												<?php if(empty($semuadata)):?>
-													<div class="alert alert-danger"><?php echo $keyword ?> Tidak Ditemukan</div>
+												<?php 
+                                                while($pecah = $ambildata->fetch_assoc()) {
+                                                    $semuadata[]=$pecah;	
+                                                }
+                                                $jumlahdata = count($semuadata);
+                                                $jumlahdatatampil = 2;
+                                                $jumlah_halaman = ceil($jumlahdata/$jumlahdatatampil);
+                                                $halamanaktif = (isset($_GET['halaman'])) ? $_GET['halaman'] : 1;
+                                                $awaldata = ($jumlahdatatampil * $halamanaktif) - $jumlahdatatampil;
+                                                $semuadata2 = array();
+                                                $ambildata2 = $koneksi->query("SELECT * FROM produk WHERE nama_produk LIKE '%$keyword%' ORDER BY id_produk DESC LIMIT $awaldata, $jumlahdatatampil");
+                                                while($pecah = $ambildata2->fetch_assoc()) {
+                                                    $semuadata2[]=$pecah;	
+                                                }
+                                                if(empty($semuadata2)):?>
+                                                    <div class="container justify-content-center">
+													    <div class="alert alert-danger text-center">'<?php echo $keyword ?>' Tidak Ditemukan</div>
+                                                    </div>
 												<?php endif ?>
-                                                <?php foreach($semuadata as $key => $value): ?>
+                                                <?php foreach($semuadata2 as $key => $value): ?>
                                                 <div class="col-lg-3 col-md-4 col-sm-6 mt-40">
                                                     <div class="single-product-wrap">
                                                         <div class="product-image">
@@ -342,10 +356,16 @@
                                         <div class="row">
                                             <div class="col">
                                                 <!-- START LIST ITEM -->
-												<?php if(empty($semuadata)):?>
-													<div class="alert alert-danger"><?php echo $keyword ?> Tidak Ditemukan</div>
+                                                
+												<?php
+                                                #pegination code in search page
+                                                
+                                                if(empty($semuadata2)):?>
+                                                    <div class="row d-flex justify-content-center">
+													    <div class="alert alert-danger">'<?php echo $keyword ?>' Tidak Ditemukan</div>
+                                                    </div>
 												<?php endif ?>
-                                                <?php foreach($semuadata as $key => $value): ?>
+                                                <?php foreach($semuadata2 as $key => $value): ?>
                                                 <div class="row product-layout-list">
                                                     <div class="col-lg-3 col-md-5 ">
                                                         <div class="product-image">
@@ -417,18 +437,29 @@
                                     <div class="paginatoin-area">
                                         <div class="row">
                                             <div class="col-lg-6 col-md-6">
-                                                <p>Showing 1-10 of <?php echo $jumlah ; ?> item(s)</p>
+                                                <p>Showing 1-8 of <?php echo $jumlah; ?> item(s)</p>
                                             </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <ul class="pagination-box">
-                                                    <li><a href="#" class="Previous"><i class="fa fa-chevron-left"></i> Previous</a>
+                                            <div class="col-lg-6 col-md-6">                                                
+                                                <ul class="pagination-box">   
+                                                    <?php 
+                                                    #pagimation number code with get keyword value                                                    
+                                                    for ($i=1; $i <= $jumlah_halaman ; $i++) {
+                                                        if($i == $halamanaktif){                                       
+                                                            echo "<li class='active'><a href='?halaman=$i&keyword=$keyword'>$i</a></li>";
+                                                        }else{
+                                                            echo "<li><a href='?halaman=$i&keyword=$keyword'>$i</a></li>";
+                                                        }
+
+                                                    }
+                                                    ?>                                                 
+                                                    <!-- <li><a href="#" class="Previous"><i class="fa fa-chevron-left"></i> Previous</a>
                                                     </li>
                                                     <li class="active"><a href="#">1</a></li>
                                                     <li><a href="#">2</a></li>
                                                     <li><a href="#">3</a></li>
                                                     <li>
                                                       <a href="#" class="Next"> Next <i class="fa fa-chevron-right"></i></a>
-                                                    </li>
+                                                    </li> -->
                                                 </ul>
                                             </div>
                                         </div>

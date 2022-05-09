@@ -211,8 +211,8 @@
                                         <ul>
                                         <li class="active"><a href="index.php">Home</a></li>                                            
                                             <li><a href="riwayat.php">Riwayat</a></li>
-                                            <li><a href="pages/about.php">About Us</a></li>
-                                            <li><a href="pages/contact.php"> Contact</a></li>
+                                            <li><a href="wishlist.php">Wishlist</a></li>
+                                            <li><a href="keranjang.php"> keranjang</a></li>
                                         </ul>
                                     </nav>
                                 </div>

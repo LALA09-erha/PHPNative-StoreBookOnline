@@ -176,8 +176,8 @@
                                         <ul>
                                             <li class="active"><a href="index.php">Home</a></li>                                            
                                             <li><a href="riwayat.php">Riwayat</a></li>
-                                            <li><a href="pages/about.php">About Us</a></li>
-                                            <li><a href="pages/contact.php"> Contact</a></li>
+                                            <li><a href="wishlist.php">Wishlist</a></li>
+                                            <li><a href="keranjang.php"> keranjang</a></li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -266,8 +266,16 @@
                                         <div class="product-area shop-product-area">
                                             <div class="row">
                                                 <!-- single-product-wrap start -->
-                                               
-				                                <?php while($perproduk = $ambil->fetch_assoc()) { ?>
+                                             
+				                                <?php 
+                                                #pagination code
+                                                $per_page = 12;
+                                                $page_query = $koneksi->query("SELECT * FROM produk");
+                                                $page_count = ceil($page_query->num_rows/$per_page);
+                                                $page = (isset($_GET['page'])) ? (int)$_GET['page'] : 1;
+                                                $start = ($page-1)*$per_page;
+                                                $ambil = $koneksi->query("SELECT * FROM produk LIMIT $start, $per_page");
+                                                while($perproduk = $ambil->fetch_assoc()) { ?>
                                                 <div class="col-lg-3 col-md-4 col-sm-6 mt-40">
                                                     <div class="single-product-wrap">
                                                         <div class="product-image">
@@ -332,8 +340,16 @@
                                         <div class="row">
                                             <div class="col">
                                                 <!-- START LIST ITEM -->
-                                                <?php $ambil = $koneksi->query("SELECT * FROM produk");?>
-                                                <?php while($perproduk = $ambil->fetch_assoc()) { ?>
+                                                <?php 
+                                                #pagination code
+                                                $per_page = 12;
+                                                $page_query = $koneksi->query("SELECT * FROM produk");
+                                                $page_count = ceil($page_query->num_rows/$per_page);
+                                                $page = (isset($_GET['page'])) ? (int)$_GET['page'] : 1;
+                                                $start = ($page-1)*$per_page;
+                                                $ambil = $koneksi->query("SELECT * FROM produk LIMIT $start, $per_page");
+                                                while($perproduk = $ambil->fetch_assoc()) { ?>
+                                               
                                                 <div class="row product-layout-list">
                                                     <div class="col-lg-3 col-md-5 ">
                                                         <div class="product-image">
@@ -404,18 +420,28 @@
                                     <div class="paginatoin-area">
                                         <div class="row">
                                             <div class="col-lg-6 col-md-6">
-                                                <p>Showing 1-10 of <?php echo $jumlah ; ?> item(s)</p>
+                                                <p>Showing 1-12 of <?php echo $jumlah ; ?> item(s)</p>
                                             </div>
                                             <div class="col-lg-6 col-md-6">
                                                 <ul class="pagination-box">
-                                                    <li><a href="#" class="Previous"><i class="fa fa-chevron-left"></i> Previous</a>
+                                                    <?php
+                                                    #page number code
+                                                    for($i=1;$i<=$page_count;$i++){
+                                                        if($i==$page){
+                                                            echo "<li class='active'><a href='?page=$i'>$i</a></li>";
+                                                        }else{
+                                                            echo "<li><a href='?page=$i'>$i</a></li>";
+                                                        }
+                                                    }
+                                                    ?>
+                                                    <!-- <li><a href="#" class="Previous"><i class="fa fa-chevron-left"></i> Previous</a>
                                                     </li>
                                                     <li class="active"><a href="#">1</a></li>
                                                     <li><a href="#">2</a></li>
                                                     <li><a href="#">3</a></li>
                                                     <li>
                                                       <a href="#" class="Next"> Next <i class="fa fa-chevron-right"></i></a>
-                                                    </li>
+                                                    </li> -->
                                                 </ul>
                                             </div>
                                         </div>
