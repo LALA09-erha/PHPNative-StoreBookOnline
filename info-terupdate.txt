@@ -7,6 +7,7 @@ tamplate yang harus di rubah nav dan footer:
 6. pembayaran
 7. pencarian
 8. riwayat
+9. wishlist
 next : 
 1. keranjang | done -> keranjang harus masuk ke database agar kalau logout tidak hilang
 2. pembayaran -> done
@@ -17,9 +18,9 @@ next :
 7. pencarian | done
 8. rapikan file ke folder?
 9. admin
-10. wishlist |done belum tapi data default
+10. wishlist |done tapi data default belum dari database
 11. feedback
 12. rating
 13. index dan pencarian -> sort by ->pagination |done
 Finishing :
-1. api 
+1. data buku
