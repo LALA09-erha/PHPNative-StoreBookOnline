@@ -106,39 +106,17 @@
                                         </li>
                                         <!-- Header Middle Wishlist Area End Here -->
                                         <!-- Begin Header Mini Cart Area -->
-                                        <li class="hm-minicart justify-content-center align-items-center">
+                                       <!-- JUMLAH ITEM DI KERANJANG -->
+                                       <li class="hm-minicart justify-content-center align-items-center">
                                             <div class="hm-minicart-trigger" style="padding-right: 0;padding-left: 45px;">
                                                 <span class="item-icon "></span>
+                                                <span class="cart-item-count wishlist-item-count">0</span>
+                                                
                                             </div>
                                             
                                             <div class="minicart">
-                                                <ul class="minicart-product-list">
-                                                    <li>
-                                                        <a href="detail.php?id=<?php echo $perproduk['id_produk']; ?>" class="minicart-product-image">
-                                                            <img src="img/product/small-size/5.jpg" alt="cart products">
-                                                        </a>
-                                                        <div class="minicart-product-details">
-                                                            <h6><a href="detail.php?id=<?php echo $perproduk['id_produk']; ?>">Aenean eu tristique</a></h6>
-                                                            <span>£40 x 1</span>
-                                                        </div>
-                                                        <button class="close" title="Remove">
-                                                            <i class="fa fa-close"></i>
-                                                        </button>
-                                                    </li>
-                                                    <li>
-                                                        <a href="detail.php?id=<?php echo $perproduk['id_produk']; ?>" class="minicart-product-image">
-                                                            <img src="img/product/small-size/6.jpg" alt="cart products">
-                                                        </a>
-                                                        <div class="minicart-product-details">
-                                                            <h6><a href="detail.php?id=<?php echo $perproduk['id_produk']; ?>">Aenean eu tristique</a></h6>
-                                                            <span>£40 x 1</span>
-                                                        </div>
-                                                        <button class="close" title="Remove">
-                                                            <i class="fa fa-close"></i>
-                                                        </button>
-                                                    </li>
-                                                </ul>
-                                                <p class="minicart-total">SUBTOTAL: <span>£80.00</span></p>
+                                              
+                                                <p class="minicart-total text-center">KERANJANG</p>
                                                 <div class="minicart-button">
                                                     <a href="keranjang.php" class="li-button li-button-fullwidth li-button-dark">
                                                         <span>View Full Cart</span>
