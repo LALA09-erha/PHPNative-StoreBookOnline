@@ -94,7 +94,7 @@
                                     <ul class="hm-menu">
                                         <!-- Begin Header Middle Wishlist Area -->
                                         <li class="hm-wishlist" style="margin-right: 5px;">
-                                            <a href="wishlist.html">
+                                            <a href="wishlist.php">
                                                 <span class="cart-item-count wishlist-item-count">0</span>
                                                 <i class="fa fa-heart-o"></i>
                                             </a>
@@ -275,7 +275,7 @@
                                                     $semuadata[]=$pecah;	
                                                 }
                                                 $jumlahdata = count($semuadata);
-                                                $jumlahdatatampil = 2;
+                                                $jumlahdatatampil = 8;
                                                 $jumlah_halaman = ceil($jumlahdata/$jumlahdatatampil);
                                                 $halamanaktif = (isset($_GET['halaman'])) ? $_GET['halaman'] : 1;
                                                 $awaldata = ($jumlahdatatampil * $halamanaktif) - $jumlahdatatampil;
@@ -339,8 +339,8 @@
                                                                         <li class="add-cart active"><a>Habis</a></li>
                                                                     <?php } ?>
                                                                     <?php endif ?>
-                                                                    <li><a class="links-details" href="wishlist.html"><i class="fa fa-heart-o"></i></a></li>
-                                                                    <li><a href="#" title="quick view" class="quick-view-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-eye"></i></a></li>
+                                                                    <li><a class="links-details" href="wishlist.php"><i class="fa fa-heart-o"></i></a></li>
+                                                                    
                                                                 </ul>
                                                             </div>
                                                         </div>
@@ -420,12 +420,12 @@
                                                                     <li class="add-cart"><a>Habis</a></li>
                                                                 <?php } ?>
                                                                 <?php endif ?>
-                                                                <li class="wishlist"><a href="wishlist.html"><i class="fa fa-heart-o"></i>Add to wishlist</a></li>
-                                                                <li><a class="quick-view" data-toggle="modal" data-target="#exampleModalCenter" href="#"><i class="fa fa-eye"></i>Quick view</a></li> 
+                                                                <li class="wishlist"><a href="wishlist.php"><i class="fa fa-heart-o"></i>Add to wishlist</a></li>
+                                                               
 
                                                                 <!-- <li class="add-cart"><a href="#">Add to cart</a></li>
-                                                                <li class="wishlist"><a href="wishlist.html"><i class="fa fa-heart-o"></i>Add to wishlist</a></li>
-                                                                <li><a class="quick-view" data-toggle="modal" data-target="#exampleModalCenter" href="#"><i class="fa fa-eye"></i>Quick view</a></li> -->
+                                                                <li class="wishlist"><a href="wishlist.php"><i class="fa fa-heart-o"></i>Add to wishlist</a></li>
+                                                               -->
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -792,7 +792,7 @@
                                                 </form>
                                             </div>
                                             <div class="product-additional-info pt-25">
-                                                <a class="wishlist-btn" href="wishlist.html"><i class="fa fa-heart-o"></i>Add to wishlist</a>
+                                                <a class="wishlist-btn" href="wishlist.php"><i class="fa fa-heart-o"></i>Add to wishlist</a>
                                                 <div class="product-social-sharing pt-25">
                                                     <ul>
                                                         <li class="facebook"><a href="#"><i class="fa fa-facebook"></i>Facebook</a></li>
