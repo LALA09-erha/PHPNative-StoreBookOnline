@@ -184,6 +184,13 @@
                     <div class="breadcrumb-content">
                         <ul>
                             <li><a href="index.php">Home</a></li>
+                            <?php
+                            if (isset($_SESSION['pesan'])) {
+                                echo '<li><div class="alert alert-success" role="alert">'.$_SESSION['pesan'].'</div></li>';
+                                unset ($_SESSION['pesan']);
+                            }
+
+                            ?>
                         </ul>
                     </div>
                 </div>

@@ -22,6 +22,6 @@ next :
 11. feedback
 12. rating
 13. index dan pencarian -> sort by ->pagination |done
-14. alert javascript di ganti alert bootstrap
+14. alert javascript di ganti alert bootstrap -> index,login,daftar |done
 Finishing :
 1. data buku
