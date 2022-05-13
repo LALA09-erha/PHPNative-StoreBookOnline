@@ -14,7 +14,7 @@
 
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>BOS | Keranjang</title>
+        <title>BOS | Daftar Keinginan</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Favicon -->
@@ -88,8 +88,17 @@
                                     <ul class="hm-menu">
                                         <!-- Begin Header Middle Wishlist Area -->
                                         <li class="hm-wishlist" style="margin-right: 5px;">
+                                        <?php
+                                        #menghitung jumlah barang yang ada di wishlist
+                                        $id_pelanggan = $_SESSION['pelanggan']['id_pelanggan'];
+                                        $querywishlist = $koneksi->query("SELECT * FROM wishlist WHERE id_pelanggan = '$id_pelanggan'");
+                                        $countwishlist = $querywishlist->num_rows;
+                                        #menghitung jumlah barang yang ada di keranjang belanja                                        
+                                        $querykeranjang = $koneksi->query("SELECT * FROM keranjang WHERE id_pelanggan = '$id_pelanggan'");
+                                        $countkeranjang = $querykeranjang->num_rows;
+                                        ?>
                                             <a href="wishlist.php">
-                                                <span class="cart-item-count wishlist-item-count">0</span>
+                                                <span class="cart-item-count wishlist-item-count"><?php echo $countwishlist; ?></span>
                                                 <i class="fa fa-heart-o"></i>
                                             </a>
                                         </li>
@@ -99,7 +108,7 @@
                                        <li class="hm-minicart justify-content-center align-items-center">
                                             <div class="hm-minicart-trigger" style="padding-right: 0;padding-left: 45px;">
                                                 <span class="item-icon "></span>
-                                                <span class="cart-item-count wishlist-item-count">0</span>
+                                                <span class="cart-item-count wishlist-item-count"><?php echo $countkeranjang; ?></span>
                                                 
                                             </div>
                                             

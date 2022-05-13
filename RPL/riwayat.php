@@ -84,22 +84,31 @@
                                 </form>
                                 <!-- Header Middle Searchbox Area End Here -->
                                 <!-- Begin Header Middle Right Area -->
+                                <?php
+                                        #menghitung jumlah barang yang ada di wishlist
+                                        $id_pelanggan = $_SESSION['pelanggan']['id_pelanggan'];
+                                        $querywishlist = $koneksi->query("SELECT * FROM wishlist WHERE id_pelanggan = '$id_pelanggan'");
+                                        $countwishlist = $querywishlist->num_rows;
+                                        #menghitung jumlah barang yang ada di keranjang belanja                                        
+                                        $querykeranjang = $koneksi->query("SELECT * FROM keranjang WHERE id_pelanggan = '$id_pelanggan'");
+                                        $countkeranjang = $querykeranjang->num_rows;
+                                        ?>
                                 <div class="header-middle-right">
                                     <ul class="hm-menu">
                                         <!-- Begin Header Middle Wishlist Area -->
                                         <li class="hm-wishlist" style="margin-right: 5px;">
                                             <a href="wishlist.html">
-                                                <span class="cart-item-count wishlist-item-count">0</span>
+                                                <span class="cart-item-count wishlist-item-count"><?php echo $countwishlist ?></span>
                                                 <i class="fa fa-heart-o"></i>
                                             </a>
                                         </li>
                                         <!-- Header Middle Wishlist Area End Here -->
                                         <!-- Begin Header Mini Cart Area -->
-                                     <!-- JUMLAH ITEM DI KERANJANG -->
-                                     <li class="hm-minicart justify-content-center align-items-center">
+                                        <!-- JUMLAH ITEM DI KERANJANG -->
+                                        <li class="hm-minicart justify-content-center align-items-center">
                                             <div class="hm-minicart-trigger" style="padding-right: 0;padding-left: 45px;">
                                                 <span class="item-icon "></span>
-                                                <span class="cart-item-count wishlist-item-count">0</span>
+                                                <span class="cart-item-count wishlist-item-count"><?php echo $countkeranjang ?></span>
                                                 
                                             </div>
                                             
