@@ -12,16 +12,29 @@
 	$detail = $ambil->fetch_assoc();
 
     if (isset($_POST['beli'])) {
+        $id_pelanggan = $_SESSION['pelanggan']['id_pelanggan'];
+        //memasukkan produk yang dipilih ke dalam database keranjang
+        $ambill = $koneksi->query("SELECT * FROM keranjang WHERE id_pelanggan='$id_pelanggan' AND id_produk='$id_produk'");
+        $check = $ambill->num_rows;
         //mendapatkan jumlah yang dibeli
         $jumlah = $_POST['jumlah'];
-        //masukkan keranjang
-        if(!isset($_SESSION['keranjang'][$id_produk])){
-            $_SESSION['keranjang'][$id_produk]=$jumlah;
+        if ($check>0) {
+            #mengambil jumlah produk yang ada di keranjang dan menambahkan dengan jumlah produk yang dipilih
+            $keranjang = $ambill->fetch_assoc();
+            $jumlah_produk = $keranjang['jumlah']+$jumlah;
+            $koneksi->query("UPDATE keranjang SET jumlah='$jumlah_produk' WHERE id_pelanggan='$id_pelanggan' AND id_produk='$id_produk'");
+            #pesan
+            $_SESSION['pesan'] = "Produk Berhasil DiUpdate";
+            #larikan ke keranjang
+            header("location:keranjang.php");
         }else{
-        $_SESSION["keranjang"][$id_produk] += $jumlah;
+            #menambahkan produk yang dipilih ke dalam keranjang belanja
+            $koneksi->query("INSERT INTO keranjang (id_pelanggan,id_produk,jumlah) VALUES ('$id_pelanggan','$id_produk','$jumlah')");
+            #pesan
+            $_SESSION['pesan'] = "Produk Berhasil Ditambahkan";
+            #larikan ke keranjang
+            header("location:keranjang.php");
         }
-        // echo "<script> alert('Produk Masuk Kedalam Keranjang');</script>";
-        echo "<script> location='keranjang.php' </script>";
     }
 
 	

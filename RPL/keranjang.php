@@ -184,6 +184,13 @@
                         <ul>
                             <li><a href="index.php">Home</a></li>
                             <li class="active">Shopping Cart</li>
+                            <?php
+                            if (isset($_SESSION['pesan'])) {
+                                echo '<li><div class="alert alert-success" role="alert">'.$_SESSION['pesan'].'</div></li>';
+                                unset ($_SESSION['pesan']);
+                            }
+
+                            ?>
                         </ul>
                     </div>
                 </div>
@@ -211,11 +218,28 @@
                                         <tbody>
                                         <?php $nomor=1;
                                         $totalharga = 0; ?>
-                                        <?php foreach ($_SESSION["keranjang"] as $id_produk => $jumlah): ?>
+                                       
                                         <!-- Menampilkan Produk Perulangan Berdasarkan id_produk-->
-                                        <?php $ambildata = $koneksi->query("SELECT * FROM produk WHERE id_produk='$id_produk'"); ?>
-                                        <?php $pecah = $ambildata->fetch_assoc();
-                                            $totalharga = $totalharga + ($pecah["harga_produk"]*$jumlah);
+                                        <?php 
+                                        $id_pelanggan = $_SESSION['pelanggan']['id_pelanggan'];
+                                        #menampilkan data produk berdasarkan id_produk pada database keranjang
+                                        $ambildata = $koneksi->query("SELECT *
+                                        FROM keranjang
+                                        INNER JOIN produk ON keranjang.id_produk=produk.id_produk
+                                        WHERE keranjang.id_pelanggan =$id_pelanggan;");
+                                        
+                                        ?>
+                                        <?php 
+                                        #menampilkan data kosong jika tidak ada produk yang dibeli
+                                        if ($ambildata->num_rows == 0) {
+                                            echo "<tr>
+                                            <td colspan='7' align='center'>
+                                            <h3>Keranjang Kosong</h3>
+                                            </td>
+                                            </tr>";
+                                        }
+                                        while( $pecah = $ambildata->fetch_assoc()){;
+                                        $totalharga = $totalharga + ($pecah["harga_produk"]* $pecah['jumlah']);
                                         ?>
                                             <tr>
                                                 <td class="li-product-number"><span><?php echo $nomor; ?></span></td>
@@ -223,13 +247,13 @@
                                                 <td class="li-product-name"><a href="detail.php?id=<?php echo $pecah['id_produk']; ?>"><?php echo $pecah['nama_produk']; ?></a></td>
                                                 <td class="li-product-price"><span class="amount">Rp. <?php echo number_format($pecah['harga_produk']); ?></span></td>
                                                 <td class="quantity">
-                                                    <?php echo $jumlah ?>
+                                                    <?php echo $pecah['jumlah']; ?>
                                                 </td>
-                                                <td class="product-subtotal"><span class="amount">Rp. <?php echo number_format($pecah['harga_produk']*$jumlah); ?></span></td>
-                                                <td class="li-product-remove"><a href="hapuskeranjang.php?id=<?php echo $id_produk ?>" onclick="return confirm('Apakah Anda Yakin ?');"><i class="fa fa-times"></i></a></td>
+                                                <td class="product-subtotal"><span class="amount">Rp. <?php echo number_format($pecah['harga_produk']* $pecah['jumlah']); ?></span></td>
+                                                <td class="li-product-remove"><a href="hapuskeranjang.php?id_produk=<?php echo $pecah['id_produk'] ?>" onclick="return confirm('Apakah Anda Yakin ?');"><i class="fa fa-times"></i></a></td>
                                             </tr>
                                             <?php $nomor++; ?>
-					                        <?php endforeach ?>
+					                        <?php } //endforeach} ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -238,7 +262,7 @@
                                         <div class="coupon-all">
                                             <div class="cart-page-total">
                                                 <a href="index.php">Lanjut Belanja</a>
-                                                <a href="hapuskeranjang.php?id=<?php echo $id_produk ?>" style="background-color: red;" onclick="return confirm('Apakah Anda Yakin ?');">Hapus Semua</a>
+                                                <a href="hapuskeranjang.php?id=<?php echo $id_pelanggan; ?>" style="background-color: red;" onclick="return confirm('Apakah Anda Yakin ?');">Hapus Semua</a>
                                                 
                                             </div>
                                         </div>

@@ -9,7 +9,7 @@ tamplate yang harus di rubah nav dan footer:
 8. riwayat
 9. wishlist
 next : 
-1. keranjang | done -> keranjang harus masuk ke database agar kalau logout tidak hilang
+1. keranjang | done sampai bayar.php
 2. pembayaran -> done
 3. nota -> done
 4. riwayat | done

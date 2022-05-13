@@ -15,8 +15,10 @@
 	$id_pelanggan_login = $_SESSION['pelanggan']['id_pelanggan'];
 
 	if ($id_pelanggan_login !== $id_pelanggan_beli) {
-		echo "<script> alert('Tidak Dapat Mengakses'); </script>";
-		echo "<script> location='riwayat.php' </script>";
+        $_SESSION['pesan'] = "Tidak Dapat Mengakases Data Pembelian";
+		// echo "<script> alert('Tidak Dapat Mengakses'); </script>";
+        header("location:riwayat.php");
+		// echo "<script> location='riwayat.php' </script>";
 		exit();
 
 	}
@@ -37,8 +39,10 @@
 
         //update data pembelian dari pending menjadi sudah kirim pembayaran
         $koneksi->query("UPDATE pembelian SET status_pembelian = 'Proses' WHERE id_pembelian='$id_pem'");
-        echo "<script> alert('Terima Kasih Sudah Memberikan Bukti Pembayaran'); </script>";
-        echo "<script> location='riwayat.php' </script>";
+        $_SESSION['pesan'] = "Terima Kasih Sudah Memberikan Bukti Pembayaran";
+        // echo "<script> alert('Terima Kasih Sudah Memberikan Bukti Pembayaran'); </script>";
+        header("location:riwayat.php");
+        // echo "<script> location='riwayat.php' </script>";
         exit();
     }
 ?>

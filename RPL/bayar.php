@@ -4,10 +4,17 @@
     if(!isset($_SESSION['pelanggan'])){
         header("location:login.php");
     }
-	if (empty($_SESSION['keranjang']) OR !isset($_SESSION['keranjang'])) {
-		echo "<script> alert('Keranjang Belanja Kosong, Silahkan Berbelanja'); </script>";
-		echo "<script> location='index.php'; </script>";
-	}
+    $id_pelanggan = $_SESSION['pelanggan']['id_pelanggan'];
+    $ambill = $koneksi->query("SELECT * FROM keranjang WHERE id_pelanggan='$id_pelanggan'");
+    #cek apakah ada produk di keranjang belanja ambil
+    $check = $ambill->num_rows;
+    #jika tidak ada produk di keranjang belanja maka akan di larikan ke halaman belanja
+    if($check < 1){
+        $_SESSION['pesan'] = "Keranjang Belanja Kosong, Silahkan Belanja";
+        header("location:index.php");
+        
+    }
+    
 	
 ?>
 <!doctype html>
@@ -264,18 +271,22 @@
                                         </thead>
                                         <tbody>
 										<?php $totalbelanja=0; ?>
-										<?php foreach ($_SESSION["keranjang"] as $id_produk => $jumlah): ?>
+										<?php //foreach ($_SESSION["keranjang"] as $id_produk => $jumlah): ?>
 										<!-- Menampilkan Produk Perulangan Berdasarkan id_produk-->
-										<?php $ambildata = $koneksi->query("SELECT * FROM produk WHERE id_produk='$id_produk'"); ?>
-										<?php $pecah = $ambildata->fetch_assoc(); ?>
-										<?php $subharga = $pecah['harga_produk']*$jumlah; ?>
+										<?php $data = $koneksi->query("SELECT *
+                                        FROM keranjang
+                                        INNER JOIN produk ON keranjang.id_produk=produk.id_produk
+                                        WHERE keranjang.id_pelanggan =$id_pelanggan;");
+                                        ?>
+										<?php while($keranjang = $data->fetch_assoc()){ ?>
+										<?php $subharga = $keranjang['harga_produk']*$keranjang['jumlah']; ?>
                                             <tr class="cart_item">
-                                              <td class="cart-product-name"><?php echo $pecah['nama_produk']; ?><strong class="product-quantity"> × <?php echo $jumlah ?></strong></td>
-                                              <td class="cart-product-total"><span class="amount">Rp. <?php echo number_format($pecah['harga_produk']); ?></span></td>  
+                                              <td class="cart-product-name"><?php echo $keranjang['nama_produk']; ?><strong class="product-quantity"> × <?php echo $keranjang['jumlah'] ?></strong></td>
+                                              <td class="cart-product-total"><span class="amount">Rp. <?php echo number_format($keranjang['harga_produk']); ?></span></td>  
                                               <td class="cart-product-total"><span class="amount">Rp. <?php echo number_format($subharga); ?></span></td>  
                                             </tr>        
 											<?php $totalbelanja+=$subharga; ?>
-											<?php endforeach ?>           
+											<?php }//endforeach ?>           
                                         </tbody>
                                         <tfoot>
                                             <tr class="cart-subtotal">
