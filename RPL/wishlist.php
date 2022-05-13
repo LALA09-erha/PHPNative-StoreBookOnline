@@ -155,6 +155,7 @@
                                             <li><a href="riwayat.php">Riwayat</a></li>
                                             <li><a href="wishlist.php">Wishlist</a></li>
                                             <li><a href="keranjang.php"> keranjang</a></li>
+                                            
                                         </ul>
                                     </nav>
                                 </div>
@@ -184,6 +185,12 @@
                         <ul>
                             <li><a href="index.php">Home</a></li>
                             <li class="active">Wishlist</li>
+                            <?php                           
+                            if (isset($_SESSION['pesan'])) {
+                                echo '<li><div class="alert alert-success" role="alert">'.$_SESSION['pesan'].'</div></li>';
+                                unset ($_SESSION['pesan']);
+                            }
+                            ?>
                         </ul>
                     </div>
                 </div>
@@ -207,32 +214,46 @@
                                                 <th class="li-product-add-cart">add to cart</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody>                                                                       
+                                        <!-- Menampilkan Produk Perulangan Berdasarkan id_produk-->
+                                        <?php 
+                                        $id_pelanggan = $_SESSION['pelanggan']['id_pelanggan'];
+                                        #menampilkan data produk berdasarkan id_produk pada database keranjang
+                                        $ambildata = $koneksi->query("SELECT *
+                                        FROM wishlist
+                                        INNER JOIN produk ON wishlist.id_produk=produk.id_produk
+                                        WHERE wishlist.id_pelanggan =$id_pelanggan;");
+                                        
+                                        ?>
+                                        <?php 
+                                        #menampilkan data kosong jika tidak ada produk yang dibeli
+                                        if ($ambildata->num_rows == 0) {
+                                            echo "<tr>
+                                            <td colspan='7' align='center'>
+                                            <h3>Wishlist Kosong</h3>
+                                            </td>
+                                            </tr>";
+                                        }
+                                        while( $pecah = $ambildata->fetch_assoc()){;
+                                       
+                                        ?>
                                             <tr>
-                                                <td class="li-product-remove"><a href="#"><i class="fa fa-times"></i></a></td>
-                                                <td class="li-product-thumbnail"><a href="#"><img src="img/wishlist-thumb/1.jpg" alt=""></a></td>
-                                                <td class="li-product-name"><a href="#">Giro Civilia</a></td>
-                                                <td class="li-product-price"><span class="amount">$23.39</span></td>
-                                                <td class="li-product-stock-status"><span class="in-stock">in stock</span></td>
-                                                <td class="li-product-add-cart"><a href="#">add to cart</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="li-product-remove"><a href="#"><i class="fa fa-times"></i></a></td>
-                                                <td class="li-product-thumbnail"><a href="#"><img src="img/wishlist-thumb/2.jpg" alt=""></a></td>
-                                                <td class="li-product-name"><a href="#">Pro Bike Shoes</a></td>
-                                                <td class="li-product-price"><span class="amount">$30.50</span></td>
-                                                <td class="li-product-stock-status"><span class="in-stock">in stock</span></td>
-                                                <td class="li-product-add-cart"><a href="#">add to cart</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="li-product-remove"><a href="#"><i class="fa fa-times"></i></a></td>
-                                                <td class="li-product-thumbnail"><a href="#"><img src="img/wishlist-thumb/3.jpg" alt=""></a></td>
-                                                <td class="li-product-name"><a href="#">Nero Urban Shoes</a></td>
-                                                <td class="li-product-price"><span class="amount">$40.19</span></td>
-                                                <td class="li-product-stock-status"><span class="out-stock">out stock</span></td>
-                                                <td class="li-product-add-cart"><a href="#">add to cart</a></td>
+                                                <td class="li-product-remove"><a href="hapuskeranjang.php?idwishlist=<?php echo $pecah['id_wishlist'] ?>"><i class="fa fa-times"></i></a></td>
+                                                <td class="li-product-thumbnail"><a href="#"><img width="30%" src="foto_produk/<?php echo $pecah['foto_produk']; ?>" alt="Li's Product Image"></a></td>
+                                                <td class="li-product-name"><a href="detail.php?id=<?php echo $pecah['id_produk']; ?>"><?php echo $pecah['nama_produk']; ?></a></td>
+                                                <td class="li-product-price"><span class="amount">Rp. <?php echo number_format($pecah['harga_produk']); ?></span></td>
+                                                <?php
+                                                #mengecek stok produk
+                                                if ($pecah['stok_produk'] == 0) {
+                                                    echo " <td class='li-product-stock-status'><span class='out-stock'>Out Stock</span></td>";
+                                                }else{
+                                                    echo " <td class='li-product-stock-status'><span class='in-stock'>In Stock</span></td>";
+                                                }
+                                                ?>
+                                                <td class="li-product-add-cart"><a href="beli.php?id=<?php echo $pecah['id_produk']; ?>">add to cart</a></td>
                                             </tr>
                                         </tbody>
+                                        <?php } //endforeach} ?>
                                     </table>
                                 </div>
                             </form>

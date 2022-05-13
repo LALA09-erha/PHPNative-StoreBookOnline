@@ -18,7 +18,7 @@ next :
 7. pencarian | done
 8. rapikan file ke folder?
 9. admin
-10. wishlist |done tapi data default belum dari database
+10. wishlist |done 
 11. feedback
 12. rating
 13. index dan pencarian -> sort by ->pagination |done

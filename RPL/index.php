@@ -2,7 +2,31 @@
 	session_start();
 	$koneksi = new mysqli("localhost","root","","tokobuku");
     if(!isset($_SESSION['pelanggan'])){
+
         header("location:login.php");
+    }
+
+    if(isset($_POST['submit'])){
+        $id = $_POST['submit'];
+        $id_pelanggan = $_SESSION['pelanggan']['id_pelanggan'];
+        $ambildata = $koneksi->query("SELECT * FROM wishlist WHERE id_pelanggan='$id_pelanggan' AND id_produk='$id'");
+        $cek = $ambildata->num_rows;
+        #jika produk sudah ada di wishlist maka tidak akan ditambahkan
+        if ($cek>0) {
+            #pesan
+            $_SESSION['pesan'] = "Produk Sudah Ada di Wishlist";
+            #larikan ke keranjang
+            header("location:wishlist.php");
+            exit();
+        }else{
+            #menambahkan produk yang dipilih ke dalam keranjang belanja
+            $koneksi->query("INSERT INTO wishlist (id_pelanggan,id_produk) VALUES ('$id_pelanggan','$id')");
+            #pesan
+            $_SESSION['pesan'] = "Produk Berhasil Ditambahkan";
+            #larikan ke keranjang
+            header("location:wishlist.php");
+            exit();
+        }
     }
 ?>
 <!doctype html>
@@ -308,8 +332,10 @@
                                                                         <li class="add-cart active"><a>Habis</a></li>
                                                                     <?php } ?>
                                                                     <?php endif ?>
-                                                                    <li><a class="links-details" href="wishlist.php"><i class="fa fa-heart-o"></i></a></li>
-                                                                    
+                                                                    <form action="" method="post"  id="wishlist">
+                                                                       
+                                                                        <li><button class="links-details" style="border: 0px;" name='submit' type="submit" form="wishlist"value="<?php echo $perproduk['id_produk']; ?>"><i class="fa fa-heart-o"></i></button></li>
+                                                                    </form>
                                                                 </ul>
                                                             </div>
                                                         </div>
@@ -388,8 +414,9 @@
                                                                     <li class="add-cart"><a>Habis</a></li>
                                                                 <?php } ?>
                                                                 <?php endif ?>
-                                                                <li class="wishlist"><a href="wishlist.php"><i class="fa fa-heart-o"></i>Add to wishlist</a></li>
-                                                                
+                                                                <form action="" method="post"  id="wishlist">        
+                                                                        <li><button class="links-details" style="border: 0px;" name='submit' type="submit" form="wishlist" value="<?php echo $perproduk['id_produk']; ?>"><i class="fa fa-heart-o"></i>Add to Wishlist</button></li>
+                                                                    </form>
                                                             </ul>
                                                         </div>
                                                     </div>

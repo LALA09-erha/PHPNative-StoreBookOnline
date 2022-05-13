@@ -219,11 +219,19 @@
                                         <tbody>
                                         <?php $nomor=1; ?>
                                         	<?php 
+                                            
 										//mendapatkan id yang login
 										$id_pelanggan = $_SESSION['pelanggan']['id_pelanggan'];
 										//ambil dan pecahkan
 										$ambil = $koneksi->query("SELECT * FROM pembelian  JOIN pembelian_produk ON pembelian.id_pembelian=pembelian_produk.id_pembelian JOIN produk ON pembelian_produk.id_produk=produk.id_produk  join pelanggan on pembelian.id_pelanggan = pelanggan.id_pelanggan where pembelian.id_pelanggan = '$id_pelanggan'");
-										while($pecah = $ambil->fetch_assoc()) {
+                                        if ($ambil->num_rows == 0) {
+                                            echo "<tr>
+                                            <td colspan='8' align='center'>
+                                            <h3>Riwayat Belanja Kosong</h3>
+                                            </td>
+                                            </tr>";
+                                        }
+                                        while($pecah = $ambil->fetch_assoc()) {
 										?>
                                             <tr>
                                                 <td class="li-product-number"><span><?php echo $nomor; ?></span></td>
