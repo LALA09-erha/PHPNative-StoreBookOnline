@@ -121,7 +121,7 @@
                                     <ul class="hm-menu">
                                         <!-- Begin Header Middle Wishlist Area -->
                                         <li class="hm-wishlist" style="margin-right: 5px;">
-                                            <a href="wishlist.html">
+                                            <a href="wishlist.php">
                                                 <span class="cart-item-count wishlist-item-count"><?php echo $countwishlist ?></span>
                                                 <i class="fa fa-heart-o"></i>
                                             </a>

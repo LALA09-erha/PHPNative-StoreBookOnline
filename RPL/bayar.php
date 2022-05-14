@@ -109,7 +109,7 @@
                                     <ul class="hm-menu">
                                         <!-- Begin Header Middle Wishlist Area -->
                                         <li class="hm-wishlist" style="margin-right: 5px;">
-                                            <a href="wishlist.html">
+                                            <a href="wishlist.php">
                                                 <span class="cart-item-count wishlist-item-count"><?php echo $countwishlist ?></span>
                                                 <i class="fa fa-heart-o"></i>
                                             </a>
@@ -578,19 +578,24 @@
 			//mendapatkan id pembelian barusan terjadi
 			$id_pembelian_barusan = $koneksi->insert_id;
 	
-			//menyimpan 
-			foreach ($_SESSION['keranjang'] as $id_produk => $jumlah) {
-				$koneksi->query("INSERT INTO pembelian_produk (id_pembelian,id_produk,jumlah_pembelian) VALUES ('$id_pembelian_barusan','$id_produk', '$jumlah') ");
-	
-				//mengurangi stok yang dibeli
-				$koneksi->query("UPDATE produk SET stok_produk=stok_produk-$jumlah WHERE id_produk = '$id_produk'");
-			}
-	
-			//mengkosongkan keranjang belanjaan
-			unset($_SESSION['keranjang']);
+			//menyimpan
+            
+            #mengambil data dari keranjang belanja
+            $ambil = $koneksi->query("SELECT * FROM keranjang JOIN produk on keranjang.id_produk=produk.id_produk WHERE id_pelanggan='$id_pelanggan'");
+            while ($array = $ambil->fetch_assoc()) {
+                $id_produk = $array['id_produk'];
+                $jumlah = $array['jumlah'];
+                $stok = $array['stok_produk'];
+                $koneksi->query("INSERT INTO pembelian_produk (id_pembelian,id_produk,jumlah_pembelian) VALUES ('$id_pembelian_barusan','$id_produk', '$jumlah') ");
+                // $koneksi->query("INSERT INTO pembelian_produk (id_pembelian,id_produk,jumlah,harga,subharga) VALUES ('$id_pembelian_barusan','$id_produk','$jumlah','$harga','$subharga')");
+                $koneksi->query("UPDATE produk SET stok_produk=$stok-$jumlah WHERE id_produk = '$id_produk'");
+            }
+			#mengkosongkan keranjang belanja 
+            $koneksi->query("DELETE FROM keranjang WHERE id_pelanggan='$id_pelanggan'");
+
 	
 			//tampilan dialihkan kehalaman nota, nota pembelian barusan
-			echo "<script> alert('Pembelian Sukses'); </script>";
+			$_SESSION['pesan'] = "Pembelian Berhasil";
 			echo "<script> location='nota.php?id=$id_pembelian_barusan'; </script>";
 	
 		}

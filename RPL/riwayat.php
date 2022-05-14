@@ -97,7 +97,7 @@
                                     <ul class="hm-menu">
                                         <!-- Begin Header Middle Wishlist Area -->
                                         <li class="hm-wishlist" style="margin-right: 5px;">
-                                            <a href="wishlist.html">
+                                            <a href="wishlist.php">
                                                 <span class="cart-item-count wishlist-item-count"><?php echo $countwishlist ?></span>
                                                 <i class="fa fa-heart-o"></i>
                                             </a>
@@ -217,9 +217,7 @@
                                             <tr>
                                                 <th class="li-product-number">No</th>                                
                                                 <th class="li-product-number">Purchase Date</th>                                
-                                                <th class="cart-product-name">Product</th>
-                                                <th class="li-product-price">Unit Price</th>
-                                                <th class="li-product-quantity">Quantity</th>
+                                               
                                                 <th class="li-product-subtotal">Total With Ongkir</th>                                                
                                                 <th class="li-product-subtotal">Status</th>                                                
                                                 <th class="li-product-subtotal">Action</th>                                                
@@ -232,8 +230,9 @@
 										//mendapatkan id yang login
 										$id_pelanggan = $_SESSION['pelanggan']['id_pelanggan'];
 										//ambil dan pecahkan
-										$ambil = $koneksi->query("SELECT * FROM pembelian  JOIN pembelian_produk ON pembelian.id_pembelian=pembelian_produk.id_pembelian JOIN produk ON pembelian_produk.id_produk=produk.id_produk  join pelanggan on pembelian.id_pelanggan = pelanggan.id_pelanggan where pembelian.id_pelanggan = '$id_pelanggan'");
-                                        if ($ambil->num_rows == 0) {
+										$ambil = $koneksi->query("SELECT * FROM pembelian  where pembelian.id_pelanggan = '$id_pelanggan'");
+                                        $cek = $ambil->num_rows;
+                                        if ($cek == 0) {
                                             echo "<tr>
                                             <td colspan='8' align='center'>
                                             <h3>Riwayat Belanja Kosong</h3>
@@ -245,11 +244,7 @@
                                             <tr>
                                                 <td class="li-product-number"><span><?php echo $nomor; ?></span></td>
                                                 <td class="li-product-number"><span><?php echo $pecah['tanggal_pembelian']; ?></span></td>
-                                                <td class="li-product-name"><a href="detail.php?id=<?php echo $pecah['id_produk']; ?>"><?php echo $pecah['nama_produk']; ?></a></td>
-                                                <td class="li-product-price"><span class="amount">Rp. <?php echo number_format($pecah['harga_produk']); ?></span></td>
-                                                <td class="quantity">
-                                                    <?php echo $pecah['jumlah_pembelian']; ?>
-                                                </td>
+                                                
                                                 <td class="product-subtotal"><span class="amount">Rp. <?php echo number_format($pecah['total_pembelian']);  ?></span></td>
 												<td class="li-product-number"><span><?php echo  $pecah['status_pembelian']; ?><br>
                                                     <?php if(!empty($pecah['resi_pengiriman'])): ?>
@@ -267,7 +262,7 @@
                                             </tr>
                                             <?php $nomor++; ?>
 											<?php } ?>
-                                        </tbody>
+                                        </tbody>    
                                     </table>
                                 </div>
                                 <div class="row">
