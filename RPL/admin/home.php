@@ -4,143 +4,89 @@
 ?>
 <h2>Selamat Datang Admin <?php echo $_SESSION['admin']['nama_lengkap']; ?></h2>
 
+<div class="row">
 
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                Earnings (Monthly)</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-<!DOCTYPE html>
-<html>
-<head>
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                Earnings (Annual)</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-	<title>New Release</title>
-	<link rel="stylesheet" type="text/css" href="admin/assets/css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="css/index.css">
-</head>
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-info shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
+                                            </div>
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="progress progress-sm mr-2">
+                                                        <div class="progress-bar bg-info" role="progressbar"
+                                                            style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+                                                            aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-
-<body>
-
-	<!-- Bootstrap -->
-    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js for IE8 support of 
-         HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Custom CSS -->
-    <link href="assets/style.css" rel="stylesheet">
-
-    <style>
-
-      #header .headerBackground{
-  width: 1520px;
-  height: 250px;
-  background: url(img/background.jpg);
-  background-size: cover; 
-}
-
-    #header{
-      background: #469db0;
-      width: 940px;
-      height: 240px;
-    }
-    h1{
-      padding-top: 0px;
-    }
-    article {
-      background-color: white;
-    }
-
-
-* {box-sizing:border-box}
-body {font-family: Verdana,sans-serif;}
-.mySlides {display:none}
-
-/* Slideshow container */
-.slideshow-container {
-  max-width: 1000px;
-  position: relative;
-  margin: auto;
-}
-
-/* Caption text */
-.text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 50%;
-  text-align: center;
-}
-
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
-
-/* The dots/bullets/indicators */
-.dot {
-  height: 9px;
-  width: 9px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
-
-.active {
-  background-color: #717171;
-}
-
-/* Fading animation */
-.fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-
-@-webkit-keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
-
-@keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
-
-/* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px) {
-  .text {font-size: 11px}
-}
-
-    
-  </style>
-
-<body>
-  <div id="container">
-    <div id="header">
-      <div class="headerBackground">
-
-        <h1><font color="#f8192e"><br><br><b>&nbsp;&nbsp;Multibook</font><font color="#ffffff"> Store</font></b></h1>
-
-
-
-
-
-      </div>
-    </div>
-</font>
-</h1>
-</div>
-</div>
+                        <!-- Pending Requests Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                Pending Requests</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
