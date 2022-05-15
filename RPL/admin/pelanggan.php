@@ -31,10 +31,28 @@
                                             <td> <?php echo $pecah["telepon_pelanggan"]; ?></td>
                                             <td>
                                                 <a href="index.php?hal=ubahpelanggan&id=<?php echo $pecah['id_pelanggan']; ?>" class="btn btn-warning">Ubah</a>
-                                                <a href="index.php?hal=hapuspelanggan&id=<?php echo $pecah['id_pelanggan']; ?>" class="btn btn-danger">Hapus</a>
+                                                <a href="index.php?hal=hapuspelanggan&id=<?php echo $pecah['id_pelanggan']; ?>" data-toggle="modal" data-target="#modalhapuspelanggan" class="btn btn-danger">Hapus</a>
                                             </td>
                                         </tr>
                                         <?php $nomor++; ?>
+                                        <div class="modal fade" id="modalhapuspelanggan" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                            aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to delete this data?</h5>
+                                                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">×</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">Select "Delete" below if you are ready to delete your data.</div>
+                                                    <div class="modal-footer">
+                                                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                                                        <a class="btn btn-primary" href="index.php?hal=hapuspelanggan&id=<?php echo $pecah['id_pelanggan']; ?>">Delete</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <?php } ?>                           
                                     </tbody>
                                 </table>

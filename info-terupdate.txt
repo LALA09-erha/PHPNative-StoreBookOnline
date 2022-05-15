@@ -17,7 +17,7 @@ next :
 6. hapus keranjang ? atau batal pemesanan?
 7. pencarian | done
 8. rapikan file ke folder?
-9. admin
+9. admin | imgrasi tamplate dashboard, pelanggan,produk,pembelian ->done
 10. wishlist |done 
 11. feedback
 12. rating
