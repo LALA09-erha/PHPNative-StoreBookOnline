@@ -215,6 +215,20 @@ CREATE TABLE `keranjang` (
   `jumlah` int(11), 
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+CREATE TABLE `rating` (
+  `id_rating` int(11) AUTO_INCREMENT PRIMARY KEY,
+  `id_pelanggan` int(11) ,
+  `id_produk` int(11),
+  `nilai` int(11), 
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `komen` (
+  `id_komen` int(11) AUTO_INCREMENT PRIMARY KEY,
+  `id_pelanggan` int(11) ,
+  `id_produk` int(11),
+  `komen` varchar(255), 
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 --
 -- Dumping data for table `produk`
 --
