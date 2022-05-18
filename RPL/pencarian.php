@@ -30,7 +30,7 @@
 	$keyword = $_GET['keyword'];
 
 	$semuadata = array();
-	$ambildata = $koneksi-> query("SELECT * FROM produk WHERE nama_produk LIKE '%$keyword%' OR deskripsi_produk LIKE '%$keyword%'");
+	$ambildata = $koneksi-> query("SELECT * FROM produk WHERE nama_produk LIKE '%$keyword%' OR deskripsi_produk LIKE '%$keyword%' OR kategori LIKE '%$keyword%'");
 	
 
 ?>
@@ -290,7 +290,7 @@
                                                 $halamanaktif = (isset($_GET['halaman'])) ? $_GET['halaman'] : 1;
                                                 $awaldata = ($jumlahdatatampil * $halamanaktif) - $jumlahdatatampil;
                                                 $semuadata2 = array();
-                                                $ambildata2 = $koneksi->query("SELECT * FROM produk WHERE nama_produk LIKE '%$keyword%' ORDER BY id_produk DESC LIMIT $awaldata, $jumlahdatatampil");
+                                                $ambildata2 = $koneksi->query("SELECT * FROM produk WHERE nama_produk LIKE '%$keyword%' OR deskripsi_produk like  '%$keyword%' or kategori like  '%$keyword%'  ORDER BY id_produk DESC LIMIT $awaldata, $jumlahdatatampil");
                                                 while($pecah = $ambildata2->fetch_assoc()) {
                                                     $semuadata2[]=$pecah;	
                                                 }
@@ -312,7 +312,7 @@
                                                             <div class="product_desc_info">
                                                                 <div class="product-review">
                                                                     <h5 class="manufacturer">
-                                                                        <a href="product-details.html"><?php echo $value['kategori']; ?></a>
+                                                                        <p><?php echo $value['kategori']; ?></p>
                                                                     </h5>
                                                                     <div class="rating-box">
                                                                         <ul class="rating">

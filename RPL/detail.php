@@ -11,6 +11,7 @@
 	$ambil = $koneksi->query("SELECT * FROM produk WHERE id_produk='$id_produk'");
 	$detail = $ambil->fetch_assoc();
 
+    $id_pelanggan = $_SESSION['pelanggan']['id_pelanggan'];
     if (isset($_POST['beli'])) {
         $id_pelanggan = $_SESSION['pelanggan']['id_pelanggan'];
         //memasukkan produk yang dipilih ke dalam database keranjang
@@ -405,11 +406,11 @@
                                                     <div class="modal-inner-area row">
                                                         <div class="col-lg-6">
                                                            <div class="li-review-product">
-                                                               <img src="img/product/large-size/3.jpg" alt="Li's Product">
+                                                            <img width="50%" src="foto_produk/<?php echo $detail['foto_produk']; ?>">
                                                                <div class="li-review-product-desc">
-                                                                   <p class="li-product-name">Today is a good day Framed poster</p>
+                                                                   <p class="li-product-name"><?php echo $detail['nama_produk']; ?></p>
                                                                    <p>
-                                                                       <span>Beach Camera Exclusive Bundle - Includes Two Samsung Radiant 360 R3 Wi-Fi Bluetooth Speakers. Fill The Entire Room With Exquisite Sound via Ring Radiator Technology. Stream And Control R3 Speakers Wirelessly With Your Smartphone. Sophisticated, Modern Design </span>
+                                                                       <span><?php echo $detail['deskripsi_produk']; ?></span>
                                                                    </p>
                                                                </div>
                                                            </div>
@@ -419,12 +420,12 @@
                                                                 <!-- Begin Feedback Area -->
                                                                 <div class="feedback-area">
                                                                     <div class="feedback">
-                                                                        <h3 class="feedback-title">Our Feedback</h3>
-                                                                        <form action="#">
+                                                                        <h3 class="feedback-title">Your Feedback</h3>
+                                                                        <form action="pages/feedback.php" method="POST">
                                                                             <p class="your-opinion">
-                                                                                <label>Your Rating</label>
+                                                                                <label for='value'>Your Rating</label>
                                                                                 <span>
-                                                                                    <select class="star-rating">
+                                                                                    <select class="star-rating" id="value" name="value" required>
                                                                                       <option value="1">1</option>
                                                                                       <option value="2">2</option>
                                                                                       <option value="3">3</option>
@@ -435,23 +436,14 @@
                                                                             </p>
                                                                             <p class="feedback-form">
                                                                                 <label for="feedback">Your Review</label>
-                                                                                <textarea id="feedback" name="comment" cols="45" rows="8" aria-required="true"></textarea>
+                                                                                <textarea id="feedback" name="comment" cols="45" rows="8" aria-required="true" required></textarea>
                                                                             </p>
-                                                                            <div class="feedback-input">
-                                                                                <p class="feedback-form-author">
-                                                                                    <label for="author">Name<span class="required">*</span>
-                                                                                    </label>
-                                                                                    <input id="author" name="author" value="" size="30" aria-required="true" type="text">
-                                                                                </p>
-                                                                                <p class="feedback-form-author feedback-form-email">
-                                                                                    <label for="email">Email<span class="required">*</span>
-                                                                                    </label>
-                                                                                    <input id="email" name="email" value="" size="30" aria-required="true" type="text">
-                                                                                    <span class="required"><sub>*</sub> Required fields</span>
-                                                                                </p>
+                                                                            <input type="hidden" name="id" value="<?php echo $_SESSION['pelanggan']['id_pelanggan'] ?>" required>
+                                                                            <div class="feedback-input">                                                                               
                                                                                 <div class="feedback-btn pb-15">
-                                                                                    <a href="#" class="close" data-dismiss="modal" aria-label="Close">Close</a>
-                                                                                    <a href="#">Submit</a>
+                                                                                    <button class="btn" style="background-color: black; color:white;" data-dismiss="modal" aria-label="Close">Close</button>
+                                                                                    <!-- <a href="#" class="close" data-dismiss="modal" aria-label="Close">Close</a> -->                                                                            
+                                                                                    <button class="btn" style="background-color: black; color:white;" name="submit">Submit</button>
                                                                                 </div>
                                                                             </div>
                                                                         </form>

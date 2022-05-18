@@ -306,14 +306,14 @@
                                                             <div class="product_desc_info">
                                                                 <div class="product-review">
                                                                     <h5 class="manufacturer">
-                                                                        <a href="product-details.html"><?php echo $perproduk['kategori']; ?></a>
+                                                                        <p ><?php echo $perproduk['kategori']; ?></p>
                                                                     </h5>
                                                                     <div class="rating-box">
                                                                         <ul class="rating">
-                                                                            <li><i class="fa fa-star-o"></i></li>
-                                                                            <li><i class="fa fa-star-o"></i></li>
-                                                                            <li><i class="fa fa-star-o"></i></li>
-                                                                            <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                                            <li><i class="fa fa-star"></i></li>
+                                                                            <li><i class="fa fa-star"></i></li>
+                                                                            <li><i class="fa fa-star-half-o"></i></li>
+                                                                            <li class="no-star"><i class="fa fa-star-half-o"></i></li>
                                                                             <li class="no-star"><i class="fa fa-star-o"></i></li>
                                                                         </ul>
                                                                     </div>
