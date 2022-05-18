@@ -282,10 +282,13 @@
 										<?php $totalbelanja=0; ?>
 										<?php //foreach ($_SESSION["keranjang"] as $id_produk => $jumlah): ?>
 										<!-- Menampilkan Produk Perulangan Berdasarkan id_produk-->
-										<?php $data = $koneksi->query("SELECT *
+										<?php 
+                                        
+                                        $data = $koneksi->query("SELECT *
                                         FROM keranjang
                                         INNER JOIN produk ON keranjang.id_produk=produk.id_produk
                                         WHERE keranjang.id_pelanggan =$id_pelanggan;");
+                                        #cek stok produk di database produk                                                                    
                                         ?>
 										<?php while($keranjang = $data->fetch_assoc()){ ?>
 										<?php $subharga = $keranjang['harga_produk']*$keranjang['jumlah']; ?>
@@ -586,6 +589,12 @@
                 $id_produk = $array['id_produk'];
                 $jumlah = $array['jumlah'];
                 $stok = $array['stok_produk'];
+                #cek stok produk apakah sudah habis
+                if ($stok < $jumlah) {
+                    $_SESSION['pesan'] = "Stok produk tidak mencukupi,Silahkan Perbaharui Keranjang";                    
+                    echo "<script>location='keranjang.php';</script>";
+                    exit();
+                }
                 $koneksi->query("INSERT INTO pembelian_produk (id_pembelian,id_produk,jumlah_pembelian) VALUES ('$id_pembelian_barusan','$id_produk', '$jumlah') ");
                 // $koneksi->query("INSERT INTO pembelian_produk (id_pembelian,id_produk,jumlah,harga,subharga) VALUES ('$id_pembelian_barusan','$id_produk','$jumlah','$harga','$subharga')");
                 $koneksi->query("UPDATE produk SET stok_produk=$stok-$jumlah WHERE id_produk = '$id_produk'");

@@ -227,6 +227,13 @@
                         <ul>
                             <li><a href="index.php">Home</a></li>
                             <li class="active">Single Product</li>
+                            <?php
+                            if (isset($_SESSION['pesan'])) {
+                                echo '<li><div class="alert alert-success" role="alert">'.$_SESSION['pesan'].'</div></li>';
+                                unset ($_SESSION['pesan']);
+                            }
+
+                            ?>
                         </ul>
                     </div>
                 </div>
@@ -256,15 +263,44 @@
                                 <div class="product-info">
                                     <h2><?php echo $detail['nama_produk']; ?></h2>
                                     <span class="product-details-ref"><?php echo $detail['kategori']; ?></span>
-                                    <div class="rating-box pt-20">
+                                    <?php
+                                    #code mengambil rating dari tabel rating dengan id produk
+                                    $sql = mysqli_query($koneksi, "SELECT * FROM rating WHERE id_produk='$id_produk'");
+                                    $jumlah = mysqli_num_rows($sql);                                 
+                                                                                                
+                                    ?>                                    
+                                    <div class="rating-box pt-20">                                    
                                         <ul class="rating rating-with-review-item">
-                                            <li><i class="fa fa-star-o"></i></li>
-                                            <li><i class="fa fa-star-o"></i></li>
-                                            <li><i class="fa fa-star-o"></i></li>
-                                            <li class="no-star"><i class="fa fa-star-o"></i></li>
-                                            <li class="no-star"><i class="fa fa-star-o"></i></li>
-                                            <li class="review-item"><a href="#">Read Review</a></li>
-                                            <li class="review-item"><a href="#">Write Review</a></li>
+                                            <?php
+                                            if($jumlah == 0){
+                                                echo '0.0 <li><i class="fa fa-star-o"></i></li>
+                                                <li><i class="fa fa-star-o"></i></li>
+                                                <li><i class="fa fa-star-o"></i></li>
+                                                <li><i class="fa fa-star-o"></i></li>
+                                                <li><i class="fa fa-star-o"></i></li>';
+                                            }else{
+                                            $total = 0;
+                                                while ($data = mysqli_fetch_array($sql)) {
+                                                    $total = $total + $data['nilai'];
+                                                }
+                                                $rata = $total / $jumlah;
+                                                $floor = floor($rata);   
+                                                echo round($rata,1) . " ";
+                                                #menerapkan perulangan untuk menampilkan bintang sesuai dengan rating
+                                                for ($i = 0; $i < 5; $i++) {
+                                                    #menampilkan bintang setengah jika rating decimal
+                                                    if ($rata - $floor != 0 && $i == $floor) {
+                                                        echo '<li><i class="fa fa-star-half-o"></i></li>';
+                                                    }else if($floor>$i)
+                                                    {
+                                                        echo '<li><i class="fa fa-star"></i></li>';
+                                                    }else{
+                                                        echo '<li><i class="fa fa-star-o"></i></li>';                                                    
+                                                    }
+
+                                                }
+                                            }
+                                            ?>                                           
                                         </ul>
                                     </div>
                                     <div class="price-box pt-20">
@@ -312,6 +348,9 @@
                                             </ul>
                                         </div>
                                     </div>
+                                    <div class="review-btn">
+                                        <a class="review-links" href="#" data-toggle="modal" data-target="#mymodal">Write Your Review!</a>
+                                    </div>
                                     <div class="block-reassurance">
                                         <ul>
                                             <li>
@@ -354,49 +393,54 @@
                         <div class="col-lg-12">
                             <div class="li-product-tab">
                                 <ul class="nav li-product-menu">
-                                   
-                                   <li><a class="active" data-toggle="tab" href="#product-details"><span>Product Details</span></a></li>
-                                   <li><a data-toggle="tab" href="#reviews"><span>Reviews</span></a></li>
+                                   <li><a class="active" data-toggle="tab" href="#reviews"><span>Reviews</span></a></li>
                                 </ul>               
                             </div>
                             <!-- Begin Li's Tab Menu Content Area -->
                         </div>
                     </div>
                     <div class="tab-content">
-                       
-                        <div id="product-details" class="tab-pane active show" role="tabpanel">
-                            <div class="product-details-manufacturer">
-                                <a href="#">
-                                    <img src="img/product-details/1.jpg" alt="Product Manufacturer Image">
-                                </a>
-                                <p><span>Reference</span> demo_7</p>
-                                <p><span>Reference</span> demo_7</p>
-                            </div>
-                        </div>
-                        <div id="reviews" class="tab-pane" role="tabpanel">
+                        <div id="reviews" class="tab-pane active show" role="tabpanel">
                             <div class="product-reviews">
                                 <div class="product-details-comment-block">
-                                    <div class="comment-review">
-                                        <span>Grade</span>
-                                        <ul class="rating">
-                                            <li><i class="fa fa-star-o"></i></li>
-                                            <li><i class="fa fa-star-o"></i></li>
-                                            <li><i class="fa fa-star-o"></i></li>
-                                            <li class="no-star"><i class="fa fa-star-o"></i></li>
-                                            <li class="no-star"><i class="fa fa-star-o"></i></li>
-                                        </ul>
-                                    </div>
-                                    <div class="comment-author-infos pt-25">
-                                        <span>HTML 5</span>
-                                        <em>01-12-18</em>
-                                    </div>
-                                    <div class="comment-details">
-                                        <h4 class="title-block">Demo</h4>
-                                        <p>Plaza</p>
-                                    </div>
-                                    <div class="review-btn">
-                                        <a class="review-links" href="#" data-toggle="modal" data-target="#mymodal">Write Your Review!</a>
-                                    </div>
+                                <table class="table table-hover">
+                                    <?php 
+                                    #membuat pagination
+                                    $batas = 5;
+                                    $datakomen = $koneksi->query("SELECT * FROM komen join pelanggan on komen.id_pelanggan=pelanggan.id_pelanggan WHERE id_produk='$id_produk'");
+                                    $jumlah_data = mysqli_num_rows($datakomen);
+                                    $jumlah_halaman = ceil($jumlah_data / $batas);
+                                    $halaman_aktif = (isset($_GET['page'])) ? $_GET['page'] : 1;
+                                    $awal = ($halaman_aktif * $batas) - $batas;
+                                    $datakomenn = $koneksi->query("SELECT nama_pelanggan,komen FROM komen join pelanggan on komen.id_pelanggan=pelanggan.id_pelanggan WHERE id_produk='$id_produk' ORDER BY id_komen DESC LIMIT $awal, $batas");
+                                    while($komen = $datakomenn->fetch_assoc()){
+
+                                    #mengambil data komen dari database berdasarkan id produk yang dipilih                                                          
+                                    ?>
+                                    <thead>
+                                        <tr>
+                                            <th scope="col"><?php echo $komen['nama_pelanggan'] ?></th>                                                                                                     
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row"><p><?php echo $komen['komen'] ?></p></th>
+                                        </tr>
+                                    </tbody>
+                                    <?php } ?>
+                                </table>
+                                <?php 
+                                #membuat pagination number
+                                for ($i=1; $i<=$jumlah_halaman; $i++){
+                                    ?>
+                                    <a href="?id=<?php echo $id_produk ?>&page=<?php echo $i ?>"><?php echo $i ?></a>
+                                    <?php
+                                }
+
+                                ?>
+                                 
+
+
                                     <!-- Begin Quick View | Modal Area -->
                                     <div class="modal fade modal-wrapper" id="mymodal" >
                                         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -422,10 +466,16 @@
                                                                     <div class="feedback">
                                                                         <h3 class="feedback-title">Your Feedback</h3>
                                                                         <form action="pages/feedback.php" method="POST">
+                                                                            <p class="feedback-form">
+                                                                                <label for="feedback">Your Review</label>
+                                                                                <textarea id="feedback" name="comment" cols="45" rows="8" aria-required="true" required></textarea>
+                                                                            </p>
+                                                                            <input type="hidden" name="idpelanggan" value="<?php echo $_SESSION['pelanggan']['id_pelanggan'] ?>" required>
+                                                                            <input type="hidden" name="idproduk" value="<?php echo $detail['id_produk'] ?>" required>
                                                                             <p class="your-opinion">
                                                                                 <label for='value'>Your Rating</label>
                                                                                 <span>
-                                                                                    <select class="star-rating" id="value" name="value" required>
+                                                                                    <select class="star-rating" id="value" name="value" required>                                                                            
                                                                                       <option value="1">1</option>
                                                                                       <option value="2">2</option>
                                                                                       <option value="3">3</option>
@@ -434,11 +484,6 @@
                                                                                     </select>
                                                                                 </span>
                                                                             </p>
-                                                                            <p class="feedback-form">
-                                                                                <label for="feedback">Your Review</label>
-                                                                                <textarea id="feedback" name="comment" cols="45" rows="8" aria-required="true" required></textarea>
-                                                                            </p>
-                                                                            <input type="hidden" name="id" value="<?php echo $_SESSION['pelanggan']['id_pelanggan'] ?>" required>
                                                                             <div class="feedback-input">                                                                               
                                                                                 <div class="feedback-btn pb-15">
                                                                                     <button class="btn" style="background-color: black; color:white;" data-dismiss="modal" aria-label="Close">Close</button>

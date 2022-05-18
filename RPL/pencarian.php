@@ -314,13 +314,44 @@
                                                                     <h5 class="manufacturer">
                                                                         <p><?php echo $value['kategori']; ?></p>
                                                                     </h5>
+                                                                    <?php
+                                                                    $idproduk = $value['id_produk'];
+                                                                    #code mengambil rating dari tabel rating dengan id produk
+                                                                    $sql2 = mysqli_query($koneksi, "SELECT * FROM rating WHERE id_produk='$idproduk'");
+                                                                    $jumlahhh = mysqli_num_rows($sql2);                                                                                                                                 
+                                                                    ?>     
                                                                     <div class="rating-box">
                                                                         <ul class="rating">
-                                                                            <li><i class="fa fa-star-o"></i></li>
-                                                                            <li><i class="fa fa-star-o"></i></li>
-                                                                            <li><i class="fa fa-star-o"></i></li>
-                                                                            <li class="no-star"><i class="fa fa-star-o"></i></li>
-                                                                            <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                                        <?php
+                                                                            if($jumlahhh == 0){
+                                                                                echo '<span>0.0</span> <li><i class="fa fa-star-o"></i></li>
+                                                                                <li><i class="fa fa-star-o"></i></li>
+                                                                                <li><i class="fa fa-star-o"></i></li>
+                                                                                <li><i class="fa fa-star-o"></i></li>
+                                                                                <li><i class="fa fa-star-o"></i></li>';
+                                                                            }else{
+                                                                            $totall = 0;
+                                                                                while ($dataa = mysqli_fetch_array($sql2)) {
+                                                                                    $totall = $totall + $dataa['nilai'];
+                                                                                }
+                                                                                $rataa = $totall / $jumlahhh;
+                                                                                $floorr = floor($rataa);   
+                                                                                echo "<span>".round($rataa,1) . "</span> ";
+                                                                                #menerapkan perulangan untuk menampilkan bintang sesuai dengan rating
+                                                                                for ($i = 0; $i < 5; $i++) {
+                                                                                    #menampilkan bintang setengah jika rating decimal
+                                                                                    if ($rataa - $floorr != 0 && $i == $floorr) {
+                                                                                        echo '<li><i class="fa fa-star-half-o"></i></li>';
+                                                                                    }else if($floorr>$i)
+                                                                                    {
+                                                                                        echo '<li><i class="fa fa-star"></i></li>';
+                                                                                    }else{
+                                                                                        echo '<li><i class="fa fa-star-o"></i></li>';                                                    
+                                                                                    }
+
+                                                                                }
+                                                                            }
+                                                                        ?>            
                                                                         </ul>
                                                                     </div>
                                                                 </div>
@@ -394,13 +425,44 @@
                                                                     <h5 class="manufacturer">
                                                                         <a href="product-details.html"><?php echo $value['kategori']; ?></a>
                                                                     </h5>
+                                                                    <?php
+                                                                    $id_produkk = $value['id_produk'];
+                                                                    #code mengambil rating dari tabel rating dengan id produk
+                                                                    $sql = mysqli_query($koneksi, "SELECT * FROM rating WHERE id_produk='$id_produkk'");
+                                                                    $jumlahh = mysqli_num_rows($sql);                                                                                                                                 
+                                                                    ?>   
                                                                     <div class="rating-box">
                                                                         <ul class="rating">
-                                                                            <li><i class="fa fa-star-o"></i></li>
-                                                                            <li><i class="fa fa-star-o"></i></li>
-                                                                            <li><i class="fa fa-star-o"></i></li>
-                                                                            <li class="no-star"><i class="fa fa-star-o"></i></li>
-                                                                            <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                                        <?php
+                                                                            if($jumlahh == 0){
+                                                                                echo '0.0 <li><i class="fa fa-star-o"></i></li>
+                                                                                <li><i class="fa fa-star-o"></i></li>
+                                                                                <li><i class="fa fa-star-o"></i></li>
+                                                                                <li><i class="fa fa-star-o"></i></li>
+                                                                                <li><i class="fa fa-star-o"></i></li>';
+                                                                            }else{
+                                                                            $total = 0;
+                                                                                while ($data = mysqli_fetch_array($sql)) {
+                                                                                    $total = $total + $data['nilai'];
+                                                                                }
+                                                                                $rata = $total / $jumlahh;
+                                                                                $floor = floor($rata);   
+                                                                                echo round($rata,1) . " ";
+                                                                                #menerapkan perulangan untuk menampilkan bintang sesuai dengan rating
+                                                                                for ($i = 0; $i < 5; $i++) {
+                                                                                    #menampilkan bintang setengah jika rating decimal
+                                                                                    if ($rata - $floor != 0 && $i == $floor) {
+                                                                                        echo '<li><i class="fa fa-star-half-o"></i></li>';
+                                                                                    }else if($floor>$i)
+                                                                                    {
+                                                                                        echo '<li><i class="fa fa-star"></i></li>';
+                                                                                    }else{
+                                                                                        echo '<li><i class="fa fa-star-o"></i></li>';                                                    
+                                                                                    }
+
+                                                                                }
+                                                                            }
+                                                                        ?>            
                                                                         </ul>
                                                                     </div>
                                                                 </div>
