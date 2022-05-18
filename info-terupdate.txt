@@ -20,7 +20,7 @@ next :
 9. admin | imgrasi tamplate dashboard, pelanggan,produk,pembelian ->done
 10. wishlist |done 
 11. feedback | done untuk form 
-12. rating
+12. rating | done
 13. index dan pencarian -> sort by ->pagination |done
 14. alert javascript di ganti alert bootstrap -> index,login,daftar |done
 Finishing :
