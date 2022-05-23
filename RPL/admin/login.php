@@ -1,6 +1,6 @@
 <?php
-  session_start();
-  $koneksi = new mysqli("localhost","root","","tokobuku");
+session_start();
+$koneksi = new mysqli("localhost", "root", "", "tokobuku");
 
 ?>
 
@@ -57,12 +57,22 @@
                                             <input type="password" class="form-control form-control-user"
                                                 id="exampleInputPassword" name="pass" placeholder="Password">
                                         </div>
-                                        
+                                        <?php
+                                        if (isset($_SESSION['pesan'])) {
+                                            echo '<hr class="sidebar-divider d-none d-md-block">
+                                            
+                                            <div class="alert alert-info" role="alert">';
+                                            #cek jika ada session pesan
+                                            echo $_SESSION['pesan'];
+                                            unset($_SESSION['pesan']);
+                                            echo '</div>';
+                                        } ?>
+
                                         <button name="login" class="btn btn-primary btn-user btn-block">
                                             Login
                                         </button>
                                         <hr>
-                                        
+
                                     </form>
                                     <hr>
                                     <div class="text-center">

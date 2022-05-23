@@ -148,10 +148,7 @@ if ($check < 1) {
                                         <div class="minicart">
                                             <p class="minicart-total text-center">OPTIONS</p>
                                             <div class="minicart-button">
-                                                <a href="keranjang.php"
-                                                    class="li-button li-button-fullwidth li-button-dark">
-                                                    <span>Profile</span>
-                                                </a>
+
                                                 <a a href="logout.php" onclick="return confirm('Apakah Anda Yakin ?')"
                                                     class="li-button li-button-fullwidth">
                                                     <span>Logout</span>
@@ -420,167 +417,38 @@ if ($check < 1) {
             <div class="footer-static-middle">
                 <div class="container">
                     <div class="footer-logo-wrap pt-50 pb-35">
-                        <div class="row">
+                        <div class="row justify-content-center text-center">
                             <!-- Begin Footer Logo Area -->
-                            <div class="col-lg-4 col-md-6">
+                            <div class="col">
                                 <div class="footer-logo">
                                     <img src="css/images/logo.png" alt="">
                                     <p class="info">
-                                        We are a team of designers and developers that create high quality HTML Template
-                                        & Woocommerce, Shopify Theme.
+                                        Bos merupakan sebuah wesbsite yang menyediakan berbagai macam buku.
                                     </p>
                                 </div>
                                 <ul class="des">
                                     <li>
-                                        <span>Address: </span>
-                                        6688Princess Road, London, Greater London BAS 23JK, UK
+                                        <span>Alamat: </span>
+                                        Jl. Raya Telang, Perumahan Telang Inda, Telang, Kec. Kamal, Kabupaten Bangkalan,
+                                        Jawa Timur 69162
                                     </li>
                                     <li>
-                                        <span>Phone: </span>
-                                        <a href="#">(+123) 123 321 345</a>
+                                        <span>Telepon: </span>
+                                        <a>(031) 3011146</a>
                                     </li>
                                     <li>
                                         <span>Email: </span>
-                                        <a href="mailto://info@yourdomain.com">info@yourdomain.com</a>
+                                        <a href="mailto://adminbos@gmail.com">adminbos@gmail.com</a>
                                     </li>
                                 </ul>
                             </div>
                             <!-- Footer Logo Area End Here -->
                             <!-- Begin Footer Block Area -->
-                            <div class="col-lg-2 col-md-3 col-sm-6">
-                                <div class="footer-block">
-                                    <h3 class="footer-block-title">Product</h3>
-                                    <ul>
-                                        <li><a href="#">Prices drop</a></li>
-                                        <li><a href="#">New products</a></li>
-                                        <li><a href="#">Best sales</a></li>
-                                        <li><a href="#">Contact us</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- Footer Block Area End Here -->
-                            <!-- Begin Footer Block Area -->
-                            <div class="col-lg-2 col-md-3 col-sm-6">
-                                <div class="footer-block">
-                                    <h3 class="footer-block-title">Our company</h3>
-                                    <ul>
-                                        <li><a href="#">Delivery</a></li>
-                                        <li><a href="#">Legal Notice</a></li>
-                                        <li><a href="#">About us</a></li>
-                                        <li><a href="#">Contact us</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- Footer Block Area End Here -->
-                            <!-- Begin Footer Block Area -->
-                            <div class="col-lg-4">
-                                <div class="footer-block">
-                                    <h3 class="footer-block-title">Follow Us</h3>
-                                    <ul class="social-link">
-                                        <li class="twitter">
-                                            <a href="https://twitter.com/" data-toggle="tooltip" target="_blank"
-                                                title="Twitter">
-                                                <i class="fa fa-twitter"></i>
-                                            </a>
-                                        </li>
-                                        <li class="rss">
-                                            <a href="https://rss.com/" data-toggle="tooltip" target="_blank"
-                                                title="RSS">
-                                                <i class="fa fa-rss"></i>
-                                            </a>
-                                        </li>
-                                        <li class="google-plus">
-                                            <a href="https://www.plus.google.com/discover" data-toggle="tooltip"
-                                                target="_blank" title="Google Plus">
-                                                <i class="fa fa-google-plus"></i>
-                                            </a>
-                                        </li>
-                                        <li class="facebook">
-                                            <a href="https://www.facebook.com/" data-toggle="tooltip" target="_blank"
-                                                title="Facebook">
-                                                <i class="fa fa-facebook"></i>
-                                            </a>
-                                        </li>
-                                        <li class="youtube">
-                                            <a href="https://www.youtube.com/" data-toggle="tooltip" target="_blank"
-                                                title="Youtube">
-                                                <i class="fa fa-youtube"></i>
-                                            </a>
-                                        </li>
-                                        <li class="instagram">
-                                            <a href="https://www.instagram.com/" data-toggle="tooltip" target="_blank"
-                                                title="Instagram">
-                                                <i class="fa fa-instagram"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <!-- Begin Footer Newsletter Area -->
-                                <div class="footer-newsletter">
-                                    <h4>Sign up to newsletter</h4>
-                                    <form action="#" method="post" id="mc-embedded-subscribe-form"
-                                        name="mc-embedded-subscribe-form" class="footer-subscribe-form validate"
-                                        target="_blank" novalidate>
-                                        <div id="mc_embed_signup_scroll">
-                                            <div id="mc-form" class="mc-form subscribe-form form-group">
-                                                <input id="mc-email" type="email" autocomplete="off"
-                                                    placeholder="Enter your email" />
-                                                <button class="btn" id="mc-submit">Subscribe</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                                <!-- Footer Newsletter Area End Here -->
-                            </div>
-                            <!-- Footer Block Area End Here -->
+
+                            <!-- Footer Static Bottom Area End Here -->
                         </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Footer Static Middle Area End Here -->
-            <!-- Begin Footer Static Bottom Area -->
-            <div class="footer-static-bottom pt-55 pb-55">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <!-- Begin Footer Links Area -->
-                            <div class="footer-links">
-                                <ul>
-                                    <li><a href="#">Online Shopping</a></li>
-                                    <li><a href="#">Promotions</a></li>
-                                    <li><a href="#">My Orders</a></li>
-                                    <li><a href="#">Help</a></li>
-                                    <li><a href="#">Customer Service</a></li>
-                                    <li><a href="#">Support</a></li>
-                                    <li><a href="#">Most Populars</a></li>
-                                    <li><a href="#">New Arrivals</a></li>
-                                    <li><a href="#">Special Products</a></li>
-                                    <li><a href="#">Manufacturers</a></li>
-                                    <li><a href="#">Our Stores</a></li>
-                                    <li><a href="#">Shipping</a></li>
-                                    <li><a href="#">Payments</a></li>
-                                    <li><a href="#">Warantee</a></li>
-                                    <li><a href="#">Refunds</a></li>
-                                    <li><a href="#">Checkout</a></li>
-                                    <li><a href="#">Discount</a></li>
-                                    <li><a href="#">Refunds</a></li>
-                                    <li><a href="#">Policy Shipping</a></li>
-                                </ul>
-                            </div>
-                            <!-- Footer Links Area End Here -->
-                            <!-- Begin Footer Payment Area -->
-                            <div class="copyright text-center">
-                                <a href="#">
-                                    <img src="img/payment/1.png" alt="">
-                                </a>
-                            </div>
-                            <!-- Footer Payment Area End Here -->
-                            <!-- Begin Copyright Area -->
-                            <div class="copyright text-center pt-25">
-                                <span><a target="_blank" href="https://www.templateshub.net">Templates Hub</a></span>
-                            </div>
-                            <!-- Copyright Area End Here -->
-                        </div>
+                        <!-- Footer Area End Here -->
+
                     </div>
                 </div>
             </div>
@@ -611,25 +479,30 @@ if ($check < 1) {
         #mengambil data dari keranjang belanja
         $ambil = $koneksi->query("SELECT * FROM keranjang JOIN produk on keranjang.id_produk=produk.id_produk WHERE id_pelanggan='$id_pelanggan'");
         while ($array = $ambil->fetch_assoc()) {
-            $id_produk = $array['id_produk'];
-            $jumlah = $array['jumlah'];
-            $stok = $array['stok_produk'];
+            $jumlahh = $array['jumlah'];
+            $stokk = $array['stok_produk'];
             #cek stok produk apakah sudah habis
-            if ($stok < $jumlah) {
+            if ($stokk < $jumlahh) {
                 $_SESSION['pesan'] = "Stok produk tidak mencukupi,Silahkan Perbaharui Keranjang";
                 echo "<script>location='keranjang.php';</script>";
                 exit();
             }
-            $koneksi->query("INSERT INTO pembelian (id_pelanggan,id_kurir,tanggal_pembelian,total_pembelian, nama_kurir,tarif,alamat_pengiriman) VALUES ('$id_pelanggan','$id_kurir', '$tanggal_pembelian',
-                        '$total_pembelian','$nama_kurir','$kurir','$alamat_pengiriman')");
-
-            //2. Menyimpan data pembelian ke tabel pembelian produk
-            //mendapatkan id pembelian barusan terjadi
-            $id_pembelian_barusan = $koneksi->insert_id;
-            $koneksi->query("INSERT INTO pembelian_produk (id_pembelian,id_produk,jumlah_pembelian) VALUES ('$id_pembelian_barusan','$id_produk', '$jumlah') ");
-            // $koneksi->query("INSERT INTO pembelian_produk (id_pembelian,id_produk,jumlah,harga,subharga) VALUES ('$id_pembelian_barusan','$id_produk','$jumlah','$harga','$subharga')");
-            $koneksi->query("UPDATE produk SET stok_produk=$stok-$jumlah WHERE id_produk = '$id_produk'");
         }
+
+        $koneksi->query("INSERT INTO pembelian (id_pelanggan,id_kurir,tanggal_pembelian,total_pembelian, nama_kurir,tarif,alamat_pengiriman) VALUES ('$id_pelanggan','$id_kurir', '$tanggal_pembelian',
+                        '$total_pembelian','$nama_kurir','$kurir','$alamat_pengiriman')");
+        //2. Menyimpan data pembelian ke tabel pembelian produk
+        //mendapatkan id pembelian barusan terjadi
+        $id_pembelian_barusan = $koneksi->insert_id;
+        $ambilll = $koneksi->query("SELECT * FROM keranjang JOIN produk on keranjang.id_produk=produk.id_produk WHERE id_pelanggan='$id_pelanggan'");
+        while ($arrayy = $ambilll->fetch_assoc()) {
+            $id_produk = $arrayy['id_produk'];
+            $jumlah = $arrayy['jumlah'];
+            $stok = $arrayy['stok_produk'];
+            $koneksi->query("INSERT INTO pembelian_produk (id_pembelian,id_produk,jumlah_pembelian) VALUES ('$id_pembelian_barusan','$id_produk', '$jumlah') ");
+        }
+        // $koneksi->query("INSERT INTO pembelian_produk (id_pembelian,id_produk,jumlah,harga,subharga) VALUES ('$id_pembelian_barusan','$id_produk','$jumlah','$harga','$subharga')");
+        $koneksi->query("UPDATE produk SET stok_produk=$stok-$jumlah WHERE id_produk = '$id_produk'");
         #mengkosongkan keranjang belanja 
         $koneksi->query("DELETE FROM keranjang WHERE id_pelanggan='$id_pelanggan'");
 
@@ -646,37 +519,21 @@ if ($check < 1) {
         console.log(totalharga);
         var kurir = document.getElementById("idkurir").value;
         if (kurir == '1') {
-            var totalhrg = new Intl.NumberFormat(['ban', 'id']).format(9000 + totalharga);
+            var totalhrg = new Intl.NumberFormat(['ban', 'id']).format(25000 + totalharga);
             // var totalhrg = 9000 + totalharga;
-            document.getElementById("tarifongkir").innerHTML = "Rp. 9.000";
+            document.getElementById("tarifongkir").innerHTML = "Rp. 25.000";
             document.getElementById("totalharga").innerHTML = "Rp. " + totalhrg;
         } else if (kurir == '2') {
-            var totalhrg = new Intl.NumberFormat(['ban', 'id']).format(10000 + totalharga);
-            document.getElementById("tarifongkir").innerHTML = "Rp. 10.000";
+            var totalhrg = new Intl.NumberFormat(['ban', 'id']).format(25000 + totalharga);
+            document.getElementById("tarifongkir").innerHTML = "Rp. 25.000";
             document.getElementById("totalharga").innerHTML = "Rp. " + totalhrg;
         } else if (kurir == '3') {
-            var totalhrg = new Intl.NumberFormat(['ban', 'id']).format(24000 + totalharga);
-            document.getElementById("tarifongkir").innerHTML = "Rp. 24.000";
+            var totalhrg = new Intl.NumberFormat(['ban', 'id']).format(25000 + totalharga);
+            document.getElementById("tarifongkir").innerHTML = "Rp. 25.000";
             document.getElementById("totalharga").innerHTML = "Rp. " + totalhrg;
         } else if (kurir == '4') {
-            var totalhrg = new Intl.NumberFormat(['ban', 'id']).format(20000 + totalharga);
-            document.getElementById("tarifongkir").innerHTML = "Rp. 20.000";
-            document.getElementById("totalharga").innerHTML = "Rp. " + totalhrg;
-        } else if (kurir == '5') {
-            var totalhrg = new Intl.NumberFormat(['ban', 'id']).format(20000 + totalharga);
-            document.getElementById("tarifongkir").innerHTML = "Rp. 20.000";
-            document.getElementById("totalharga").innerHTML = "Rp. " + totalhrg;
-        } else if (kurir == '6') {
-            var totalhrg = new Intl.NumberFormat(['ban', 'id']).format(20000 + totalharga);
-            document.getElementById("tarifongkir").innerHTML = "Rp. 20.000";
-            document.getElementById("totalharga").innerHTML = "Rp. " + totalhrg;
-        } else if (kurir == '7') {
-            var totalhrg = new Intl.NumberFormat(['ban', 'id']).format(20000 + totalharga);
-            document.getElementById("tarifongkir").innerHTML = "Rp. 20.000";
-            document.getElementById("totalharga").innerHTML = "Rp. " + totalhrg;
-        } else if (kurir == '8') {
-            var totalhrg = new Intl.NumberFormat(['ban', 'id']).format(20000 + totalharga);
-            document.getElementById("tarifongkir").innerHTML = "Rp. 20.000";
+            var totalhrg = new Intl.NumberFormat(['ban', 'id']).format(25000 + totalharga);
+            document.getElementById("tarifongkir").innerHTML = "Rp. 25.000";
             document.getElementById("totalharga").innerHTML = "Rp. " + totalhrg;
         } else {
             var totalhrg = new Intl.NumberFormat(['ban', 'id']).format(0 + totalharga);

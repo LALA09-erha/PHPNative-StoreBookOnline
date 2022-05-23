@@ -199,7 +199,8 @@ CREATE TABLE `produk` (
   `foto_produk` varchar(100) NOT NULL,
   `deskripsi_produk` text NOT NULL,
   `resep_produk` varchar(100) NOT NULL,
-  `stok_produk` int(5) NOT NULL
+  `stok_produk` int(5) NOT NULL,
+  `rating_produk` DECIMAL(10,1),
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `wishlist` (
@@ -216,17 +217,18 @@ CREATE TABLE `keranjang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `rating` (
-  `id_rating` int(11) AUTO_INCREMENT PRIMARY KEY,
+  `id_rating` int(11) ,
   `id_pelanggan` int(11) ,
   `id_produk` int(11),
   `nilai` int(11), 
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `komen` (
-  `id_komen` int(11) AUTO_INCREMENT PRIMARY KEY,
+  `id_komen` int(11) ,
   `id_pelanggan` int(11) ,
   `id_produk` int(11),
-  `komen` varchar(255), 
+  `komen` varchar(255),
+  `nilai` int(11),
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
