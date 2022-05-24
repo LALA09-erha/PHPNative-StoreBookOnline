@@ -34,23 +34,24 @@
 
 <?php
 if (isset($_POST['save'])) {
-	//foto
-	$nama = $_FILES['foto']['name'];
-	$lokasi = $_FILES['foto']['tmp_name'];
-	move_uploaded_file($lokasi, "../foto_produk/" . $nama);
+    //foto
+    $nama = $_FILES['foto']['name'];
+    $lokasi = $_FILES['foto']['tmp_name'];
 
-	//file resep
-	$namaresep = $_FILES['resep']['name'];
-	$lokasiresep = $_FILES['resep']['tmp_name'];
-	move_uploaded_file($lokasiresep, "../resep_produk/" . $namaresep);
+    move_uploaded_file($lokasi, "../foto_produk/" . $nama);
 
-	//input ke data base
-	$koneksi->query("INSERT INTO produk 
+    //file resep
+    $namaresep = $_FILES['resep']['name'];
+    $lokasiresep = $_FILES['resep']['tmp_name'];
+    move_uploaded_file($lokasiresep, "../resep_produk/" . $namaresep);
+
+    //input ke data base
+    $koneksi->query("INSERT INTO produk 
 			(nama_produk,harga_produk,berat_produk,foto_produk,deskripsi_produk,resep_produk,stok_produk)
 			VALUES('$_POST[nama]','$_POST[harga]','$_POST[berat]','$nama','$_POST[deskripsi]','$namaresep','$_POST[stok]')");
 
-	$_SESSION['pesan'] = 'Data Produk Berhasil Ditambahkan';
-	echo "<meta http-equiv='refresh' content='1;url=index.php?hal=produk'>";
+    $_SESSION['pesan'] = 'Data Produk Berhasil Ditambahkan';
+    echo "<meta http-equiv='refresh' content='1;url=index.php?hal=produk'>";
 }
 
 ?>
