@@ -24,7 +24,7 @@ if (!isset($_SESSION['admin'])) {
     <meta name="author" content="">
 
     <title>Halaman Admin</title>
-
+    <link rel="shortcut icon" type="image/x-icon" href="../css/images/favicon.png">
     <!-- Custom fonts for this template -->
     <link rel="shortcut icon" type="image/x-icon" href="../css/images/favicon.png">
     <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">

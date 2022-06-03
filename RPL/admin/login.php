@@ -15,6 +15,7 @@ $koneksi = new mysqli("localhost", "root", "", "tokobuku");
     <meta name="description" content="">
     <meta name="author" content="">
 
+    <link rel="shortcut icon" type="image/x-icon" href="../css/images/favicon.png">
     <title>SB Admin 2 - Login</title>
 
     <!-- Custom fonts for this template-->
