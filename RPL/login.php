@@ -1,6 +1,10 @@
 <?php 
+	include "database/koneksi.php";
+
 	session_start();
-	$koneksi = new mysqli("localhost","root","","tokobuku");
+
+	// $koneksi = new mysqli("localhost","root","","tokobuku");
+	
 	if (isset($_POST["login"])) {
 		//$gmail = $_POST["gmail"];
 		//$password = $_POST["password"];
@@ -12,13 +16,19 @@
 			$_SESSION['pelanggan'] = $ambil->fetch_assoc();
 			//$akun = $ambil->fetch_assoc();
 			//$_SESSION["pelanggan"] = $akun;
-			echo "<script> alert('Login Berhasil'); </script>";
-			echo "<script> location='index.php'; </script>";
+			// echo "<script> alert('Login Berhasil'); </script>";
+			$_SESSION['pesan'] = "Login Berhasil";
+			header("location:index.php");
+			exit();
 			
 		}
 		else {
-			echo "<script> alert('Login Gagal, Tekan Ok Untuk Coba Lagi'); </script>";
-			echo "<script> location='login.php'; </script>";
+			$_SESSION['time'] = time() + 1;
+			$_SESSION['pesan'] = "Login Gagal";
+			// $pesan = "Login Gagal";
+			header("location:login.php");
+			// echo "<script> alert('Login Gagal, Tekan Ok Untuk Coba Lagi'); </script>";
+			// echo "<script> location='login.php'; </script>";
 		}
 	}
 ?>
@@ -71,6 +81,22 @@
 										Login
 									</button>
 								</div>
+								<?php
+								#cek $pesan error dan tampilkan pesan error
+								if (isset($_SESSION['pesan']) && isset($_SESSION['time'])) {
+										echo '<div class="alert alert-warning text-center mt-1"  role="alert">'.$_SESSION['pesan'].'</div>';
+										if(time() > $_SESSION['time']){
+											unset($_SESSION['pesan']);
+											unset($_SESSION['time']);
+										}										
+									}
+									else if(isset($_SESSION['pesan'])) {
+										echo '<div class="alert alert-warning text-center mt-1"  role="alert">'.$_SESSION['pesan'].'</div>';
+										unset($_SESSION['pesan']);
+
+
+								}
+								?>
 								<div class="mt-4 text-center">
 									Don't have an account? <a href="daftar.php">Create One</a>
 								</div>

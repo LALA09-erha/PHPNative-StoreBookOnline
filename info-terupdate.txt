@@ -7,18 +7,9 @@ tamplate yang harus di rubah nav dan footer:
 6. pembayaran
 7. pencarian
 8. riwayat
-selesai migrasi tamplate tapi belum finishing :
-1. index
-2. detail product
-3. add to cart
-4. login
-5. regist
-6. logout
-7. keranjang
-8. about
-9, contact
+9. wishlist
 next : 
-1. keranjang | done -> keranjang harus masuk ke database agar kalau logout tidak hilang
+1. keranjang | done sampai bayar.php
 2. pembayaran -> done
 3. nota -> done
 4. riwayat | done
@@ -26,10 +17,11 @@ next :
 6. hapus keranjang ? atau batal pemesanan?
 7. pencarian | done
 8. rapikan file ke folder?
-9. admin
-10. wishlist
-11. feedback
-12. rating
-13. index dan pencarian -> pagination dan sort by dan modal produk detail
+9. admin | imgrasi tamplate dashboard, pelanggan,produk,pembelian ->done
+10. wishlist |done 
+11. feedback | done untuk form 
+12. rating | done
+13. index dan pencarian -> sort by ->pagination |done
+14. alert javascript di ganti alert bootstrap -> index,login,daftar |done
 Finishing :
-1. api 
+1. data buku

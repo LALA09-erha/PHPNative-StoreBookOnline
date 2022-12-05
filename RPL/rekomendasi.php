@@ -1,6 +1,8 @@
 <?php
+include "database/koneksi.php";
+
 	session_start();
-	$koneksi = new mysqli("localhost","root","","tokobuku");
+	// $koneksi = new mysqli("localhost","root","","tokobuku");
 ?>
 
 <!DOCTYPE html>

@@ -193,12 +193,42 @@ INSERT INTO `pembelian_produk` (`id_pembelian_produk`, `id_pembelian`, `id_produ
 CREATE TABLE `produk` (
   `id_produk` int(11) NOT NULL,
   `nama_produk` varchar(100) NOT NULL,
+  `kategori` varchar(100),
   `harga_produk` int(11) NOT NULL,
   `berat_produk` int(11) NOT NULL,
   `foto_produk` varchar(100) NOT NULL,
   `deskripsi_produk` text NOT NULL,
   `resep_produk` varchar(100) NOT NULL,
-  `stok_produk` int(5) NOT NULL
+  `stok_produk` int(5) NOT NULL,
+  `rating_produk` DECIMAL(10,1)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `wishlist` (
+  `id_wishlist` int(11) AUTO_INCREMENT PRIMARY KEY,
+  `id_pelanggan` int(11) ,
+  `id_produk` int(11) 
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `keranjang` (
+  `id_keranjang` int(11) AUTO_INCREMENT PRIMARY KEY,
+  `id_pelanggan` int(11) ,
+  `id_produk` int(11),
+  `jumlah` int(11)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `rating` (
+  `id_rating` int(11) ,
+  `id_pelanggan` int(11) ,
+  `id_produk` int(11),
+  `nilai` int(11)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `komen` (
+  `id_komen` int(11) ,
+  `id_pelanggan` int(11) ,
+  `id_produk` int(11),
+  `komen` varchar(255),
+  `nilai` int(11)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --

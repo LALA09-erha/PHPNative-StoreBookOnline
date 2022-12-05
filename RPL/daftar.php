@@ -1,6 +1,8 @@
 <?php 
+include "database/koneksi.php";
+
 session_start();
- 	$koneksi = new mysqli("localhost","root","","tokobuku");
+ 	// $koneksi = new mysqli("localhost","root","","tokobuku");
 	 if (isset($_POST['daftar'])) {
 		
 		//mengambil input 
@@ -13,13 +15,14 @@ session_start();
 		$ambil = $koneksi->query("SELECT * FROM pelanggan WHERE gmail_pelanggan='$email'");
 		$yangcocok = $ambil->num_rows;
 		if ($yangcocok==1) {
-			echo "<script> alert('Pendaftaran Gagal Karena Gmail Sudah Digunakan');</script>";
-			echo "<script> location='daftar.php' </script>";
+			$_SESSION['pesan'] = "E-Mail Sudah Digunakan";
+			header("location:login.php");
 		}
 		else {
 			$koneksi->query("INSERT INTO pelanggan (gmail_pelanggan, password_pelanggan,nama_pelanggan,telepon_pelanggan) VALUES ('$email','$password','$nama','$telepon')");
-			echo "<script> alert('Pendaftaran Sukses, Silahkan Login');</script>";
-			echo "<script> location='login.php' </script>";
+			// echo "<script> alert('Pendaftaran Sukses, Silahkan Login');</script>";
+			$_SESSION['pesan'] = "Pendaftaran Sukses, Silahkan Login";
+			header("location:login.php");
 		}
 
 		echo "<script> alert('Data Tersimpan, Silakan Login') </script>";

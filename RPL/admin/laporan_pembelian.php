@@ -1,4 +1,5 @@
 <?php
+	include "../database/koneksi.php";
 
 	$semuadata=array(); 
 	$mulai="-";

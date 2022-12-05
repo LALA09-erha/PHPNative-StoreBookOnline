@@ -1504,7 +1504,7 @@ textarea:focus {
 	position: relative;
 }
 .hm-wishlist > a {
-	border: 3px solid #242424;
+	border: 3px solid pink;
 	font-size: 20px;
 	color: #242424;
 	width: 45px;
