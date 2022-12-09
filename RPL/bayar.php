@@ -528,21 +528,21 @@ if ($check < 1) {
         console.log(totalharga);
         var kurir = document.getElementById("idkurir").value;
         if (kurir == '1') {
-            var totalhrg = new Intl.NumberFormat(['ban', 'id']).format(25000 + totalharga);
+            var totalhrg = new Intl.NumberFormat(['ban', 'id']).format(9000 + totalharga);
             // var totalhrg = 9000 + totalharga;
-            document.getElementById("tarifongkir").innerHTML = "Rp. 25.000";
+            document.getElementById("tarifongkir").innerHTML = "Rp. 9.000";
             document.getElementById("totalharga").innerHTML = "Rp. " + totalhrg;
         } else if (kurir == '2') {
-            var totalhrg = new Intl.NumberFormat(['ban', 'id']).format(25000 + totalharga);
-            document.getElementById("tarifongkir").innerHTML = "Rp. 25.000";
+            var totalhrg = new Intl.NumberFormat(['ban', 'id']).format(10000 + totalharga);
+            document.getElementById("tarifongkir").innerHTML = "Rp. 10.000";
             document.getElementById("totalharga").innerHTML = "Rp. " + totalhrg;
         } else if (kurir == '3') {
-            var totalhrg = new Intl.NumberFormat(['ban', 'id']).format(25000 + totalharga);
-            document.getElementById("tarifongkir").innerHTML = "Rp. 25.000";
+            var totalhrg = new Intl.NumberFormat(['ban', 'id']).format(24000 + totalharga);
+            document.getElementById("tarifongkir").innerHTML = "Rp. 24.000";
             document.getElementById("totalharga").innerHTML = "Rp. " + totalhrg;
         } else if (kurir == '4') {
-            var totalhrg = new Intl.NumberFormat(['ban', 'id']).format(25000 + totalharga);
-            document.getElementById("tarifongkir").innerHTML = "Rp. 25.000";
+            var totalhrg = new Intl.NumberFormat(['ban', 'id']).format(20000 + totalharga);
+            document.getElementById("tarifongkir").innerHTML = "Rp. 20.000";
             document.getElementById("totalharga").innerHTML = "Rp. " + totalhrg;
         } else {
             var totalhrg = new Intl.NumberFormat(['ban', 'id']).format(0 + totalharga);
