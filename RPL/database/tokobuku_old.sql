@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 09, 2022 at 04:06 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.0.19
+-- Generation Time: Mar 26, 2021 at 07:05 AM
+-- Server version: 10.1.36-MariaDB
+-- PHP Version: 7.2.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -44,33 +45,6 @@ INSERT INTO `admin` (`id_admin`, `username`, `password`, `nama_lengkap`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `keranjang`
---
-
-CREATE TABLE `keranjang` (
-  `id_keranjang` int(11) NOT NULL,
-  `id_pelanggan` int(11) DEFAULT NULL,
-  `id_produk` int(11) DEFAULT NULL,
-  `jumlah` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `komen`
---
-
-CREATE TABLE `komen` (
-  `id_komen` int(11) DEFAULT NULL,
-  `id_pelanggan` int(11) DEFAULT NULL,
-  `id_produk` int(11) DEFAULT NULL,
-  `komen` varchar(255) DEFAULT NULL,
-  `nilai` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `kurir`
 --
 
@@ -88,7 +62,11 @@ INSERT INTO `kurir` (`id_kurir`, `nama_kurir`, `tarif`) VALUES
 (1, 'J&T REG (2 Hari Kerja)', 9000),
 (2, 'JNE REG (2 Hari Kerja)', 10000),
 (3, 'JNE YES (1 Hari Kerja)', 24000),
-(4, 'Grab Instan (Lokasi Diluar Service)', 20000);
+(4, 'Grab Instan (Lokasi Diluar Service)', 20000),
+(5, 'Grab Same Day (Lokasi Diluar Service)', 20000),
+(6, 'Rush Delivery by Grab Express (Lokasi Diluar Service)', 20000),
+(7, 'GO-SEND Same Day (Lokasi Diluar Service)', 20000),
+(8, 'GO-SEND Instant', 20000);
 
 -- --------------------------------------------------------
 
@@ -109,7 +87,7 @@ CREATE TABLE `pelanggan` (
 --
 
 INSERT INTO `pelanggan` (`id_pelanggan`, `gmail_pelanggan`, `password_pelanggan`, `nama_pelanggan`, `telepon_pelanggan`) VALUES
-(1, 'nur@gmail.com', '1', 'nur', '081267856785'),
+(1, 'nur@gmail.com', '123', 'nur', '081267856785'),
 (2, 'rahman@gmail.com', '123', 'rahman', '081267575678'),
 (3, 'irham@gmail.com', '123', 'Irham', '083819085582'),
 (6, 'siti@gmail.com', '1234', 'siti', '086756786'),
@@ -168,16 +146,12 @@ CREATE TABLE `pembelian` (
 INSERT INTO `pembelian` (`id_pembelian`, `id_pelanggan`, `id_kurir`, `tanggal_pembelian`, `total_pembelian`, `nama_kurir`, `tarif`, `alamat_pengiriman`, `status_pembelian`, `resi_pengiriman`) VALUES
 (1, 1, 1, '2019-05-02', 169000, 'J&T REG (2 Hari Kerja)', 9000, 'a', 'Tertunda', ''),
 (2, 1, 1, '2019-05-02', 169000, 'J&T REG (2 Hari Kerja)', 9000, 'lll', 'Tertunda', ''),
-(3, 3, 2, '2020-06-06', 490000, 'JNE REG (2 Hari Kerja)', 10000, 'Bogor', 'Selesai(Barang Sudah Sampai)', '77482745'),
-(4, 3, 1, '2020-06-07', 149000, 'J&T REG (2 Hari Kerja)', 9000, 'Jl Atang Senjaya No. 48 Semplak Kaum Semplak Barat Kabupaten Bogor', 'Pending (Barang Terkirim)', ''),
+(3, 3, 2, '2020-06-06', 490000, 'JNE REG (2 Hari Kerja)', 10000, 'Bogor', 'Lunas (Barang Terkirim)', '77482745'),
+(4, 3, 1, '2020-06-07', 149000, 'J&T REG (2 Hari Kerja)', 9000, 'Jl Atang Senjaya No. 48 Semplak Kaum Semplak Barat Kabupaten Bogor', 'Proses', ''),
 (5, 3, 1, '2020-06-07', 54000, 'J&T REG (2 Hari Kerja)', 9000, 'bogor', 'Tertunda', ''),
 (6, 4, 1, '2020-06-09', 189000, 'J&T REG (2 Hari Kerja)', 9000, 'Bogor 16410 Kemang Semplak Barat', 'Lunas (Barang Terkirim)', '7655267464'),
 (7, 6, 1, '2020-06-10', 254000, 'J&T REG (2 Hari Kerja)', 9000, 'bogor rt 1/2', 'Lunas (Barang Terkirim)', '56464666'),
-(8, 7, 1, '2020-09-10', 39000, 'J&T REG (2 Hari Kerja)', 9000, 'gugvygyguyuvuu', 'Lunas (Barang Terkirim)', '565755777'),
-(9, 1, 1, '2022-12-09', 39000, 'J&T REG (2 Hari Kerja)', 9000, 'JL Cendrawasih DA 50 Pangeranan Asri', 'Tertunda', ''),
-(10, 1, 1, '2022-12-09', 9000, 'J&T REG (2 Hari Kerja)', 9000, 'JL Cendrawasih DA 50 Pangeranan Asri', 'Tertunda', ''),
-(11, 1, 1, '2022-12-09', 49000, 'J&T REG (2 Hari Kerja)', 9000, 'JL Cendrawasih DA 50 Pangeranan Asri', 'Tertunda', ''),
-(12, 1, 1, '2022-12-09', 59000, 'J&T REG (2 Hari Kerja)', 9000, 'JL Cendrawasih DA 50 Pangeranan Asri', 'Tertunda', '');
+(8, 7, 1, '2020-09-10', 39000, 'J&T REG (2 Hari Kerja)', 9000, 'gugvygyguyuvuu', 'Lunas (Barang Terkirim)', '565755777');
 
 -- --------------------------------------------------------
 
@@ -208,11 +182,7 @@ INSERT INTO `pembelian_produk` (`id_pembelian_produk`, `id_pembelian`, `id_produ
 (9, 7, 4, 1),
 (10, 7, 5, 1),
 (11, 7, 2, 1),
-(12, 8, 3, 1),
-(13, 9, 3, 1),
-(14, 10, 7, 1),
-(15, 11, 6, 1),
-(16, 12, 7, 1);
+(12, 8, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -223,52 +193,55 @@ INSERT INTO `pembelian_produk` (`id_pembelian_produk`, `id_pembelian`, `id_produ
 CREATE TABLE `produk` (
   `id_produk` int(11) NOT NULL,
   `nama_produk` varchar(100) NOT NULL,
-  `kategori` varchar(100) DEFAULT NULL,
+  `kategori` varchar(100),
   `harga_produk` int(11) NOT NULL,
   `berat_produk` int(11) NOT NULL,
   `foto_produk` varchar(100) NOT NULL,
   `deskripsi_produk` text NOT NULL,
   `resep_produk` varchar(100) NOT NULL,
   `stok_produk` int(5) NOT NULL,
-  `rating_produk` decimal(10,1) DEFAULT NULL
+  `rating_produk` DECIMAL(10,1)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `wishlist` (
+  `id_wishlist` int(11) AUTO_INCREMENT PRIMARY KEY,
+  `id_pelanggan` int(11) ,
+  `id_produk` int(11) 
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `keranjang` (
+  `id_keranjang` int(11) AUTO_INCREMENT PRIMARY KEY,
+  `id_pelanggan` int(11) ,
+  `id_produk` int(11),
+  `jumlah` int(11)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `rating` (
+  `id_rating` int(11) ,
+  `id_pelanggan` int(11) ,
+  `id_produk` int(11),
+  `nilai` int(11)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `komen` (
+  `id_komen` int(11) ,
+  `id_pelanggan` int(11) ,
+  `id_produk` int(11),
+  `komen` varchar(255),
+  `nilai` int(11)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `produk`
 --
 
-INSERT INTO `produk` (`id_produk`, `nama_produk`, `kategori`, `harga_produk`, `berat_produk`, `foto_produk`, `deskripsi_produk`, `resep_produk`, `stok_produk`, `rating_produk`) VALUES
-(2, 'Mary Higgins C : Daddy Little Girl', NULL, 45000, 150, 'tb1.jpg', '  Ketika Ellie Cavanaugh berusia delapan tahun, kakaknya, Andrea, tewas dibunuh di dekat rumah mereka di Oldham-on-the-Hudson, Ada tiga tersangka: Rob westerfield, pemuda tampan dari keluarga kaya setempat, yang diam-diam menjalin hubungan dengan Andrea; Paulie Stroebel, teman sekelas yang diam-diam mencintai Andrea; dan Will Nebels, pekerja serabutan yang suka menawarkan jasa kepada para tetangga', 'tb1alt.jpg', 0, NULL),
-(3, 'Auguste Dupin : Detektif Prancis', NULL, 30000, 130, 'tb2.jpg', ' Mungkin banyak yang mengira bahwa Sherlock Holmes adalah pionir tokoh detektif fiksi di dunia literasi. Tapi tahukah bahwasanya jauh sebelum Sherlock Holmes muncul, ada tokoh lain yang lebih dulu memulai dan menyandang predikat gentlemen detective?. Yup, tokoh detektif fiksi pertama di dunia literasi yang mengguncang dunia sastra pada eranya adalah C Auguste Dupin. Tokoh detektif ini merupakan rekaan sang penulis puisi dan cerita misteri beraliran gore, gothic dan macabre sekaligus kritikus sastra terkenal pada eranya, Edgar Allan Poe.', 'tb2alt.jpg', 0, NULL),
-(4, 'Harry Potter and the Half Blood Prince', NULL, 100000, 300, 'tb3.jpg', '  Khawatir dengan pengalaman pertemuannya dengan Voldemort di Kementerian Sihir, Harry Potter merasa enggan untuk kembali ke Hogwarts. Dumbledore mendorongnya untuk kembali, setelah mengajaknya untuk menemui seorang mantan guru Hogwarts, Horace Slughorn. Dengan bantuan Harry, ia berhasil membujuk Slughorn agar mau kembali mengajar di Hogwarts.', 'tb3alt.jpg', 2, NULL),
-(5, 'The Hobbit : There and Back Again', NULL, 100000, 190, 'tb4.jpg', '  Kisah bermula ketika Bilbo baggins yang merupakan seorang hobbit yang ingin hidup nyaman, sejahtera di liang hobbitnya, dan hampir tidak pernah bepergian jauh dari rumahnya di shire. suatu hari Gandalf datang ke rumahnya dan mengajaknya untuk berpetualang, dan Bilbo dengan jelas menolaknya. hingga ketika Gandalf mengundang 13 Kurcaci untuk datang ke rumah Bilbo dan terjadilah sebuah pesta yang tak terduga.', 'tb4alt.jpg', 0, NULL),
-(6, 'Andrea Hirata : Laskar Pelangi', NULL, 40000, 100, 'tb5.jpg', '  Laskar Pelangi Menceritakan tentang kisah masa kecil anak-anak desa dari suatu komunitas melayu yang bisa dikatakan sangat miskin di Belitung. Kisah orang-orang â€˜kecilâ€™ yang berusaha untuk memperbaiki masa depan mereka.', 'tb5alt.jpg', 0, NULL),
-(7, 'Agatha Christie : The Pale House', NULL, 50000, 90, 'tb6.jpg', '  Seorang wanita memanggil pastor di saat sedang sekarat untuk menceritakan rahasia kelam yang harus ia tanggung semasa hidupnya, termasuk memberikan sederet daftar nama pada sang pastor. Sepulang dari tempat wanita itu, Pastor Gorman dibunuh, meski daftar nama tadi selamat dari incaran si pembunuh.', '', 11, NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `rating`
---
-
-CREATE TABLE `rating` (
-  `id_rating` int(11) DEFAULT NULL,
-  `id_pelanggan` int(11) DEFAULT NULL,
-  `id_produk` int(11) DEFAULT NULL,
-  `nilai` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `wishlist`
---
-
-CREATE TABLE `wishlist` (
-  `id_wishlist` int(11) NOT NULL,
-  `id_pelanggan` int(11) DEFAULT NULL,
-  `id_produk` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+INSERT INTO `produk` (`id_produk`, `nama_produk`, `harga_produk`, `berat_produk`, `foto_produk`, `deskripsi_produk`, `resep_produk`, `stok_produk`) VALUES
+(2, 'Mary Higgins C : Daddy Little Girl', 45000, 150, 'tb1.jpg', '  Ketika Ellie Cavanaugh berusia delapan tahun, kakaknya, Andrea, tewas dibunuh di dekat rumah mereka di Oldham-on-the-Hudson, Ada tiga tersangka: Rob westerfield, pemuda tampan dari keluarga kaya setempat, yang diam-diam menjalin hubungan dengan Andrea; Paulie Stroebel, teman sekelas yang diam-diam mencintai Andrea; dan Will Nebels, pekerja serabutan yang suka menawarkan jasa kepada para tetangga', 'tb1alt.jpg', 0),
+(3, 'Auguste Dupin : Detektif Prancis', 30000, 130, 'tb2.jpg', ' Mungkin banyak yang mengira bahwa Sherlock Holmes adalah pionir tokoh detektif fiksi di dunia literasi. Tapi tahukah bahwasanya jauh sebelum Sherlock Holmes muncul, ada tokoh lain yang lebih dulu memulai dan menyandang predikat gentlemen detective?. Yup, tokoh detektif fiksi pertama di dunia literasi yang mengguncang dunia sastra pada eranya adalah C Auguste Dupin. Tokoh detektif ini merupakan rekaan sang penulis puisi dan cerita misteri beraliran gore, gothic dan macabre sekaligus kritikus sastra terkenal pada eranya, Edgar Allan Poe.', 'tb2alt.jpg', 1),
+(4, 'Harry Potter and the Half Blood Prince', 100000, 300, 'tb3.jpg', '  Khawatir dengan pengalaman pertemuannya dengan Voldemort di Kementerian Sihir, Harry Potter merasa enggan untuk kembali ke Hogwarts. Dumbledore mendorongnya untuk kembali, setelah mengajaknya untuk menemui seorang mantan guru Hogwarts, Horace Slughorn. Dengan bantuan Harry, ia berhasil membujuk Slughorn agar mau kembali mengajar di Hogwarts.', 'tb3alt.jpg', 2),
+(5, 'The Hobbit : There and Back Again', 100000, 190, 'tb4.jpg', '  Kisah bermula ketika Bilbo baggins yang merupakan seorang hobbit yang ingin hidup nyaman, sejahtera di liang hobbitnya, dan hampir tidak pernah bepergian jauh dari rumahnya di shire. suatu hari Gandalf datang ke rumahnya dan mengajaknya untuk berpetualang, dan Bilbo dengan jelas menolaknya. hingga ketika Gandalf mengundang 13 Kurcaci untuk datang ke rumah Bilbo dan terjadilah sebuah pesta yang tak terduga.', 'tb4alt.jpg', 0),
+(6, 'Andrea Hirata : Laskar Pelangi', 40000, 100, 'tb5.jpg', '  Laskar Pelangi Menceritakan tentang kisah masa kecil anak-anak desa dari suatu komunitas melayu yang bisa dikatakan sangat miskin di Belitung. Kisah orang-orang â€˜kecilâ€™ yang berusaha untuk memperbaiki masa depan mereka.', 'tb5alt.jpg', 1),
+(7, 'Agatha Christie : The Pale House', 50000, 90, 'tb6.jpg', '  Seorang wanita memanggil pastor di saat sedang sekarat untuk menceritakan rahasia kelam yang harus ia tanggung semasa hidupnya, termasuk memberikan sederet daftar nama pada sang pastor. Sepulang dari tempat wanita itu, Pastor Gorman dibunuh, meski daftar nama tadi selamat dari incaran si pembunuh.', 'tb6alt.jpg', 1);
 
 --
 -- Indexes for dumped tables
@@ -279,12 +252,6 @@ CREATE TABLE `wishlist` (
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id_admin`);
-
---
--- Indexes for table `keranjang`
---
-ALTER TABLE `keranjang`
-  ADD PRIMARY KEY (`id_keranjang`);
 
 --
 -- Indexes for table `kurir`
@@ -323,12 +290,6 @@ ALTER TABLE `produk`
   ADD PRIMARY KEY (`id_produk`);
 
 --
--- Indexes for table `wishlist`
---
-ALTER TABLE `wishlist`
-  ADD PRIMARY KEY (`id_wishlist`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -337,12 +298,6 @@ ALTER TABLE `wishlist`
 --
 ALTER TABLE `admin`
   MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `keranjang`
---
-ALTER TABLE `keranjang`
-  MODIFY `id_keranjang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `kurir`
@@ -366,25 +321,19 @@ ALTER TABLE `pembayaran`
 -- AUTO_INCREMENT for table `pembelian`
 --
 ALTER TABLE `pembelian`
-  MODIFY `id_pembelian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_pembelian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `pembelian_produk`
 --
 ALTER TABLE `pembelian_produk`
-  MODIFY `id_pembelian_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_pembelian_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `produk`
 --
 ALTER TABLE `produk`
   MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT for table `wishlist`
---
-ALTER TABLE `wishlist`
-  MODIFY `id_wishlist` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
