@@ -491,11 +491,18 @@ if ($check < 1) {
             }
         }
 
-        $koneksi->query("INSERT INTO pembelian (id_pelanggan,id_kurir,tanggal_pembelian,total_pembelian, nama_kurir,tarif,alamat_pengiriman) VALUES ('$id_pelanggan','$id_kurir', '$tanggal_pembelian',
+        $masukkan_data = $koneksi->query("INSERT INTO pembelian (id_pelanggan,id_kurir,tanggal_pembelian,total_pembelian, nama_kurir,tarif,alamat_pengiriman) VALUES ('$id_pelanggan','$id_kurir', '$tanggal_pembelian',
                         '$total_pembelian','$nama_kurir','$kurir','$alamat_pengiriman')");
         //2. Menyimpan data pembelian ke tabel pembelian produk
         //mendapatkan id pembelian barusan terjadi
+        if($masukkan_data){
+            echo "berhasil";
+
+        }else{
+            echo "gagal";
+        }
         $id_pembelian_barusan = $koneksi->insert_id;
+        // var_dump($id_pembelian_barusan);
         $ambilll = $koneksi->query("SELECT * FROM keranjang JOIN produk on keranjang.id_produk=produk.id_produk WHERE id_pelanggan='$id_pelanggan'");
         while ($arrayy = $ambilll->fetch_assoc()) {
             $id_produk = $arrayy['id_produk'];
